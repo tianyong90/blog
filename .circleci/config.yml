@@ -1,0 +1,34 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.15.1-browsers-legacy
+
+    working_directory: ~/blog
+
+    steps:
+      - checkout
+
+      - add_ssh_keys:
+          fingerprints:
+            - "6a:aa:77:77:28:51:9f:01:4b:b2:7e:3e:ea:f6:20:1a"
+
+      - run: echo -e "Host $DEPLOY_HOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
+      - run: sudo apt install rsync -y
+
+      - restore_cache:
+          keys:
+          - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - yarn-packages-{{ .Branch }}-
+
+      - run: yarn --frozen-lockfile --non-interactive
+
+      - save_cache:
+          key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - run: yarn hexo generate -d
