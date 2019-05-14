@@ -73,7 +73,6 @@ const config: NuxtConfiguration = {
 
   generate: {
     routes: ['404'].concat(posts.map(post => `/posts/${post}`)),
-    // routes: ['404', '/posts/test'],
   },
 }
 

@@ -10,11 +10,8 @@ body {
 
 .page-enter-active,
 .page-leave-active {
-  background-color: #f00;
-  transition: opacity 0.5s;
 }
 
 .page-enter,
 .page-leave {
-  opacity: 0;
 }
