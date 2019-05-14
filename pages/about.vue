@@ -1,15 +1,7 @@
 <template>
   <section class="container">
-    <div>
-      <h1 class="title">
-        {{ msg }}
-      </h1>
-
-      <h1 v-for="(blog, index) in blogs" :key="index">{{ blog.title }}</h1>
-
-      <div v-html="test"></div>
-
-      <a href="/about">to about</a>
+    <div class="row">
+      <a href="/" class="btn btn-primary">to index</a>
     </div>
   </section>
 </template>
