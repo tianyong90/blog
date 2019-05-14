@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       msg: 'hello haha',
-      test: test
+      test: test,
     }
   },
 
@@ -23,11 +23,11 @@ export default {
     return {
       blogs: [
         {
-          title: 'so what is this'
-        }
-      ]
+          title: 'so what is this',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 
