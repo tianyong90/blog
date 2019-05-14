@@ -5,8 +5,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   async asyncData({ params }) {
     const fileContent = await import(`~/posts/${params.slug}.md`)
 
@@ -14,5 +16,5 @@ export default {
       content: fileContent,
     }
   },
-}
+})
 </script>

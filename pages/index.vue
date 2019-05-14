@@ -1,39 +1,25 @@
 <template>
   <section class="container">
     <div>
-      <a class="btn btn-danger" href="/about">to about</a>
+      <nuxt-link to="about">to about</nuxt-link>
     </div>
   </section>
 </template>
 
-<script>
-import test from '../posts/test.md'
+<script lang="ts">
+import Vue from 'vue'
 
-export default {
+export default Vue.extend({
   components: {},
 
   data() {
     return {
       msg: 'hello',
-      test: test,
     }
   },
 
-  async asyncData(app) {
-    // console.log(app)
-
-    const posts = await import('../posts')
-
-    return {
-      posts: posts,
-      blogs: [
-        {
-          title: 'so what is this',
-        },
-      ],
-    }
-  },
-}
+  async asyncData(app) {},
+})
 </script>
 
 <style>
