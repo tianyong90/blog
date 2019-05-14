@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <nuxt-link to="about">to about</nuxt-link>
+      <nuxt-link to="posts">post list</nuxt-link>
     </div>
   </section>
 </template>

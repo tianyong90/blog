@@ -12,6 +12,8 @@ export default Vue.extend({
   async asyncData({ params }) {
     const fileContent = await import(`~/posts/${params.slug}.md`)
 
+    console.log(fileContent)
+
     return {
       content: fileContent,
     }

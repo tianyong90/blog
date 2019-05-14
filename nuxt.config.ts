@@ -1,6 +1,6 @@
 // import pkg from './package.json'
 import NuxtConfiguration from '@nuxt/config'
-import posts from './posts'
+import posts from './posts/posts.json'
 
 const config: NuxtConfiguration = {
   mode: 'universal',
