@@ -1,4 +1,5 @@
 // import pkg from './package.json'
+import path from 'path'
 import NuxtConfiguration from '@nuxt/config'
 import posts from './posts/posts.json'
 
@@ -42,7 +43,7 @@ const config: NuxtConfiguration = {
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
-    '@nuxtjs/markdownit',
+    // '@nuxtjs/markdownit',
   ],
   /*
    ** Axios module configuration
@@ -68,12 +69,34 @@ const config: NuxtConfiguration = {
           exclude: /(node_modules)/,
         })
       }
+
+      // frontmatter-markdown-loader
+      config.module!.rules.push({
+        test: /\.md$/,
+        loader: 'frontmatter-markdown-loader',
+        include: path.resolve(__dirname, 'posts'),
+        options: {
+          vue: {
+            root: 'dynamicMarkdown',
+          },
+        },
+      })
     },
   },
 
   generate: {
     routes: ['404'].concat(posts.map(post => `/posts/${post}`)),
   },
+
+  // markdownit: {
+  //   preset: 'default',
+  //   linkify: true,
+  //   breaks: false,
+  //   use: [
+  //     'markdown-it-emoji',
+  //     // 'markdown-it-front-matter',
+  //   ]
+  // }
 }
 
 export default config

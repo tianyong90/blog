@@ -7,6 +7,6 @@ const posts = list
   .filter(item => item.endsWith('.md'))
   .map(item => item.replace('.md', ''))
 
-console.log(posts)
-
-fs.writeJson('./posts/posts.json', posts)
+fs.writeJson('./posts/posts.json', posts, {
+  spaces: 2,
+})

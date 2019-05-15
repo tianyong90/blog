@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>title</h1>
-    <div v-html="content" />
+    <h1 v-text="title" />
+    <div v-html="html" />
   </div>
 </template>
 
@@ -12,8 +12,14 @@ export default Vue.extend({
   async asyncData({ params }) {
     const fileContent = await import(`~/posts/${params.slug}.md`)
 
+    // console.log(fileContent)
+
+    const attrs = fileContent.attributes
+
     return {
-      content: fileContent,
+      title: attrs.title,
+      renderFunc: fileContent.vue.render,
+      html: fileContent.html,
     }
   },
 })
