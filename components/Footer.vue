@@ -1,13 +1,8 @@
 <template>
-  <footer class="blog-footer">
-    <p>
-      Blog template built for
-      <a href="https://getbootstrap.com/">Bootstrap</a> by
-      <a href="https://twitter.com/mdo">@mdo</a>.
-    </p>
-    <p>
-      <a href="#">Back to top</a>
-    </p>
+  <footer class="footer bg-dark">
+    <div class="container py-4">
+      <p class="copyright text-light text-center">tianyong90</p>
+    </div>
   </footer>
 </template>
 
