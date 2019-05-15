@@ -6,8 +6,6 @@
       <div class="grid-item">3</div>
       <div class="grid-item">4</div>
       <div class="grid-item">5</div>
-      <div class="grid-item">6</div>
-      <div class="grid-item">7</div>
     </div>
 
     <div class="flexes">
@@ -93,6 +91,13 @@ export default Vue.extend({
 
     &.special {
       height: 300px;
+    }
+
+    &:nth-child(2) {
+      height: 30px;
+    }
+    &:nth-child(3) {
+      height: 30px;
     }
   }
 }
