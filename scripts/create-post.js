@@ -1,10 +1,10 @@
 // const path = require('path')
 const fs = require('fs-extra')
 const argv = require('yargs').argv
-const yaml = require('yaml')
 // eslint-disable-next-line
 const rControl = /[\u0000-\u001f]/g
 const rSpecial = /[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'<>,.?/]+/g
+const matter = require('gray-matter')
 
 // 标题
 const title = argv._[0]
@@ -30,8 +30,10 @@ const frontmatterData = {
   categories: [''],
 }
 
-const mdContent = `---
-${yaml.stringify(frontmatterData)}---`
+// 生成 front-matter yml 格式内容
+const mdContent = matter.stringify('', frontmatterData)
+
+console.log(mdContent)
 
 // 生成 markdown 文件
 fs.writeFile(`./posts/${slugTitle}.md`, mdContent)

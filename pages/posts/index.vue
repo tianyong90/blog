@@ -1,16 +1,12 @@
 <template>
-  <div>
-    <h1>posts</h1>
-
-    <ul>
-      <nuxt-link
-        v-for="(post, index) in posts"
-        :key="index"
-        tag="li"
-        :to="'/posts/' + post"
-        >{{ post }}</nuxt-link
-      >
-    </ul>
+  <div class="container py-4">
+    <nuxt-link
+      v-for="(post, index) in posts"
+      :key="index"
+      tag="a"
+      :to="'/posts/' + post"
+      >{{ post }}</nuxt-link
+    >
   </div>
 </template>
 
@@ -20,7 +16,16 @@ import Vue from 'vue'
 export default Vue.extend({
   async asyncData() {
     const posts = await import('~/posts/posts.json')
-    return { posts }
+
+    console.log(posts.default)
+
+    return { posts: posts.default }
   },
 })
 </script>
+
+<style lang="scss" scoped>
+a {
+  display: block;
+}
+</style>
