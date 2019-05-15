@@ -33,5 +33,5 @@ const frontmatterData = {
 const mdContent = `---
 ${yaml.stringify(frontmatterData)}---`
 
-// TODO: 生成文件
+// 生成 markdown 文件
 fs.writeFile(`./posts/${slugTitle}.md`, mdContent)
