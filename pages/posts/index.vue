@@ -1,7 +1,11 @@
 <template>
-  <div class="container py-4">
+  <div class="container post-container">
     <div class="post-list">
-      <div v-for="(post, index) in posts" :key="index" class="post-list-item">
+      <div
+        v-for="(post, index) in posts"
+        :key="index"
+        class="post-list-item shadow"
+      >
         <nuxt-link class="post-title" tag="a" :to="'/posts/' + post.file">{{
           post.title
         }}</nuxt-link>
@@ -41,7 +45,6 @@ export default Vue.extend({
     display: block;
     margin: 1rem 0;
     padding: 1rem 1.5rem;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 0 8px 5px;
 
     .post-title {
       display: block;

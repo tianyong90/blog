@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <nuxt />
+    <nuxt class="main" />
     <Footer />
   </div>
 </template>
@@ -18,4 +18,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.main {
+  margin-top: 100px;
+}
+</style>

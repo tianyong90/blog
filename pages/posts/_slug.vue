@@ -1,6 +1,6 @@
 <template>
   <div class="container py-4">
-    <h1 v-text="title" />
+    <h1 class="post-title" v-text="title" />
     <div class="markdown-body" v-html="html" />
   </div>
 </template>
@@ -29,4 +29,12 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss"></style>
+<style scoped lang="scss">
+.post-title {
+  display: block;
+  text-align: center;
+  margin-bottom: 2em;
+  font-size: 2rem;
+  color: #555;
+}
+</style>

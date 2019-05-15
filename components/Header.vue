@@ -1,9 +1,39 @@
 <template>
-  <header class="navbar navbar-dark bg-dark text-light">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <h1 class="blog-title text-center d-block">田写</h1>
+  <nav
+    class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark text-light shadow"
+  >
+    <div class="container">
+      <nuxt-link tag="a" to="/" class="navbar-brand blog-title">田写</nuxt-link>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarText" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <nuxt-link tag="a" class="nav-link" to="/">首页</nuxt-link>
+          </li>
+          <li class="nav-item">
+            <nuxt-link tag="a" class="nav-link" to="/posts">文章</nuxt-link>
+          </li>
+          <li class="nav-item">
+            <nuxt-link tag="a" class="nav-link" to="/">分类</nuxt-link>
+          </li>
+          <li class="nav-item">
+            <nuxt-link tag="a" class="nav-link" to="/">标签</nuxt-link>
+          </li>
+        </ul>
+      </div>
     </div>
-  </header>
+  </nav>
 </template>
 
 <script lang="ts">
@@ -24,9 +54,16 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  .blog-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    line-height: 100%;
+    text-decoration: none;
+  }
+}
+
+.nav-link.nuxt-link-exact-active {
+  color: rgb(233, 170, 22);
 }
 </style>
