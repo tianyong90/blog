@@ -1,7 +1,7 @@
-// import pkg from './package.json'
 import path from 'path'
 import NuxtConfiguration from '@nuxt/config'
 import CopyPlugin from 'copy-webpack-plugin'
+import pkg from './package.json'
 import posts from './posts/posts.json'
 
 // console.log(posts)
@@ -13,25 +13,28 @@ const config: NuxtConfiguration = {
    ** Headers of the page
    */
   head: {
-    // title: pkg.name,
-    title: 'haha',
+    title: pkg.name,
     meta: [
-      { charset: 'utf-8' },
+      { charset: 'gb2312' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'haha' },
+      { hid: 'description', name: 'description', content: pkg.description },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '/typora-vue-theme/vue.css' },
+      // { rel: 'stylesheet', href: '/typora-vue-theme/vue-dark.css' },
+    ],
   },
 
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#00f' },
 
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.scss'],
 
   /*
    ** Plugins to load before mounting the App
@@ -82,9 +85,7 @@ const config: NuxtConfiguration = {
         loader: 'frontmatter-markdown-loader',
         include: path.resolve(__dirname, 'posts'),
         options: {
-          vue: {
-            root: 'dynamicMarkdown',
-          },
+          vue: false,
         },
       })
 

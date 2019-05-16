@@ -1,13 +1,24 @@
 <template>
-  <div class="container py-4">
-    <h1 class="post-title" v-text="title" />
-    <div class="markdown-body" v-html="html" />
+  <div>
+    <div class="post-head" :style="{ backgroundImage: `url(${topImg})` }">
+      <h1 class="post-title" v-text="title" />
+      <div class="post-date">{{ date }}</div>
+    </div>
+
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 col-xl-6 mx-auto">
+          <div class="markdown-body" v-html="html" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import 'github-markdown-css/github-markdown.css'
+import analyze from 'rgbaster'
+import Color from 'color'
 
 export default Vue.extend({
   validate({ params }) {
@@ -22,23 +33,74 @@ export default Vue.extend({
 
     const attrs = fileContent.attributes
 
+    // console.log(fileContent)
+
     // markdown 内容中图片地址引用替换
-    const html = fileContent.html.replace('src="./', `src="/_nuxt/posts/${markdownFileName}/`)
+    const html = fileContent.html.replace(/src="\.\//g, `src="/_nuxt/posts/${markdownFileName}/`)
+
+    let topImg
+    // 顶部背景图
+    if (attrs.top_img) {
+      topImg = attrs.top_img.replace(/^\./, `/_nuxt/posts/${markdownFileName}`)
+    }
 
     return {
-      title: attrs.title,
+      ...attrs,
+      topImg,
       html,
     }
+  },
+
+  async mounted() {
+    // 取出头部图片主色调
+    const result = await analyze(this.topImg, {
+      ignore: ['rgba(255, 255, 255)', 'rgba(0, 0, 0)'],
+      scale: 0.6,
+    })
+    const mainColor = result[0].color
+
+    // 主色调使用透明度后设置为半透明遮罩
+    const coverColor = Color(mainColor)
+      .alpha(0.65)
+      .string()
+    document.styleSheets[0].addRule('.post-head::before', `background: ${coverColor}`)
   },
 })
 </script>
 
 <style scoped lang="scss">
-.post-title {
-  display: block;
-  text-align: center;
-  margin-bottom: 2em;
-  font-size: 2rem;
-  color: #555;
+.post-head {
+  display: flex;
+  background-size: cover;
+  background-position: center center;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  position: relative;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .post-title {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
+  }
+
+  .post-date {
+    color: #fff;
+    font-weight: 400;
+    text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
+  }
 }
 </style>
+``

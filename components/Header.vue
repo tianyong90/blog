@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark text-light shadow">
+  <nav class="navbar fixed-top navbar-expand-lg text-light">
     <div class="container">
       <nuxt-link tag="a" to="/" class="navbar-brand blog-title">田写</nuxt-link>
 
@@ -39,13 +39,14 @@ import Vue from 'vue'
 
 export default Vue.extend({
   mounted() {
-    window.addEventListener(
-      'scroll',
-      e => {
-        console.log(window.scrollY)
-      },
-      false
-    )
+    // TODO:
+    // window.addEventListener(
+    //   'scroll',
+    //   e => {
+    //     console.log(window.scrollY)
+    //   },
+    //   false
+    // )
   },
 })
 </script>
