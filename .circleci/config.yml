@@ -7,6 +7,9 @@ jobs:
 
     working_directory: ~/blog
 
+    branches:
+      only:
+        - master
     steps:
       - checkout
 
