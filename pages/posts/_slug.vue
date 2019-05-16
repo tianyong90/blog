@@ -16,14 +16,18 @@ export default Vue.extend({
   },
 
   async asyncData({ params }) {
-    const fileContent = await import(`~/posts/${params.slug}.md`)
+    const markdownFileName = params.slug
+
+    const fileContent = await import(`~/posts/${markdownFileName}.md`)
 
     const attrs = fileContent.attributes
 
+    // markdown 内容中图片地址引用替换
+    const html = fileContent.html.replace('src="./', `src="/_nuxt/posts/${markdownFileName}/`)
+
     return {
       title: attrs.title,
-      renderFunc: fileContent.vue.render,
-      html: fileContent.html,
+      html,
     }
   },
 })

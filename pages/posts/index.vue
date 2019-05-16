@@ -1,11 +1,7 @@
 <template>
   <div class="container post-container">
     <div class="post-list">
-      <div
-        v-for="(post, index) in posts"
-        :key="index"
-        class="post-list-item shadow"
-      >
+      <div v-for="(post, index) in posts" :key="index" class="post-list-item shadow">
         <nuxt-link class="post-title" tag="a" :to="'/posts/' + post.file">{{
           post.title
         }}</nuxt-link>
@@ -13,12 +9,7 @@
         <p class="post-description" v-html="post.description"></p>
 
         <div class="tags">
-          <span
-            v-for="(tag, tagIndex) in post.tags"
-            :key="tagIndex"
-            class="tag"
-            >{{ tag }}</span
-          >
+          <span v-for="(tag, tagIndex) in post.tags" :key="tagIndex" class="tag">{{ tag }}</span>
         </div>
       </div>
     </div>

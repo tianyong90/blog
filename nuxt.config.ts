@@ -1,7 +1,10 @@
 // import pkg from './package.json'
 import path from 'path'
 import NuxtConfiguration from '@nuxt/config'
+import CopyPlugin from 'copy-webpack-plugin'
 import posts from './posts/posts.json'
+
+// console.log(posts)
 
 const config: NuxtConfiguration = {
   mode: 'universal',
@@ -43,7 +46,6 @@ const config: NuxtConfiguration = {
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
-    // '@nuxtjs/markdownit',
   ],
   /*
    ** Axios module configuration
@@ -56,6 +58,9 @@ const config: NuxtConfiguration = {
    ** Build configuration
    */
   build: {
+    parallel: true,
+    extractCSS: true,
+
     /*
      ** You can extend webpack config here
      */
@@ -82,22 +87,21 @@ const config: NuxtConfiguration = {
           },
         },
       })
+
+      // TODO:
+      config.plugins!.push(
+        new CopyPlugin([
+          { from: './posts/**/*.jpg', to: '' },
+          { from: './posts/**/*.png', to: '' },
+          { from: './posts/**/*.gif', to: '' },
+        ])
+      )
     },
   },
 
   generate: {
-    routes: ['404'].concat(posts.map(post => `/posts/${post}`)),
+    routes: ['404'].concat(posts.map(post => `/posts/${post.file}`)),
   },
-
-  // markdownit: {
-  //   preset: 'default',
-  //   linkify: true,
-  //   breaks: false,
-  //   use: [
-  //     'markdown-it-emoji',
-  //     // 'markdown-it-front-matter',
-  //   ]
-  // }
 }
 
 export default config

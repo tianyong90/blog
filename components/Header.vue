@@ -1,7 +1,5 @@
 <template>
-  <nav
-    class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark text-light shadow"
-  >
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark text-light shadow">
     <div class="container">
       <nuxt-link tag="a" to="/" class="navbar-brand blog-title">田写</nuxt-link>
 
@@ -25,10 +23,10 @@
             <nuxt-link tag="a" class="nav-link" to="/posts">文章</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link tag="a" class="nav-link" to="/">分类</nuxt-link>
+            <nuxt-link tag="a" class="nav-link" to="/categories">分类</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link tag="a" class="nav-link" to="/">标签</nuxt-link>
+            <nuxt-link tag="a" class="nav-link" to="/tags">标签</nuxt-link>
           </li>
         </ul>
       </div>
