@@ -31,6 +31,7 @@
     "nuxt": "^2.7.1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.2",
     "@nuxt/typescript": "^2.7.1",
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/markdownit": "^1.2.4",

@@ -1,11 +1,16 @@
 <template>
   <div>
-    <div class="post-head" :style="{ backgroundImage: `url(${topImg})` }">
-      <h1 class="post-title" v-text="title" />
-      <div class="post-date">{{ date }}</div>
+    <div class="post-head-wrapper">
+      <div class="post-head" :style="{ backgroundImage: `url(${topImg})` }">
+        <h1 class="post-title" v-text="title" />
+        <div class="post-date">{{ date }}</div>
+      </div>
     </div>
 
     <div class="container-fluid py-4">
+      <!--TODO-->
+      <h1 class="fa fa-home"></h1>
+
       <div class="row">
         <div class="col-xs-12 col-md-10 col-xl-6 mx-auto">
           <div class="markdown-body" v-html="html" />
@@ -75,9 +80,28 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+@import '~bootstrap/scss/bootstrap-grid';
+
+@include media-breakpoint-down(md) {
+  .post-head {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 5vw), 0 100%);
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .post-head {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 12vw));
+  }
+}
+
+.post-head-wrapper {
+  filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
+}
+
 .post-head {
   display: flex;
-  background-size: auto 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   justify-content: center;

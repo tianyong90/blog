@@ -36,7 +36,7 @@ const config: NuxtConfiguration = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/main.scss'],
+  css: ['~/assets/css/main.scss', '@fortawesome/fontawesome-free/scss/fontawesome.scss'],
 
   /*
    ** Plugins to load before mounting the App
