@@ -61,7 +61,7 @@ const config: NuxtConfiguration = {
    ** Build configuration
    */
   build: {
-    parallel: true,
+    parallel: false, // 这个设置为 false，因为 extractCSS 为true 时冲突
     extractCSS: true,
 
     /*
