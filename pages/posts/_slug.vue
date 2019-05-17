@@ -26,6 +26,12 @@ export default Vue.extend({
     return true
   },
 
+  data() {
+    return {
+      topImg: null,
+    }
+  },
+
   async asyncData({ params }) {
     const markdownFileName = params.slug
 
@@ -63,7 +69,7 @@ export default Vue.extend({
     const coverColor = Color(mainColor)
       .alpha(0.65)
       .string()
-    document.styleSheets[0].addRule('.post-head::before', `background: ${coverColor}`)
+    ;(document.styleSheets[0] as any).addRule('.post-head::before', `background: ${coverColor}`)
   },
 })
 </script>
@@ -71,11 +77,12 @@ export default Vue.extend({
 <style scoped lang="scss">
 .post-head {
   display: flex;
-  background-size: cover;
+  background-size: auto 50%;
   background-position: center center;
+  background-attachment: fixed;
   justify-content: center;
   align-items: center;
-  min-height: 200px;
+  min-height: 300px;
   position: relative;
   flex-direction: column;
 
@@ -86,6 +93,7 @@ export default Vue.extend({
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 0;
   }
 
   .post-title {
@@ -100,6 +108,7 @@ export default Vue.extend({
     color: #fff;
     font-weight: 400;
     text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
+    z-index: 10;
   }
 }
 </style>
