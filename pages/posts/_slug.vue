@@ -1,13 +1,22 @@
 <template>
   <div>
     <div class="post-head-wrapper">
-      <div class="post-head" :style="{ backgroundImage: `url(${topImg})` }">
-        <h1 class="post-title" v-text="title" />
-        <div class="post-date">{{ date }}</div>
+      <div class="post-head " :style="{ backgroundImage: `url(${topImg})` }">
+        <div class="post-info-lg">
+          <h1 class="post-title" v-text="title" />
+          <div class="post-date" v-text="date" />
+        </div>
       </div>
     </div>
 
     <div class="container-fluid py-4">
+      <div class="row post-info-sm">
+        <div class="col-12">
+          <h1 class="post-title" v-text="title" />
+          <div class="post-date" v-text="date"></div>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-xs-12 col-md-10 col-xl-6 mx-auto">
           <div class="markdown-body" v-html="html" />
@@ -23,6 +32,13 @@ import analyze from 'rgbaster'
 import Color from 'color'
 
 export default Vue.extend({
+  head() {
+    return {
+      // TODO: 关键词等
+      title: (this as any).title,
+    }
+  },
+
   validate({ params }) {
     // TODO: 参数验证
     return true
@@ -101,6 +117,47 @@ export default Vue.extend({
   }
 }
 
+/*小屏幕下的标题区*/
+@include media-breakpoint-down(sm) {
+  .post-info-sm {
+    display: block;
+    margin-bottom: 2rem;
+
+    .title {
+      color: #333;
+      font-size: 2rem;
+      font-weight: 500;
+    }
+  }
+
+  .post-info-lg {
+    display: none;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .post-info-sm {
+    display: none;
+  }
+
+  .post-info-lg {
+    .post-title {
+      display: block;
+      text-align: center;
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
+    }
+
+    .post-date {
+      color: #fff;
+      font-weight: 400;
+      text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
+      z-index: 10;
+    }
+  }
+}
+
 .post-head-wrapper {
   filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
 }
@@ -125,21 +182,6 @@ export default Vue.extend({
     left: 0;
     right: 0;
     z-index: 0;
-  }
-
-  .post-title {
-    display: block;
-    text-align: center;
-    font-size: 2rem;
-    color: #fff;
-    text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
-  }
-
-  .post-date {
-    color: #fff;
-    font-weight: 400;
-    text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
-    z-index: 10;
   }
 }
 </style>
