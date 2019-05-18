@@ -23,10 +23,10 @@ import analyze from 'rgbaster'
 import Color from 'color'
 
 export default Vue.extend({
-  // validate({ params }) {
-  //   // TODO: 参数验证
-  //   return true
-  // },
+  validate({ params }) {
+    // TODO: 参数验证
+    return true
+  },
 
   data() {
     return {
@@ -40,20 +40,14 @@ export default Vue.extend({
     // 链接中拼音化的文件名
     const slugifiedFilename = params.slug
 
-    console.log(slugifiedFilename)
-
     const thePost: any = posts.default.find((item: any) => {
       return item.slugifiedFilename === slugifiedFilename
     })
-
-    console.log('fuck', thePost)
 
     // posts 目录中 markdown 实际文件名
     const filename = thePost.filename
 
     const fileContent = await import(`~/posts/${filename}.md`)
-
-    // console.log(fileContent)
 
     const attrs = fileContent.attributes
 
@@ -74,18 +68,20 @@ export default Vue.extend({
   },
 
   async mounted() {
-    // 取出头部图片主色调
-    const result = await analyze(this.topImg, {
-      ignore: ['rgba(255, 255, 255)', 'rgba(0, 0, 0)'],
-      scale: 0.6,
-    })
-    const mainColor = result[0].color
+    if (this.topImg) {
+      // 取出头部图片主色调
+      const result = await analyze(this.topImg, {
+        ignore: ['rgba(255, 255, 255)', 'rgba(0, 0, 0)'],
+        scale: 0.6,
+      })
+      const mainColor = result[0].color
 
-    // 主色调使用透明度后设置为半透明遮罩
-    const coverColor = Color(mainColor)
-      .alpha(0.65)
-      .string()
-    ;(document.styleSheets[0] as any).addRule('.post-head::before', `background: ${coverColor}`)
+      // 主色调使用透明度后设置为半透明遮罩
+      const coverColor = Color(mainColor)
+        .alpha(0.65)
+        .string()
+      ;(document.styleSheets[0] as any).addRule('.post-head::before', `background: ${coverColor}`)
+    }
   },
 })
 </script>

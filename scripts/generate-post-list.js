@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs-extra')
 const matter = require('gray-matter')
 
-const { transliterate, slugify } = require('transliteration')
+const { slugify } = require('transliteration')
 
 const list = fs.readdirSync(path.resolve(__dirname, '../posts'))
 
