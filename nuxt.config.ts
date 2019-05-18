@@ -15,11 +15,11 @@ const config: NuxtConfiguration = {
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: '田写',
     meta: [
-      { charset: 'gb2312' },
+      { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description },
+      { hid: 'description', name: 'description', content: '田勇的博客。技术、生活及其它……' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
