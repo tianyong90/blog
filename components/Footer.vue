@@ -1,29 +1,43 @@
 <template>
   <footer class="footer">
     <div class="container">
-      <p class="copyright text-light text-center">tianyong90</p>
+      <p class="copyright text-light text-center">@2019 by tianyong90</p>
     </div>
 
     <div class="d-flex flex-row justify-content-center">
-      <i class="icon"></i><i class="icon"></i><i class="icon"></i><i class="icon"></i
-      ><i class="icon"></i>
+      <a class="link" href="https://github.com/tianyong90" target="_blank">
+        <i class="icon iconfont icon-github"></i>
+      </a>
+      <a class="link" href="https://weibo.com/1707227001" target="_blank">
+        <i class="icon iconfont icon-weibo"></i>
+      </a>
+      <a class="link" href="https://twitter.com/tianyong901" target="_blank">
+        <i class="icon iconfont icon-twitter"></i>
+      </a>
     </div>
   </footer>
 </template>
 
 <style scoped lang="scss">
+@import url('//at.alicdn.com/t/font_1198945_b0d3xjlr9ni.css');
+
 .footer {
   padding: 50px 0 20px;
   background-color: #263238;
   clip-path: polygon(0 0, 50% 3vw, 100% 0, 100% 100%, 0 100%);
 }
 
-.icon {
+.link {
   display: flex;
-  width: 30px;
-  height: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
   background-color: #fff;
+  color: #263238;
   margin: 0 0.1rem;
+  text-decoration: none;
+  outline: none;
   clip-path: polygon(
     47.5% 5.66987%,
     48.2899% 5.30154%,

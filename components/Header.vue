@@ -14,7 +14,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div id="navbarText" class="collapse navbar-collapse">
+      <!--<div id="navbarText" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <nuxt-link tag="a" class="nav-link" to="/">首页</nuxt-link>
@@ -29,7 +29,7 @@
             <nuxt-link tag="a" class="nav-link" to="/tags">标签</nuxt-link>
           </li>
         </ul>
-      </div>
+      </div>-->
     </div>
   </nav>
 </template>
@@ -53,6 +53,8 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .navbar {
+  background-color: #263238;
+
   .blog-title {
     font-size: 1.5rem;
     font-weight: 500;

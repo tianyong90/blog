@@ -8,9 +8,6 @@
     </div>
 
     <div class="container-fluid py-4">
-      <!--TODO-->
-      <h1 class="fa fa-home"></h1>
-
       <div class="row">
         <div class="col-xs-12 col-md-10 col-xl-6 mx-auto">
           <div class="markdown-body" v-html="html" />
@@ -26,10 +23,10 @@ import analyze from 'rgbaster'
 import Color from 'color'
 
 export default Vue.extend({
-  validate({ params }) {
-    // TODO: 参数验证
-    return true
-  },
+  // validate({ params }) {
+  //   // TODO: 参数验证
+  //   return true
+  // },
 
   data() {
     return {
@@ -38,21 +35,35 @@ export default Vue.extend({
   },
 
   async asyncData({ params }) {
-    const markdownFileName = params.slug
+    const posts = await import('~/posts/posts.json')
 
-    const fileContent = await import(`~/posts/${markdownFileName}.md`)
+    // 链接中拼音化的文件名
+    const slugifiedFilename = params.slug
 
-    const attrs = fileContent.attributes
+    console.log(slugifiedFilename)
+
+    const thePost: any = posts.default.find((item: any) => {
+      return item.slugifiedFilename === slugifiedFilename
+    })
+
+    console.log('fuck', thePost)
+
+    // posts 目录中 markdown 实际文件名
+    const filename = thePost.filename
+
+    const fileContent = await import(`~/posts/${filename}.md`)
 
     // console.log(fileContent)
 
+    const attrs = fileContent.attributes
+
     // markdown 内容中图片地址引用替换
-    const html = fileContent.html.replace(/src="\.\//g, `src="/_nuxt/posts/${markdownFileName}/`)
+    const html = fileContent.html.replace(/src="\.\//g, `src="/_nuxt/posts/${filename}/`)
 
     let topImg
     // 顶部背景图
     if (attrs.top_img) {
-      topImg = attrs.top_img.replace(/^\./, `/_nuxt/posts/${markdownFileName}`)
+      topImg = attrs.top_img.replace(/^\./, `/_nuxt/posts/${filename}`)
     }
 
     return {

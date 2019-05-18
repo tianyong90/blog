@@ -6,7 +6,8 @@
           post.title
         }}</nuxt-link>
 
-        <p class="post-description" v-html="post.description"></p>
+        <!--todo: DESCRIPTION-->
+        <!--<p class="post-description" v-html="post.description"></p>-->
 
         <div class="tags">
           <span v-for="(tag, tagIndex) in post.tags" :key="tagIndex" class="tag">{{ tag }}</span>
@@ -29,6 +30,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+.post-container {
+  margin-top: 65px;
+}
+
 .post-list {
   display: block;
 
@@ -57,11 +62,12 @@ export default Vue.extend({
 
     .tag {
       display: flex;
-      background-color: rgb(133, 66, 66);
+      background-color: #455a64;
       margin-right: 0.5rem;
       padding: 0.2rem 0.5rem;
       color: #fff;
       font-size: 0.725rem;
+      border-radius: 3px;
     }
   }
 }

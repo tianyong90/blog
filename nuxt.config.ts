@@ -36,7 +36,7 @@ const config: NuxtConfiguration = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/main.scss', '@fortawesome/fontawesome-free/scss/fontawesome.scss'],
+  css: ['~/assets/css/main.scss'],
 
   /*
    ** Plugins to load before mounting the App
@@ -105,7 +105,7 @@ const config: NuxtConfiguration = {
   },
 
   generate: {
-    routes: ['404'].concat(posts.map(post => `/posts/${post.file}`)),
+    routes: ['404'].concat(posts.map(post => `/posts/${post.filename}`)),
   },
 }
 

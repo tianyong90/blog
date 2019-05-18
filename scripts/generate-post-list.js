@@ -2,20 +2,30 @@ const path = require('path')
 const fs = require('fs-extra')
 const matter = require('gray-matter')
 
+const { transliterate, slugify } = require('transliteration')
+
 const list = fs.readdirSync(path.resolve(__dirname, '../posts'))
 
 const posts = list.filter(item => item.endsWith('.md')).map(item => item.replace('.md', ''))
 
 // 读取 md 文章 frontmatter 数组并组合
 const jsonData = posts.map(post => {
-  const frontMatterData = matter.read(`./posts/${post}.md`)
+  const { data, content } = matter.read(`./posts/${post}.md`)
 
   // console.log(frontMatterData)
 
+  const slugifiedFilename = slugify(data.title, {
+    trim: true,
+    replace: {
+      '——': '-',
+    },
+  })
+
   return {
-    file: post,
-    ...frontMatterData.data,
-    description: frontMatterData.content.substr(0, 20),
+    filename: post,
+    slugifiedFilename,
+    ...data,
+    description: content.substr(0, 20),
   }
 })
 
