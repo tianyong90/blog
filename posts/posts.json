@@ -71,7 +71,7 @@
     "categories": [
       "Laravel"
     ],
-    "description": "\r\n扫码登录成为一种日趋流行的登录方式，"
+    "description": "\n扫码登录成为一种日趋流行的登录方式，它"
   },
   {
     "filename": "Laravel-中使用-puppeteer-采集异步加载的网页内容",

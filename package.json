@@ -10,7 +10,9 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
-    "test": "jest"
+    "test": "jest",
+    "generate-post-list": "node scripts/generate-post-list.js",
+    "create": "node scripts/create-post.js"
   },
   "husky": {
     "hooks": {

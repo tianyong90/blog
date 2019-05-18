@@ -34,4 +34,14 @@ jobs:
           paths:
             - ~/.cache/yarn
 
-      - run: yarn hexo generate -d
+      - run: yarn run generate-post-list
+        -
+      - run: yarn run generate
+
+      # deploy
+      - deploy:
+          name: deploy blog
+          when: on_success
+          command: |
+            rsync -vzrtopg --progress -e ssh --delete ~/blog/dist/* $DEPLOY_USER@$DEPLOY_HOST:/data/wwwroot/tianyong90.com
+
