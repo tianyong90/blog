@@ -72,17 +72,6 @@ const config: NuxtConfiguration = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
-      // TODO: 不使用 eslint-loader，在提交时自动检查并修正即可
-      // Run ESLint on save
-      // if (ctx.isDev && ctx.isClient) {
-      //   config.module!.rules.push({
-      //     enforce: 'pre',
-      //     test: /\.(js|vue)$/,
-      //     loader: 'eslint-loader',
-      //     exclude: /(node_modules)/,
-      //   })
-      // }
-
       // frontmatter-markdown-loader
       config.module!.rules.push({
         test: /\.md$/,
@@ -93,7 +82,6 @@ const config: NuxtConfiguration = {
         },
       })
 
-      // TODO:
       config.plugins!.push(
         new CopyPlugin([
           { from: './posts/**/*.jpg', to: '' },
