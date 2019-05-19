@@ -123,10 +123,14 @@ export default Vue.extend({
     display: block;
     margin-bottom: 2rem;
 
-    .title {
+    .post-title {
       color: #333;
-      font-size: 2rem;
+      font-size: 1.4rem;
       font-weight: 500;
+    }
+
+    .post-date {
+      font-size: 0.9rem;
     }
   }
 
@@ -181,7 +185,7 @@ export default Vue.extend({
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 0;
+    z-index: 0 !important;
   }
 }
 </style>

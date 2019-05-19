@@ -65,8 +65,7 @@ import 'highlight.js/styles/atom-one-dark.css'
 
 然后主可以看到代码高亮的效果，通常是这样的。
 
-
-![clipboard.png](https://segmentfault.com/img/bV6JMs?w=1093&h=632)
+![](./一般效果.png)
 
 
 看起来还不错，但这样的高亮有个问题，那就是他的背景色并不随着你所加载了 highlight.js 主题样式而改变，而且不同语言的代码在配色上的一些差异也没有很好的渲染出来。而从 highlight.js 官网示例可以看到，这些问题本不应该出现的。
@@ -102,7 +101,7 @@ export default {
 
 做完这些之后再看渲染效果：
 
-![clipboard.png](https://segmentfault.com/img/bV6JJZ?w=1207&h=557)
+![渲染效果](./渲染效果.png)
 
 果然好多了！
 

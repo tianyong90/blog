@@ -1,6 +1,7 @@
 ---
 title: Laravel + laravel-echo + EasyWeChat 实现微信扫码登录
 date: 2019-03-19 16:25:48
+top_img: ./top_img.jpg
 tags: 
     - php
     - laravel
