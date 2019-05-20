@@ -75,11 +75,20 @@ const config: NuxtConfiguration = {
       // frontmatter-markdown-loader
       config.module!.rules.push({
         test: /\.md$/,
-        loader: 'frontmatter-markdown-loader',
         include: path.resolve(__dirname, 'posts'),
-        options: {
-          vue: false,
-        },
+        use: [
+          {
+            loader: '@tianyong90/vue-markdown-loader',
+            options: {
+              mode: 'raw',
+              // sourceDir: ''
+              contentCssClass: 'markdown-body',
+              markdown: {
+                lineNumbers: true, // enable line numbers
+              }
+            }
+          }
+        ]
       })
 
       config.plugins!.push(

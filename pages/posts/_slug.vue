@@ -30,8 +30,6 @@
 import Vue from 'vue'
 import analyze from 'rgbaster'
 import Color from 'color'
-import hljs from 'highlight.js'
-import 'highlight.js/styles/atom-one-dark.css'
 
 export default Vue.extend({
   head() {
@@ -65,7 +63,7 @@ export default Vue.extend({
     // posts 目录中 markdown 实际文件名
     const filename = thePost.filename
 
-    let { attributes, html } = await import(`~/posts/${filename}.md`)
+    let { html, attributes } = await import(`~/posts/${filename}.md`)
 
     // markdown 内容中图片地址引用替换
     html = html.replace(/src="\.\//g, `src="/_nuxt/posts/${filename}/`)
@@ -84,8 +82,6 @@ export default Vue.extend({
   },
 
   async mounted() {
-    hljs.initHighlightingOnLoad()
-
     if (this.topImg) {
       // 取出头部图片主色调
       const result = await analyze(this.topImg, {
