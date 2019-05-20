@@ -30,6 +30,8 @@
 import Vue from 'vue'
 import analyze from 'rgbaster'
 import Color from 'color'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/atom-one-dark.css'
 
 export default Vue.extend({
   head() {
@@ -51,39 +53,39 @@ export default Vue.extend({
   },
 
   async asyncData({ params }) {
-    const posts = await import('~/posts/posts.json')
+    const { default: posts } = await import('~/posts/posts.json')
 
     // 链接中拼音化的文件名
     const slugifiedFilename = params.slug
 
-    const thePost: any = posts.default.find((item: any) => {
+    const thePost: any = posts.find((item: any) => {
       return item.slugifiedFilename === slugifiedFilename
     })
 
     // posts 目录中 markdown 实际文件名
     const filename = thePost.filename
 
-    const fileContent = await import(`~/posts/${filename}.md`)
-
-    const attrs = fileContent.attributes
+    let { attributes, html } = await import(`~/posts/${filename}.md`)
 
     // markdown 内容中图片地址引用替换
-    const html = fileContent.html.replace(/src="\.\//g, `src="/_nuxt/posts/${filename}/`)
+    html = html.replace(/src="\.\//g, `src="/_nuxt/posts/${filename}/`)
 
     let topImg
     // 顶部背景图
-    if (attrs.top_img) {
-      topImg = attrs.top_img.replace(/^\./, `/_nuxt/posts/${filename}`)
+    if (attributes.top_img) {
+      topImg = attributes.top_img.replace(/^\./, `/_nuxt/posts/${filename}`)
     }
 
     return {
-      ...attrs,
+      ...attributes,
       topImg,
       html,
     }
   },
 
   async mounted() {
+    hljs.initHighlightingOnLoad()
+
     if (this.topImg) {
       // 取出头部图片主色调
       const result = await analyze(this.topImg, {
