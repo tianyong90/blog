@@ -22,6 +22,13 @@
 import Vue from 'vue'
 import { orderBy } from 'lodash'
 
+interface Post {
+  filename: string
+  // eslint-disable-next-line
+  top_img: string
+  [key: string]: any
+}
+
 export default Vue.extend({
   async asyncData() {
     let { default: posts } = await import('~/posts/posts.json')
@@ -33,7 +40,7 @@ export default Vue.extend({
   },
 
   methods: {
-    coverImgUrl(post: object): string {
+    coverImgUrl(post: Post): string {
       return '/_nuxt/posts/' + post.filename + post.top_img.replace('./', '/')
     },
   },
