@@ -1257,6 +1257,25 @@
   dependencies:
     "@types/node" "*"
 
+"@types/color-convert@*":
+  version "1.9.0"
+  resolved "https://registry.npm.taobao.org/@types/color-convert/download/@types/color-convert-1.9.0.tgz#bfa8203e41e7c65471e9841d7e306a7cd8b5172d"
+  integrity sha1-v6ggPkHnxlRx6YQdfjBqfNi1Fy0=
+  dependencies:
+    "@types/color-name" "*"
+
+"@types/color-name@*":
+  version "1.1.1"
+  resolved "https://registry.npm.taobao.org/@types/color-name/download/@types/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
+  integrity sha1-HBJhu+qhCoBVu8XYq4S3sq/IRqA=
+
+"@types/color@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/@types/color/download/@types/color-3.0.0.tgz#40f8a6bf2fd86e969876b339a837d8ff1b0a6e30"
+  integrity sha1-QPimvy/YbpaYdrM5qDfY/xsKbjA=
+  dependencies:
+    "@types/color-convert" "*"
+
 "@types/compression@^0.0.36":
   version "0.0.36"
   resolved "https://registry.npm.taobao.org/@types/compression/download/@types/compression-0.0.36.tgz#7646602ffbfc43ea48a8bf0b2f1d5e5f9d75c0d0"
@@ -1323,6 +1342,11 @@
   dependencies:
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
+
+"@types/lodash@^4.14.130":
+  version "4.14.130"
+  resolved "https://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.130.tgz#04b3a690d5f4fc34579963c99adae067b8c8eb5a"
+  integrity sha1-BLOmkNX0/DRXmWPJmtrgZ7jI61o=
 
 "@types/loglevel@*":
   version "1.5.4"
@@ -5135,6 +5159,11 @@ he@1.2.x, he@^1.1.0, he@^1.2.0:
   resolved "https://registry.npm.taobao.org/he/download/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha1-hK5l+n6vsWX922FWauFLrwVmTw8=
 
+he@~0.4.1:
+  version "0.4.1"
+  resolved "https://registry.npm.taobao.org/he/download/he-0.4.1.tgz#c86667614d2dd71bc737a197c760fb2eec8a1921"
+  integrity sha1-yGZnYU0t1xvHN6GXx2D7LuyKGSE=
+
 hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/hex-color-regex/download/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
@@ -6893,6 +6922,11 @@ markdown-it@^8.3.1, markdown-it@^8.4.2:
     linkify-it "^2.0.0"
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
+
+marked@~0.3:
+  version "0.3.19"
+  resolved "https://registry.npm.taobao.org/marked/download/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
+  integrity sha1-XUf3CcTJ/Dwha21GEnKA9As515A=
 
 matcher@^1.0.0:
   version "1.1.1"
@@ -10116,6 +10150,14 @@ stylehacks@^4.0.0:
     browserslist "^4.0.0"
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
+
+summarize-markdown@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.npm.taobao.org/summarize-markdown/download/summarize-markdown-0.3.1.tgz#f1979622109dee70f9c248117795edd1533f3e67"
+  integrity sha1-8ZeWIhCd7nD5wkgRd5Xt0VM/Pmc=
+  dependencies:
+    he "~0.4.1"
+    marked "~0.3"
 
 supports-color@^2.0.0:
   version "2.0.0"

@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs-extra')
 const matter = require('gray-matter')
+const summarize = require('summarize-markdown')
 
 const { slugify } = require('transliteration')
 
@@ -25,7 +26,7 @@ const jsonData = posts.map(post => {
     filename: post,
     slugifiedFilename,
     ...data,
-    description: content.substr(0, 20),
+    description: summarize(content).substr(0, 60),
   }
 })
 

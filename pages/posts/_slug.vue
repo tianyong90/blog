@@ -34,15 +34,19 @@ import Color from 'color'
 export default Vue.extend({
   head() {
     return {
-      // TODO: 关键词等
       title: (this as any).title,
+      meta: [
+        // TODO: 关键词等
+        { hid: 'keywords', name: 'keywords', content: '' },
+        { hid: 'description', name: 'description', content: '' },
+      ],
     }
   },
 
-  validate({ params }) {
-    // TODO: 参数验证
-    return true
-  },
+  // TODO: 参数验证
+  // validate({ params }) {
+  //   return true
+  // },
 
   data() {
     return {
@@ -63,10 +67,7 @@ export default Vue.extend({
     // posts 目录中 markdown 实际文件名
     const filename = thePost.filename
 
-    let { html, attributes } = await import(`~/posts/${filename}.md`)
-
-    // markdown 内容中图片地址引用替换
-    html = html.replace(/src="\.\//g, `src="/_nuxt/posts/${filename}/`)
+    const { html, attributes } = await import(`~/posts/${filename}.md`)
 
     let topImg
     // 顶部背景图
@@ -77,7 +78,7 @@ export default Vue.extend({
     return {
       ...attributes,
       topImg,
-      html,
+      html: html.replace(/src="\.\//g, `src="/_nuxt/posts/${filename}/`), // markdown 内容中图片地址引用替换
     }
   },
 

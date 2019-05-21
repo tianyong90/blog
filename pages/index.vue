@@ -6,12 +6,13 @@
           post.title
         }}</nuxt-link>
 
-        <!--todo: DESCRIPTION-->
-        <!--<p class="post-description" v-html="post.description"></p>-->
+        <p class="post-description" v-html="post.description"></p>
 
         <div class="tags">
           <span v-for="(tag, tagIndex) in post.tags" :key="tagIndex" class="tag">{{ tag }}</span>
         </div>
+
+        <img class="cover" :src="coverImgUrl(post)" alt="" />
       </div>
     </div>
   </div>
@@ -19,24 +20,34 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { orderBy } from 'lodash'
 
 export default Vue.extend({
   async asyncData() {
-    const posts = await import('~/posts/posts.json')
+    let { default: posts } = await import('~/posts/posts.json')
 
-    return { posts: posts.default }
+    // 按发布时间排序
+    posts = orderBy(posts, 'date', 'desc')
+
+    return { posts }
+  },
+
+  methods: {
+    coverImgUrl(post: object): string {
+      return '/_nuxt/posts/' + post.filename + post.top_img.replace('./', '/')
+    },
   },
 })
 </script>
 
 <style lang="scss">
+@import '~bootstrap/scss/bootstrap-grid';
+
 .post-container {
   margin-top: 65px;
 }
 
 .post-list {
-  display: block;
-
   .post-list-item {
     display: block;
     margin: 1rem 0;
@@ -44,30 +55,62 @@ export default Vue.extend({
 
     .post-title {
       display: block;
-      color: #333;
+      color: #2b2b2b;
       font-size: 1.1rem;
       font-weight: 500;
       margin-bottom: 1rem;
     }
 
     .post-description {
-      color: #555;
-      font-size: 0.9rem;
+      color: #444;
+      font-size: 0.85rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
-  }
 
-  .tags {
-    display: flex;
-    margin-top: 1rem;
-
-    .tag {
+    .tags {
       display: flex;
-      background-color: #455a64;
-      margin-right: 0.5rem;
-      padding: 0.2rem 0.5rem;
-      color: #fff;
-      font-size: 0.725rem;
+      margin-top: 1rem;
+
+      .tag {
+        display: flex;
+        background-color: #455a64;
+        margin-right: 0.5rem;
+        padding: 0.2rem 0.5rem;
+        color: #fff;
+        font-size: 0.725rem;
+        border-radius: 3px;
+      }
+    }
+
+    .cover {
+      display: none;
+    }
+
+    @include media-breakpoint-down(sm) {
+      display: flex;
+      overflow: hidden;
+      justify-content: space-between;
+      padding: 0;
       border-radius: 3px;
+
+      .post-title {
+        padding: 0.85rem 1rem;
+      }
+
+      .post-description,
+      .tags {
+        display: none;
+      }
+
+      .cover {
+        display: block;
+        width: 85px;
+        height: 85px;
+        object-fit: cover;
+      }
     }
   }
 }

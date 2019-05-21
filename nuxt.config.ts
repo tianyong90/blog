@@ -85,10 +85,10 @@ const config: NuxtConfiguration = {
               contentCssClass: 'markdown-body',
               markdown: {
                 lineNumbers: true, // enable line numbers
-              }
-            }
-          }
-        ]
+              },
+            },
+          },
+        ],
       })
 
       config.plugins!.push(
