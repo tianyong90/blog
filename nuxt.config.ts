@@ -1,7 +1,8 @@
 import path from 'path'
 import NuxtConfiguration from '@nuxt/config'
 import CopyPlugin from 'copy-webpack-plugin'
-import pkg from './package.json'
+import Fiber from 'fibers'
+import Sass from 'sass'
 import posts from './posts/posts.json'
 
 // console.log(posts)
@@ -67,6 +68,13 @@ const config: NuxtConfiguration = {
 
     // 生产模式下使用 extractCSS，开发时不用，以免影响热替换 hmr
     extractCSS: process.env.NODE_ENV === 'production',
+
+    loaders: {
+      scss: {
+        implementation: Sass,
+        fiber: Fiber,
+      },
+    },
 
     /*
      ** You can extend webpack config here
