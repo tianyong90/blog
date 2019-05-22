@@ -4,7 +4,7 @@
       <div class="post-head " :style="{ backgroundImage: `url(${topImg})` }">
         <div class="post-info-lg">
           <h1 class="post-title" v-text="title" />
-          <div class="post-date" v-text="date" />
+          <div class="post-date">{{ date | formatTime }}</div>
         </div>
       </div>
     </div>
@@ -13,7 +13,7 @@
       <div class="row post-info-sm">
         <div class="col-12">
           <h1 class="post-title" v-text="title" />
-          <div class="post-date" v-text="date"></div>
+          <div class="post-date">{{ date | formatTime }}</div>
         </div>
       </div>
 
@@ -30,6 +30,7 @@
 import Vue from 'vue'
 import analyze from 'rgbaster'
 import Color from 'color'
+import { format } from 'date-fns'
 
 export default Vue.extend({
   head() {
@@ -41,6 +42,12 @@ export default Vue.extend({
         { hid: 'description', name: 'description', content: '' },
       ],
     }
+  },
+
+  filters: {
+    formatTime(val) {
+      return format(new Date(val), 'YYYY-MM-DD')
+    },
   },
 
   // TODO: 参数验证
