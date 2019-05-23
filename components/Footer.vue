@@ -19,8 +19,6 @@
 </template>
 
 <style scoped lang="scss">
-@import url('//at.alicdn.com/t/font_1198945_b0d3xjlr9ni.css');
-
 .footer {
   padding: 50px 0 20px;
   background-color: #263238;

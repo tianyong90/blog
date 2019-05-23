@@ -25,13 +25,13 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 - [ ] 深色模式
 - [ ] 文章页 meta 信息完善
-- [ ] 文章 description 提取
-- [ ] frontmatter date 模式处理
+- [x] 文章 description 提取
+- [x] frontmatter date 模式处理
 - [ ] categories
 - [ ] tags
 - [ ] 首页设计
-- [ ] acout 页，个人简历
-- [ ] 小屏下文章页文章标题放到正文前而不是图片上
+- [ ] about 页，个人简历
+- [x] 小屏下文章页文章标题放到正文前而不是图片上
 - [ ] back to top
 - [ ] 菜单项
 - [ ] header 配色

@@ -21,6 +21,8 @@
         <div class="col-xs-12 col-md-10 col-xl-6 mx-auto">
           <div class="markdown-body" v-html="html" />
         </div>
+
+        <div class="social-share"></div>
       </div>
     </div>
   </div>
@@ -31,6 +33,9 @@ import Vue from 'vue'
 import analyze from 'rgbaster'
 import Color from 'color'
 import { format } from 'date-fns'
+// TODO:
+// import 'social-share.js/dist/css/share.min.css'
+// import SocialShare from 'social-share.js'
 
 export default Vue.extend({
   head() {
@@ -104,6 +109,11 @@ export default Vue.extend({
         .string()
       ;(document.styleSheets[0] as any).addRule('.post-head::before', `background: ${coverColor}`)
     }
+
+    // TODO:
+    // SocialShare('.social-share', {
+    //   title: 'abc'
+    // })
   },
 })
 </script>
