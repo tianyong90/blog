@@ -32,7 +32,8 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 - [ ] 首页设计
 - [ ] about 页，个人简历
 - [x] 小屏下文章页文章标题放到正文前而不是图片上
-- [ ] back to top
+- [x] back to top
 - [ ] 菜单项
 - [ ] header 配色
 - [ ] header 滚动侦听
+- [ ] share.js

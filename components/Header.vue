@@ -40,13 +40,13 @@ import Vue from 'vue'
 export default Vue.extend({
   mounted() {
     // TODO:
-    // window.addEventListener(
-    //   'scroll',
-    //   e => {
-    //     console.log(window.scrollY)
-    //   },
-    //   false
-    // )
+    window.addEventListener(
+      'scroll',
+      e => {
+        // console.log(window.scrollY)
+      },
+      false
+    )
   },
 })
 </script>

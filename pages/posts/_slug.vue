@@ -42,8 +42,8 @@ export default Vue.extend({
     return {
       title: (this as any).title,
       meta: [
+        { hid: 'keywords', name: 'keywords', content: this.tags.join(',') },
         // TODO: 关键词等
-        { hid: 'keywords', name: 'keywords', content: '' },
         { hid: 'description', name: 'description', content: '' },
       ],
     }
@@ -127,14 +127,12 @@ export default Vue.extend({
   }
 }
 
+/*小屏幕下的标题区*/
 @include media-breakpoint-down(sm) {
   .post-head {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 12vw));
   }
-}
 
-/*小屏幕下的标题区*/
-@include media-breakpoint-down(sm) {
   .post-info-sm {
     display: block;
     margin-bottom: 2rem;
@@ -161,19 +159,25 @@ export default Vue.extend({
   }
 
   .post-info-lg {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     .post-title {
-      display: block;
       text-align: center;
       font-size: 2rem;
       color: #fff;
       text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
+      text-align: left;
     }
 
     .post-date {
       color: #fff;
       font-weight: 400;
       text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
-      z-index: 10;
+      text-align: left;
     }
   }
 }
