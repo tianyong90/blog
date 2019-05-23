@@ -80,7 +80,7 @@ const config: NuxtConfiguration = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
-      // frontmatter-markdown-loader
+      // markdown loader
       config.module!.rules.push({
         test: /\.md$/,
         include: path.resolve(__dirname, 'posts'),
@@ -88,6 +88,7 @@ const config: NuxtConfiguration = {
           {
             loader: '@tianyong90/vue-markdown-loader',
             options: {
+              // 注意模式，直接返回对象数据
               mode: 'raw',
               // sourceDir: ''
               contentCssClass: 'markdown-body',
