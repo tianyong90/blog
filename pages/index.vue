@@ -30,6 +30,13 @@ interface Post {
 }
 
 export default Vue.extend({
+  head() {
+    return {
+      title: '田写',
+      // TODO: keyword and description
+    }
+  },
+
   async asyncData() {
     let { default: posts } = await import('~/posts/posts.json')
 
