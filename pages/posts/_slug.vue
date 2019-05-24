@@ -37,12 +37,17 @@ import { format } from 'date-fns'
 // import 'social-share.js/dist/css/share.min.css'
 // import SocialShare from 'social-share.js'
 
+// interface options extends Vue {
+//   tags: any
+// }
+
 export default Vue.extend({
   head() {
     return {
       title: (this as any).title,
       meta: [
-        { hid: 'keywords', name: 'keywords', content: this.tags.join(',') },
+        // TODO: any
+        { hid: 'keywords', name: 'keywords', content: (this as any).tags.join(',') },
         // TODO: 关键词等
         { hid: 'description', name: 'description', content: '' },
       ],
