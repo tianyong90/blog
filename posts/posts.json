@@ -161,14 +161,15 @@
     "slugifiedFilename": "sheng-ming-zai-yu-zhe-teng-wo-yong-nuxt.js-chong-gou-liao-bo-ke",
     "title": "绳命在于折腾，我用 Nuxt.js 重构了博客",
     "date": "2019-05-26T03:11:46.000Z",
-    "top_img": "",
+    "top_img": "./top_img.png",
     "tags": [
-      ""
+      "博客",
+      "Nuxt.js"
     ],
     "categories": [
-      ""
+      "Vue"
     ],
-    "description": ""
+    "description": "其实自己的博客上线没多久，之前闲时会写些乱七八糟的玩意儿，一来当作总结和备忘，二来分享一些个人经验，也是种很有趣的经历。"
   },
   {
     "filename": "自己撸个-vue-markdown-loader",
