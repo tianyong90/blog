@@ -157,6 +157,20 @@
     "description": "话说，有两件事能让程序员抓狂，一是写文档，二是看别人的代码发现没写文档…… 没错，咱程序员就是这么“双标”。 :smil"
   },
   {
+    "filename": "绳命在于折腾-我用-Nuxt-js-重构了博客",
+    "slugifiedFilename": "sheng-ming-zai-yu-zhe-teng-wo-yong-nuxt.js-chong-gou-liao-bo-ke",
+    "title": "绳命在于折腾，我用 Nuxt.js 重构了博客",
+    "date": "2019-05-26T03:11:46.000Z",
+    "top_img": "",
+    "tags": [
+      ""
+    ],
+    "categories": [
+      ""
+    ],
+    "description": ""
+  },
+  {
     "filename": "自己撸个-vue-markdown-loader",
     "slugifiedFilename": "zi-ji-lu-ge-vue-markdown-loader",
     "title": "自己撸个 vue markdown loader",

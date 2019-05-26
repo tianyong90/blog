@@ -22,11 +22,7 @@ const config: NuxtConfiguration = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '田勇的博客。技术、生活及其它……' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '/typora-vue-theme/vue.css' },
-      // { rel: 'stylesheet', href: '/typora-vue-theme/vue-dark.css' },
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   /*
