@@ -28,7 +28,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.5.1",
     "bootstrap": "^4.3.1",
-    "bootstrap-vue": "^2.0.0-rc.11",
+    "bootstrap-vue": "2.0.0-rc.20",
     "cross-env": "^5.2.0",
     "nuxt": "^2.7.1"
   },
