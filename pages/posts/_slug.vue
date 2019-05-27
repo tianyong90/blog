@@ -21,6 +21,8 @@
         <div class="col-xs-12 col-md-10 col-xl-6 mx-auto">
           <div class="markdown-body" v-html="html" />
         </div>
+
+        <div class="social-share"></div>
       </div>
     </div>
   </div>
@@ -31,14 +33,22 @@ import Vue from 'vue'
 import analyze from 'rgbaster'
 import Color from 'color'
 import { format } from 'date-fns'
+// TODO:
+// import 'social-share.js/dist/css/share.min.css'
+// import SocialShare from 'social-share.js'
+
+// interface options extends Vue {
+//   tags: any
+// }
 
 export default Vue.extend({
   head() {
     return {
       title: (this as any).title,
       meta: [
+        // TODO: any
+        { hid: 'keywords', name: 'keywords', content: (this as any).tags.join(',') },
         // TODO: 关键词等
-        { hid: 'keywords', name: 'keywords', content: '' },
         { hid: 'description', name: 'description', content: '' },
       ],
     }
@@ -104,6 +114,11 @@ export default Vue.extend({
         .string()
       ;(document.styleSheets[0] as any).addRule('.post-head::before', `background: ${coverColor}`)
     }
+
+    // TODO:
+    // SocialShare('.social-share', {
+    //   title: 'abc'
+    // })
   },
 })
 </script>
@@ -117,14 +132,12 @@ export default Vue.extend({
   }
 }
 
+/*小屏幕下的标题区*/
 @include media-breakpoint-down(sm) {
   .post-head {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 12vw));
   }
-}
 
-/*小屏幕下的标题区*/
-@include media-breakpoint-down(sm) {
   .post-info-sm {
     display: block;
     margin-bottom: 2rem;
@@ -151,19 +164,25 @@ export default Vue.extend({
   }
 
   .post-info-lg {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     .post-title {
-      display: block;
       text-align: center;
       font-size: 2rem;
       color: #fff;
       text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
+      text-align: left;
     }
 
     .post-date {
       color: #fff;
       font-weight: 400;
       text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
-      z-index: 10;
+      text-align: left;
     }
   }
 }

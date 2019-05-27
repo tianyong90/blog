@@ -14,8 +14,8 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!--<div id="navbarText" class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
+      <div id="navbarText" class="collapse navbar-collapse">
+        <!-- <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <nuxt-link tag="a" class="nav-link" to="/">首页</nuxt-link>
           </li>
@@ -28,8 +28,8 @@
           <li class="nav-item">
             <nuxt-link tag="a" class="nav-link" to="/tags">标签</nuxt-link>
           </li>
-        </ul>
-      </div>-->
+        </ul> -->
+      </div>
     </div>
   </nav>
 </template>
@@ -40,13 +40,13 @@ import Vue from 'vue'
 export default Vue.extend({
   mounted() {
     // TODO:
-    // window.addEventListener(
-    //   'scroll',
-    //   e => {
-    //     console.log(window.scrollY)
-    //   },
-    //   false
-    // )
+    window.addEventListener(
+      'scroll',
+      e => {
+        // console.log(window.scrollY)
+      },
+      false
+    )
   },
 })
 </script>
