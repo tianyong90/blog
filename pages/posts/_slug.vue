@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="container mx-auto max-w-lg py-4">
+    <div class="container mx-auto max-w-xl py-4">
       <div class="row post-info-sm">
         <div class="col-12">
           <h1 class="post-title" v-text="title" />
@@ -17,13 +17,11 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-xs-12 col-md-10 col-xl-6 mx-auto">
-          <div class="markdown-body" v-html="html" />
-        </div>
-
-        <div class="social-share"></div>
+      <div class="">
+        <div class="markdown-body" v-html="html" />
       </div>
+
+      <div class="social-share"></div>
     </div>
   </div>
 </template>

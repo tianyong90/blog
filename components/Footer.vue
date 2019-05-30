@@ -1,10 +1,10 @@
 <template>
   <footer class="footer">
-    <div class="container text-center">
-      <p class="copyright text-light text-center">@2019 by tianyong90</p>
+    <div class="container text-center mx-auto">
+      <p class="text-white text-center">@2019 by tianyong90</p>
     </div>
 
-    <div class="flex-row justify-content-center">
+    <div class="container mx-auto justify-center flex">
       <a class="link" href="https://github.com/tianyong90" target="_blank">
         <i class="icon iconfont icon-github"></i>
       </a>

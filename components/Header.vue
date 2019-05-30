@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar sticky top-0 py-2">
+  <nav class="navbar sticky top-0 py-2 z-50 bg-gray-800">
     <div class="container">
       <nuxt-link tag="a" to="/" class="navbar-brand blog-title">田写</nuxt-link>
 
@@ -53,8 +53,6 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .navbar {
-  background-color: #263238;
-
   .blog-title {
     font-size: 1.5rem;
     font-weight: 500;

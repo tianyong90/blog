@@ -1,7 +1,7 @@
 <template>
-  <div class="container post-container">
+  <div class="container post-container max-w-xl mx-auto">
     <div class="post-list">
-      <div v-for="(post, index) in posts" :key="index" class="post-list-item shadow">
+      <div v-for="(post, index) in posts" :key="index" class="my-5 shadow py-2 px-3 post-list-item">
         <nuxt-link class="post-title" tag="a" :to="'/posts/' + post.slugifiedFilename">{{
           post.title
         }}</nuxt-link>
@@ -12,7 +12,7 @@
           <span v-for="(tag, tagIndex) in post.tags" :key="tagIndex" class="tag">{{ tag }}</span>
         </div>
 
-        <img class="cover" :src="coverImgUrl(post)" alt="" />
+        <img class="cover w-24 h-24 rounded" :src="coverImgUrl(post)" alt="" />
       </div>
     </div>
   </div>
