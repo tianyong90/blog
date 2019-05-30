@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="post-head-wrapper">
-      <div class="post-head " :style="{ backgroundImage: `url(${topImg})` }">
+    <div class="post-head-wrapper min-h-full">
+      <div class="post-head" :style="{ backgroundImage: `url(${topImg})` }">
         <div class="post-info-lg">
           <h1 class="post-title" v-text="title" />
           <div class="post-date">{{ date | formatTime }}</div>
@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="container-fluid py-4">
+    <div class="container mx-auto max-w-lg py-4">
       <div class="row post-info-sm">
         <div class="col-12">
           <h1 class="post-title" v-text="title" />
@@ -124,11 +124,9 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-// @include media-breakpoint-down(md) {
-//   .post-head {
-//     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 5vw), 0 100%);
-//   }
-// }
+.post-head {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 5vw), 0 100%);
+}
 
 // /*小屏幕下的标题区*/
 // @include media-breakpoint-down(sm) {
@@ -204,20 +202,5 @@ export default Vue.extend({
 //   perspective-origin: 0 0;
 //   background-color: #fff;
 //   background-blend-mode: multiply;
-
-//   // &::before {
-//   //   content: '';
-//   //   position: absolute;
-//   //   top: 0;
-//   //   bottom: 0;
-//   //   left: 0;
-//   //   right: 0;
-//   //   z-index: 0 !important;
-//   // }
-
-//   // .post-info-lg {
-//   //   transform-origin: 0 0;
-//   //   transform: translateZ(-1px);
-//   // }
 // }
 </style>

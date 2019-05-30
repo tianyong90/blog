@@ -1,10 +1,25 @@
-import path from 'path'
+import path, { join } from 'path'
 import NuxtConfiguration from '@nuxt/config'
 import CopyPlugin from 'copy-webpack-plugin'
 import Fiber from 'fibers'
 import Sass from 'sass'
+import Purgecss from '@fullhuman/postcss-purgecss'
 import posts from './posts/posts.json'
-const join = require('path').join
+
+const purgecss = Purgecss({
+  // Specify the paths to all of the template files in your project
+  content: [
+    './pages/**/*.html',
+    './pages/**/*.vue',
+    './components/**/*.vue',
+    './components/**/*.jsx',
+    // etc.
+  ],
+
+  // Include any special characters you're using in this regular expression
+  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+})
+
 // console.log(posts)
 const tailwindJS = join(__dirname, 'tailwind.config.js')
 
@@ -71,6 +86,7 @@ const config: NuxtConfiguration = {
 
     postcss: {
       plugins: [require('tailwindcss')(tailwindJS), require('autoprefixer')],
+      ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
     },
 
     /*

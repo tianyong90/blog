@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar fixed-top navbar-expand-lg text-light">
+  <nav class="navbar sticky top-0 py-2">
     <div class="container">
       <nuxt-link tag="a" to="/" class="navbar-brand blog-title">田写</nuxt-link>
 
