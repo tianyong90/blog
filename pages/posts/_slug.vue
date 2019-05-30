@@ -124,93 +124,100 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-@import '~bootstrap/scss/bootstrap-grid';
+// @include media-breakpoint-down(md) {
+//   .post-head {
+//     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 5vw), 0 100%);
+//   }
+// }
 
-@include media-breakpoint-down(md) {
-  .post-head {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 5vw), 0 100%);
-  }
-}
+// /*小屏幕下的标题区*/
+// @include media-breakpoint-down(sm) {
+//   .post-head {
+//     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 12vw));
+//   }
 
-/*小屏幕下的标题区*/
-@include media-breakpoint-down(sm) {
-  .post-head {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 12vw));
-  }
+//   .post-info-sm {
+//     display: block;
+//     margin-bottom: 2rem;
 
-  .post-info-sm {
-    display: block;
-    margin-bottom: 2rem;
+//     .post-title {
+//       color: #333;
+//       font-size: 1.4rem;
+//       font-weight: 500;
+//     }
 
-    .post-title {
-      color: #333;
-      font-size: 1.4rem;
-      font-weight: 500;
-    }
+//     .post-date {
+//       font-size: 0.9rem;
+//     }
+//   }
 
-    .post-date {
-      font-size: 0.9rem;
-    }
-  }
+//   .post-info-lg {
+//     display: none;
+//   }
+// }
 
-  .post-info-lg {
-    display: none;
-  }
-}
+// @include media-breakpoint-up(md) {
+//   .post-info-sm {
+//     display: none;
+//   }
 
-@include media-breakpoint-up(md) {
-  .post-info-sm {
-    display: none;
-  }
+//   .post-info-lg {
+//     z-index: 10;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
 
-  .post-info-lg {
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+//     .post-title {
+//       text-align: center;
+//       font-size: 2rem;
+//       color: #fff;
+//       text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
+//       text-align: left;
+//     }
 
-    .post-title {
-      text-align: center;
-      font-size: 2rem;
-      color: #fff;
-      text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
-      text-align: left;
-    }
+//     .post-date {
+//       color: #fff;
+//       font-weight: 400;
+//       text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
+//       text-align: left;
+//     }
+//   }
+// }
 
-    .post-date {
-      color: #fff;
-      font-weight: 400;
-      text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
-      text-align: left;
-    }
-  }
-}
+// .post-head-wrapper {
+//   filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
+// }
 
-.post-head-wrapper {
-  filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
-}
+// .post-head {
+//   display: flex;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: center center;
+//   background-attachment: fixed;
+//   justify-content: center;
+//   align-items: center;
+//   min-height: 300px;
+//   position: relative;
+//   flex-direction: column;
+//   perspective: 1px;
+//   perspective-origin: 0 0;
+//   background-color: #fff;
+//   background-blend-mode: multiply;
 
-.post-head {
-  display: flex;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  justify-content: center;
-  align-items: center;
-  min-height: 300px;
-  position: relative;
-  flex-direction: column;
+//   // &::before {
+//   //   content: '';
+//   //   position: absolute;
+//   //   top: 0;
+//   //   bottom: 0;
+//   //   left: 0;
+//   //   right: 0;
+//   //   z-index: 0 !important;
+//   // }
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 0 !important;
-  }
-}
+//   // .post-info-lg {
+//   //   transform-origin: 0 0;
+//   //   transform: translateZ(-1px);
+//   // }
+// }
 </style>

@@ -4,10 +4,9 @@ import CopyPlugin from 'copy-webpack-plugin'
 import Fiber from 'fibers'
 import Sass from 'sass'
 import posts from './posts/posts.json'
-
+const join = require('path').join
 // console.log(posts)
-
-console.log('env', process.env.NODE_ENV)
+const tailwindJS = join(__dirname, 'tailwind.config.js')
 
 const config: NuxtConfiguration = {
   mode: 'universal',
@@ -33,7 +32,8 @@ const config: NuxtConfiguration = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/main.scss'],
+  // css: ['~/assets/css/tailwind.css', '~/assets/css/main.scss'],
+  css: ['~/assets/css/tailwind.css'],
 
   /*
    ** Plugins to load before mounting the App
@@ -46,8 +46,6 @@ const config: NuxtConfiguration = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc: https://bootstrap-vue.js.org/docs/
-    'bootstrap-vue/nuxt',
   ],
   /*
    ** Axios module configuration
@@ -70,6 +68,10 @@ const config: NuxtConfiguration = {
         implementation: Sass,
         fiber: Fiber,
       },
+    },
+
+    postcss: {
+      plugins: [require('tailwindcss')(tailwindJS), require('autoprefixer')],
     },
 
     /*

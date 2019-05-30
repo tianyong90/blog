@@ -27,8 +27,6 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.5.1",
-    "bootstrap": "^4.3.1",
-    "bootstrap-vue": "2.0.0-rc.20",
     "cross-env": "^5.2.0",
     "nuxt": "^2.7.1"
   },
@@ -46,6 +44,7 @@
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@vue/test-utils": "^1.0.0-beta.27",
     "anchor": "^1.4.0",
+    "autoprefixer": "^9.5.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^24.8.0",
     "color": "^3.1.1",
@@ -81,6 +80,7 @@
     "slugify": "^1.3.4",
     "social-share.js": "^1.0.16",
     "summarize-markdown": "^0.3.1",
+    "tailwindcss": "^1.0.2",
     "transliteration": "^2.1.3",
     "ts-node": "^8.2.0",
     "tslint": "^5.16.0",
