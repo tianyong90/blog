@@ -32,8 +32,7 @@ const config: NuxtConfiguration = {
   /*
    ** Global CSS
    */
-  // css: ['~/assets/css/tailwind.css', '~/assets/css/main.scss'],
-  css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/tailwind.css', '~/assets/css/main.scss'],
 
   /*
    ** Plugins to load before mounting the App
