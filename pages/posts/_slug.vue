@@ -1,19 +1,20 @@
 <template>
   <div>
-    <div class="post-head-wrapper min-h-full">
-      <div class="post-head" :style="{ backgroundImage: `url(${topImg})` }">
-        <div class="post-info-lg">
-          <h1 class="post-title" v-text="title" />
-          <div class="post-date">{{ date | formatTime }}</div>
-        </div>
+    <div
+      class="top-0 text-center py-24 bg-gray-800 bg-fixed bg-cover post-head-wrapper"
+      :style="{ backgroundImage: `url(${topImg})` }"
+    >
+      <div class="post-info-lg z-40">
+        <h1 class="text-white text-2xl font-semibold post-title" v-text="title" />
+        <div class="text-white text-base font-normal post-date">{{ date | formatTime }}</div>
       </div>
     </div>
 
     <div class="container mx-auto max-w-xl py-4">
-      <div class="row post-info-sm">
-        <div class="col-12">
-          <h1 class="post-title" v-text="title" />
-          <div class="post-date">{{ date | formatTime }}</div>
+      <div class="sm:block md:hidden mb-5">
+        <div class="">
+          <h1 class="text-gray-700 text-xl post-title" v-text="title" />
+          <div class="text-gray-600 text-sm post-date">{{ date | formatTime }}</div>
         </div>
       </div>
 
@@ -122,8 +123,9 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.post-head {
+.post-head-wrapper {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 5vw), 0 100%);
+  background-blend-mode: overlay;
 }
 
 // /*小屏幕下的标题区*/

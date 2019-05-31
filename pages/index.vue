@@ -1,18 +1,31 @@
 <template>
-  <div class="container post-container max-w-xl mx-auto">
-    <div class="post-list">
-      <div v-for="(post, index) in posts" :key="index" class="my-5 shadow py-2 px-3 post-list-item">
-        <nuxt-link class="post-title" tag="a" :to="'/posts/' + post.slugifiedFilename">{{
-          post.title
-        }}</nuxt-link>
+  <div class="container max-w-xl mx-auto">
+    <div class="">
+      <div
+        v-for="(post, index) in posts"
+        :key="index"
+        class="my-5 shadow py-2 px-3 bg-blue-600 sm:flex-col"
+      >
+        <div class="sm:flex md:block">
+          <nuxt-link
+            class="text-indigo-800 no-underline post-title"
+            :to="'/posts/' + post.slugifiedFilename"
+            >{{ post.title }}</nuxt-link
+          >
 
-        <p class="post-description" v-html="post.description"></p>
+          <p class="text-sm" v-html="post.description" />
 
-        <div class="tags">
-          <span v-for="(tag, tagIndex) in post.tags" :key="tagIndex" class="tag">{{ tag }}</span>
+          <div class="sm:hidden lg:flex">
+            <span
+              v-for="(tag, tagIndex) in post.tags"
+              :key="tagIndex"
+              class="sm:hidden bg-gray-700 mx-1 px-2 py-1 rounded-sm text-xs text-white"
+              >{{ tag }}</span
+            >
+          </div>
         </div>
 
-        <img class="cover w-24 h-24 rounded" :src="coverImgUrl(post)" alt="" />
+        <img class="sm:flex lg:hidden w-24 h-24 rounded" :src="coverImgUrl(post)" alt="" />
       </div>
     </div>
   </div>
@@ -32,7 +45,7 @@ interface Post {
 export default Vue.extend({
   head() {
     return {
-      title: '田写',
+      title: '首页',
       // TODO: keyword and description
     }
   },
@@ -54,76 +67,4 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
-// .post-container {
-//   margin-top: 65px;
-// }
-
-// .post-list {
-//   .post-list-item {
-//     display: block;
-//     margin: 1rem 0;
-//     padding: 1rem 1.5rem;
-
-//     .post-title {
-//       display: block;
-//       color: #2b2b2b;
-//       font-size: 1.1rem;
-//       font-weight: 500;
-//       margin-bottom: 1rem;
-//     }
-
-//     .post-description {
-//       color: #444;
-//       font-size: 0.85rem;
-//       display: -webkit-box;
-//       -webkit-line-clamp: 2;
-//       -webkit-box-orient: vertical;
-//       overflow: hidden;
-//     }
-
-//     .tags {
-//       display: flex;
-//       margin-top: 1rem;
-
-//       .tag {
-//         display: flex;
-//         background-color: #455a64;
-//         margin-right: 0.5rem;
-//         padding: 0.2rem 0.5rem;
-//         color: #fff;
-//         font-size: 0.725rem;
-//         border-radius: 3px;
-//       }
-//     }
-
-//     .cover {
-//       display: none;
-//     }
-
-//     @include media-breakpoint-down(sm) {
-//       display: flex;
-//       overflow: hidden;
-//       justify-content: space-between;
-//       padding: 0;
-//       border-radius: 3px;
-
-//       .post-title {
-//         padding: 0.85rem 1rem;
-//       }
-
-//       .post-description,
-//       .tags {
-//         display: none;
-//       }
-
-//       .cover {
-//         display: block;
-//         width: 85px;
-//         height: 85px;
-//         object-fit: cover;
-//       }
-//     }
-//   }
-// }
-</style>
+<style lang="scss"></style>
