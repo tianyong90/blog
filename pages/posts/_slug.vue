@@ -123,9 +123,11 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.post-head-wrapper {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 5vw), 0 100%);
-  background-blend-mode: overlay;
+@media screen and (min-width: 680px) {
+  .post-head-wrapper {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 5vw), 0 100%);
+    background-blend-mode: overlay;
+  }
 }
 
 // /*小屏幕下的标题区*/

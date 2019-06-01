@@ -9283,10 +9283,10 @@ sass-loader@^7.1.0:
     pify "^3.0.0"
     semver "^5.5.0"
 
-sass@^1.20.1:
-  version "1.20.1"
-  resolved "https://registry.npm.taobao.org/sass/download/sass-1.20.1.tgz#737b901fe072336da540b6d00ec155e2267420da"
-  integrity sha1-c3uQH+ByM22lQLbQDsFV4iZ0INo=
+sass@1.20.3:
+  version "1.20.3"
+  resolved "https://registry.npm.taobao.org/sass/download/sass-1.20.3.tgz#18284a7bac6eab9cbb80453288473194f29efb84"
+  integrity sha1-GChKe6xuq5y7gEUyiEcxlPKe+4Q=
   dependencies:
     chokidar "^2.0.0"
 
