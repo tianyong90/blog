@@ -1,19 +1,15 @@
 <template>
-  <div class="container max-w-xl mx-auto">
+  <div class="max-w-4xl mx-auto">
     <div class="">
-      <div
-        v-for="(post, index) in posts"
-        :key="index"
-        class="my-5 shadow py-2 px-3 bg-blue-600 sm:flex-col"
-      >
+      <div v-for="(post, index) in posts" :key="index" class="my-8 shadow py-2 px-3 sm:flex-col">
         <div class="sm:flex md:block">
           <nuxt-link
-            class="text-indigo-800 no-underline post-title"
+            class="text-indigo-800 text-lg font-semibold no-underline"
             :to="'/posts/' + post.slugifiedFilename"
             >{{ post.title }}</nuxt-link
           >
 
-          <p class="text-sm" v-html="post.description" />
+          <p class="text-base" v-html="post.description" />
 
           <div class="sm:hidden lg:flex">
             <span

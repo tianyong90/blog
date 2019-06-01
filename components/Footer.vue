@@ -20,7 +20,7 @@
 
 <style scoped lang="scss">
 .footer {
-  padding: 50px 0 20px;
+  padding: 100px 0 20px;
   background-color: #263238;
   clip-path: polygon(0 0, 50% 3vw, 100% 0, 100% 100%, 0 100%);
 }
@@ -29,8 +29,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   background-color: #fff;
   color: #263238;
   margin: 0 0.1rem;
@@ -80,5 +80,9 @@
     12.14505% 26.16978%,
     12.85898% 25.66987%
   );
+
+  .iconfont {
+    font-size: 25px;
+  }
 }
 </style>

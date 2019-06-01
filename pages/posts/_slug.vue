@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="container mx-auto max-w-xl py-4">
+    <div class="mx-auto max-w-4xl py-4">
       <div class="sm:block md:hidden mb-5">
         <div class="">
           <h1 class="text-gray-700 text-xl post-title" v-text="title" />
