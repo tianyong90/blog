@@ -4,13 +4,13 @@
       class="top-0 text-center py-24 bg-gray-800 bg-fixed bg-cover post-head-wrapper"
       :style="{ backgroundImage: `url(${topImg})` }"
     >
-      <div class="post-info-lg z-40">
+      <div class="hidden md:flex flex-col justify-center items-center z-40">
         <h1 class="text-white text-2xl font-semibold post-title" v-text="title" />
         <div class="text-white text-base font-normal post-date">{{ date | formatTime }}</div>
       </div>
     </div>
 
-    <div class="mx-auto max-w-4xl py-4">
+    <div class="mx-auto max-w-2xl py-4">
       <div class="sm:block md:hidden mb-5">
         <div class="">
           <h1 class="text-gray-700 text-xl post-title" v-text="title" />
@@ -129,80 +129,4 @@ export default Vue.extend({
     background-blend-mode: overlay;
   }
 }
-
-// /*小屏幕下的标题区*/
-// @include media-breakpoint-down(sm) {
-//   .post-head {
-//     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 12vw));
-//   }
-
-//   .post-info-sm {
-//     display: block;
-//     margin-bottom: 2rem;
-
-//     .post-title {
-//       color: #333;
-//       font-size: 1.4rem;
-//       font-weight: 500;
-//     }
-
-//     .post-date {
-//       font-size: 0.9rem;
-//     }
-//   }
-
-//   .post-info-lg {
-//     display: none;
-//   }
-// }
-
-// @include media-breakpoint-up(md) {
-//   .post-info-sm {
-//     display: none;
-//   }
-
-//   .post-info-lg {
-//     z-index: 10;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-
-//     .post-title {
-//       text-align: center;
-//       font-size: 2rem;
-//       color: #fff;
-//       text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
-//       text-align: left;
-//     }
-
-//     .post-date {
-//       color: #fff;
-//       font-weight: 400;
-//       text-shadow: rgba(0, 0, 0, 0.6) 0 0 10px;
-//       text-align: left;
-//     }
-//   }
-// }
-
-// .post-head-wrapper {
-//   filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
-// }
-
-// .post-head {
-//   display: flex;
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   background-position: center center;
-//   background-attachment: fixed;
-//   justify-content: center;
-//   align-items: center;
-//   min-height: 300px;
-//   position: relative;
-//   flex-direction: column;
-//   perspective: 1px;
-//   perspective-origin: 0 0;
-//   background-color: #fff;
-//   background-blend-mode: multiply;
-// }
 </style>

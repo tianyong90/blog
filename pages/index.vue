@@ -2,7 +2,7 @@
   <div class="max-w-4xl mx-auto">
     <div class="">
       <div v-for="(post, index) in posts" :key="index" class="my-8 shadow py-2 px-3 sm:flex-col">
-        <div class="sm:flex md:block">
+        <div class="">
           <nuxt-link
             class="text-indigo-800 text-lg font-semibold no-underline"
             :to="'/posts/' + post.slugifiedFilename"
@@ -11,17 +11,17 @@
 
           <p class="text-base" v-html="post.description" />
 
-          <div class="sm:hidden lg:flex">
+          <div class="">
             <span
               v-for="(tag, tagIndex) in post.tags"
               :key="tagIndex"
-              class="sm:hidden bg-gray-700 mx-1 px-2 py-1 rounded-sm text-xs text-white"
+              class="bg-gray-700 mx-1 px-2 py-1 rounded-sm text-xs text-white"
               >{{ tag }}</span
             >
           </div>
         </div>
 
-        <img class="sm:flex lg:hidden w-24 h-24 rounded" :src="coverImgUrl(post)" alt="" />
+        <!--        <img class="sm:flex lg:hidden w-24 h-24 rounded" :src="coverImgUrl(post)" alt="" />-->
       </div>
     </div>
   </div>
