@@ -4,7 +4,13 @@
 @import url('//at.alicdn.com/t/font_1198945_v9bd78n3o39.css');
 @import "~prism-themes/themes/prism-atom-dark.css";
 @import "~github-markdown-css/github-markdown.css";
-@import "~normalize.css";
+@import "~normalize.css/normalize.css";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
 /// Mixin to customize scrollbars
 /// Beware, this does not work in all browsers
