@@ -73,6 +73,7 @@
     "lint-staged": "^8.1.7",
     "lodash": "^4.17.11",
     "nodemon": "^1.19.1",
+    "normalize.css": "^8.0.1",
     "prettier": "^1.17.1",
     "prism-themes": "^1.1.0",
     "rgbaster": "^2.1.1",
