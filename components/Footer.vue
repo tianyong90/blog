@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
-    <div class="container text-center mx-auto">
-      <p class="text-white text-center">@2019 by tianyong90</p>
+    <div class="container mx-auto">
+      <p class="text-gray-500 text-center text-lg">@2019 by tianyong90</p>
     </div>
 
     <div class="container mx-auto justify-center flex">
@@ -20,9 +20,8 @@
 
 <style scoped lang="scss">
 .footer {
-  padding: 100px 0 20px;
+  padding: 50px 0 20px;
   background-color: #263238;
-  clip-path: polygon(0 0, 50% 3vw, 100% 0, 100% 100%, 0 100%);
 }
 
 .link {

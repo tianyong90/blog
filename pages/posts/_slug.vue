@@ -5,12 +5,12 @@
       :style="{ backgroundImage: `url(${topImg})` }"
     >
       <div class="hidden md:flex flex-col justify-center items-center z-40">
-        <h1 class="text-white text-2xl font-semibold post-title" v-text="title" />
+        <h1 class="text-white text-4xl font-normal post-title" v-text="title" />
         <div class="text-white text-base font-normal post-date">{{ date | formatTime }}</div>
       </div>
     </div>
 
-    <div class="mx-auto max-w-2xl py-4">
+    <div class="mx-auto max-w-3xl py-4">
       <div class="sm:block md:hidden mb-5">
         <div class="">
           <h1 class="text-gray-700 text-xl post-title" v-text="title" />
@@ -122,11 +122,4 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped lang="scss">
-@media screen and (min-width: 680px) {
-  .post-head-wrapper {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 5vw), 0 100%);
-    background-blend-mode: overlay;
-  }
-}
-</style>
+<style scoped lang="scss"></style>

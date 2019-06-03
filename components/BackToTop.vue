@@ -15,10 +15,12 @@ export default Vue.extend({
 
   mounted() {
     this.$nextTick(() => {
+      this.shouldShow = window.scrollY > 500
+
       window.addEventListener(
         'scroll',
         e => {
-          this.shouldShow = window.scrollY > 1000
+          this.shouldShow = window.scrollY > 500
         },
         false
       )
@@ -37,7 +39,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-$size: 38px;
+$size: 42px;
 
 .btn-back-to-top {
   position: fixed;
