@@ -9981,10 +9981,10 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwindcss@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/tailwindcss/download/tailwindcss-1.0.2.tgz#1df9caf88e0b194a5debf3c3b3aa6b64ea92c9a8"
-  integrity sha1-HfnK+I4LGUpd6/PDs6prZOqSyag=
+tailwindcss@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npm.taobao.org/tailwindcss/download/tailwindcss-1.0.3.tgz#12845ec6c9542e97f07ea2bd8af4ba47e8a888d1"
+  integrity sha1-EoRexslULpfwfqK9ivS6R+ioiNE=
   dependencies:
     autoprefixer "^9.4.5"
     bytes "^3.0.0"
