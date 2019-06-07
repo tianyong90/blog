@@ -94,6 +94,8 @@ categories:
 
 1. 修改 JS 等，自动编译后浏览器中页面即自动更新
 
+**laravel-mix 4.0.16 中修复了在 windows 中使用 hmr 的 BUG，开发体验相较以前更好。https://github.com/JeffreyWay/laravel-mix/pull/1995**
+
 ## 总结
 
 两种方法并没有谁好谁坏之分，具体使用哪种方法视具体场景及个人喜好而定。就我个人而言，通常使用第二种，主要原因有二：
