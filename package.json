@@ -12,7 +12,8 @@
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "test": "jest",
     "generate-post-list": "node scripts/generate-post-list.js",
-    "create": "node scripts/create-post.js"
+    "create": "node scripts/create-post.js",
+    "dev:scripts": "tsc --project scripts/"
   },
   "husky": {
     "hooks": {

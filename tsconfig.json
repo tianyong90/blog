@@ -14,7 +14,7 @@
     "importHelpers": true,
     "experimentalDecorators": true,
     "allowJs": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "strict": true,
     "noImplicitAny": false,
     "noEmit": true,

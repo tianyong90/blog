@@ -14,10 +14,9 @@
     "importHelpers": true,
     "experimentalDecorators": true,
     "allowJs": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "strict": true,
     "noImplicitAny": false,
-    "noEmit": true,
     "baseUrl": ".",
     "paths": {
       "~/*": [
@@ -26,10 +25,12 @@
       "@/*": [
         "./*"
       ]
-    },
-    "types": [
-      "@types/node",
-      "@nuxt/vue-app"
-    ]
-  }
+    }
+  },
+  "include": [
+    "./*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
