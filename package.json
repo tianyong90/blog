@@ -5,7 +5,7 @@
   "author": "tianyong90",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "node scripts/generate-post-list.js && nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",

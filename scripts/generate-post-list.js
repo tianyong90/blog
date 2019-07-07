@@ -13,8 +13,6 @@ const posts = list.filter(item => item.endsWith('.md')).map(item => item.replace
 const jsonData = posts.map(post => {
   const { data, content } = matter.read(`./posts/${post}.md`)
 
-  // console.log(frontMatterData)
-
   const slugifiedFilename = slugify(data.title, {
     trim: true,
     replace: {
