@@ -148,12 +148,12 @@
     "date": "2019-07-07 13:47:57",
     "top_img": "",
     "tags": [
-      ""
+      "webpack-encore"
     ],
     "categories": [
-      ""
+      "前端"
     ],
-    "description": ""
+    "description": "看过我之前写过的博客的应该知道我一直是 laravel-mix 的死忠粉，有好几篇文章都是关于它的。每每提到 larav"
   },
   {
     "filename": "用-Algolia-DocSearch-轻松实现文档全站搜索",
