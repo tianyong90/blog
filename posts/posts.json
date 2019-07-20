@@ -146,9 +146,11 @@
     "slugifiedFilename": "zai-laravel-xiang-mu-zhong-shi-yong-webpack-encore",
     "title": "在 Laravel 项目中使用 webpack-encore",
     "date": "2019-07-07 13:47:57",
-    "top_img": "",
+    "top_img": "./encore.png",
     "tags": [
-      "webpack-encore"
+      "webpack-encore",
+      "laravel-mix",
+      "laravel"
     ],
     "categories": [
       "前端"
