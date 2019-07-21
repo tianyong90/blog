@@ -5,7 +5,7 @@
       :style="{ backgroundImage: `url(${topImg})` }"
     >
       <div class="hidden md:flex flex-col justify-center items-center z-40">
-        <h1 class="text-white text-4xl font-normal post-title" v-text="title" />
+        <h1 class="text-white text-4xl font-normal post-title post-title" v-text="title" />
         <div class="text-white text-base font-normal post-date">{{ date | formatTime }}</div>
       </div>
     </div>
@@ -122,4 +122,11 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.post-head-wrapper {
+  .post-title,
+  .post-date {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
+  }
+}
+</style>

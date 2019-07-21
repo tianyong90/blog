@@ -1,7 +1,11 @@
 <template>
   <div class="max-w-4xl mx-auto">
     <div class="">
-      <div v-for="(post, index) in posts" :key="index" class="my-8 shadow py-2 px-3 sm:flex-col">
+      <div
+        v-for="(post, index) in posts"
+        :key="index"
+        class="my-6 shadow-md p-4 sm:flex-col bg-gray-300 rounded-sm"
+      >
         <div class="">
           <nuxt-link
             class="text-indigo-800 text-lg font-semibold no-underline"
