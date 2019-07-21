@@ -177,6 +177,6 @@ function encore_entry_script_tags(string $entryName): HtmlString
 
 使用 webpack-encore 已经快两个月了，这期间总体说来相当顺利，小坑虽然有，但没什么大坑。去 github 上提 issue，维护成员基本上都很友善耐心，几个小时就会有回复。这种态度也让我对它更加放心了，相信它会折腾得越来越好。虽然 webpack-encore 是作为 Symfony 默认集成工具来设计的，但这并不妨碍它在 Laravel 中发挥强大威力。
 
-相比于 laravel-mi，encore 的 API 以及一些默认配置方面考虑得更为科学和全面，想要配置 vue-loader 或者  ts-loader 之类的，只需要调用相应的方法。另外还有点让我先惊讶的是，他们竟然对 `watchOptions.ignored` 的默认值也考虑到了，默认忽略 /node_modules/，降低 CPU 占用。当然，更为重要的是，mix4 里因为一些 bug 而无法使用的功能，在 encore 里却正常，如 dynamic import。
+相比于 laravel-mix，encore 的 API 以及一些默认配置方面考虑得更为科学和全面，想要配置 vue-loader 或者  ts-loader 之类的，只需要调用相应的方法。另外还有点让我先惊讶的是，他们竟然对 `watchOptions.ignored` 的默认值也考虑到了，默认忽略 /node_modules/，降低 CPU 占用。当然，更为重要的是，mix4 里因为一些 bug 而无法使用的功能，在 encore 里却正常，如 dynamic import。
 
 总之，如果你已经发现了 laravel-mix 的种种不足但又苦于没更好选择的话，不妨试试 webpack-encore，相信你会对它爱不释手。
