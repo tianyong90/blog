@@ -23,14 +23,14 @@ ElementUI 是自己比较钟爱的一套 vue 组件库，自己好几个项目�
     <el-radio-group
       v-model="checkedUser"
     >
-      <MyRadio
+      <el-radio
         v-for="(user, index) in users"
         :key="index"
         :label="user"
         :value="user"
       >
         {{ `${user.name}(${user.age}岁)` }}
-      </MyRadio >
+      </el-radio >
     </el-radio-group>
 
     <h2>当前选中</h2>
@@ -39,15 +39,10 @@ ElementUI 是自己比较钟爱的一套 vue 组件库，自己好几个项目�
 </template>
 
 <script>
-import MyRadio from './components/MyRadio'
 import { mapState } from 'vuex'
 
 export default {
   name: 'app',
-
-  components: {
-    MyRadio
-  },
 
   data () {
     return {
