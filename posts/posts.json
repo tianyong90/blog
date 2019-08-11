@@ -13,6 +13,21 @@
     "description": "开发完项目，免不了要部署上线。纯手动操作，登录、拉代码、改配置、清缓存、各种服务重启等等一条龙下来，人生宝贵的几分钟就过"
   },
   {
+    "filename": "ElementUI-radio-小改造",
+    "slugifiedFilename": "elementui-radio-xiao-gai-zao",
+    "title": "ElementUI radio 小改造",
+    "date": "2019-08-10 16:22:20",
+    "top_img": "",
+    "tags": [
+      "ElementUI",
+      "el-radio"
+    ],
+    "categories": [
+      ""
+    ],
+    "description": "ElementUI 是自己比较钟爱的一套 vue 组件库，自己好几个项目里都在用它。一直以来这些丰富的组件，让我能快速的"
+  },
+  {
     "filename": "highlight-js-在-Vue-中使用的一点儿经验",
     "slugifiedFilename": "highlight.js-zai-vue-zhong-shi-yong-de-yi-dian-er-jing-yan",
     "title": "highlight.js 在 Vue 中使用的一点儿经验",

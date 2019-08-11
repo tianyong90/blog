@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="container mx-auto">
-      <p class="text-gray-500 text-center text-lg">@2019 by tianyong90</p>
+      <p class="text-gray-600 text-center text-base">@2019 by tianyong90</p>
     </div>
 
     <div class="container mx-auto justify-center flex">
