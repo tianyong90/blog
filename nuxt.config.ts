@@ -63,6 +63,9 @@ const config: NuxtConfiguration = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
   ],
+
+  buildModules: ['@nuxt/typescript-build'],
+
   /*
    ** Axios module configuration
    */
@@ -126,6 +129,11 @@ const config: NuxtConfiguration = {
         ])
       )
     },
+  },
+
+  typescript: {
+    typeCheck: true,
+    ignoreNotFoundWarnings: true,
   },
 
   generate: {
