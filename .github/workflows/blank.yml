@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: tianyong90/blog
+    - name: yarn install
+      run: yarn install
+    - name: test coverage
+      run: |
+        yarn run test:coverage
