@@ -1,7 +1,6 @@
 import path, { join } from 'path'
 import { Configuration } from '@nuxt/types'
 import CopyPlugin from 'copy-webpack-plugin'
-import Fiber from 'fibers'
 import Sass from 'sass'
 import Purgecss from '@fullhuman/postcss-purgecss'
 import posts from './posts/posts.json'
@@ -64,7 +63,15 @@ const config: Configuration = {
     '@nuxtjs/axios',
   ],
 
-  buildModules: ['@nuxt/typescript-build'],
+  buildModules: [
+    [
+      '@nuxt/typescript-build',
+      {
+        typeCheck: true,
+        ignoreNotFoundWarnings: true,
+      },
+    ],
+  ],
 
   /*
    ** Axios module configuration
@@ -128,11 +135,6 @@ const config: Configuration = {
         ])
       )
     },
-  },
-
-  typescript: {
-    typeCheck: true,
-    ignoreNotFoundWarnings: true,
   },
 
   generate: {
