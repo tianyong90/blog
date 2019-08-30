@@ -12,18 +12,18 @@ jobs:
     - name: yarn install
       run: yarn install
     - name: lint
-      run: echo 'lint'
+      run: yarn run lint
 
-  build:
+  # build:
 
-    runs-on: ubuntu-latest
+  #   runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@master
-    - name: yarn install
-      run: yarn install
-    - name: hello world
-      run: echo 'hello world'
-    - name: test coverage
-      run: |
-        yarn run test:coverage
+  #   steps:
+  #   - uses: actions/checkout@master
+  #   - name: yarn install
+  #     run: yarn install
+  #   - name: hello world
+  #     run: echo 'hello world'
+  #   - name: test coverage
+  #     run: |
+  #       yarn run test:coverage
