@@ -1,14 +1,25 @@
-name: blog
+name: build
 
 on: [push]
 
 jobs:
+  eslint:
+    name: eslint
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: yarn install
+      run: yarn install
+    - name: lint
+      run: echo 'lint'
+
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: tianyong90/blog
+    - uses: actions/checkout@master
     - name: yarn install
       run: yarn install
     - name: hello world
