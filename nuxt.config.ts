@@ -1,5 +1,5 @@
 import path, { join } from 'path'
-import NuxtConfiguration from '@nuxt/config'
+import { Configuration } from '@nuxt/types'
 import CopyPlugin from 'copy-webpack-plugin'
 import Fiber from 'fibers'
 import Sass from 'sass'
@@ -25,7 +25,7 @@ const purgecss = Purgecss({
 // console.log(posts)
 const tailwindJS = join(__dirname, 'tailwind.config.js')
 
-const config: NuxtConfiguration = {
+const config: Configuration = {
   mode: 'universal',
 
   /*
@@ -85,7 +85,6 @@ const config: NuxtConfiguration = {
     loaders: {
       scss: {
         implementation: Sass,
-        fiber: Fiber,
       },
     },
 
