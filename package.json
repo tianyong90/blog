@@ -54,6 +54,7 @@
     "color": "^3.1.2",
     "copy-webpack-plugin": "^5.0.3",
     "date-fns": "^2.0.1",
+    "dayjs": "^1.8.16",
     "eslint": "^6.0.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-standard": "^14.1.0",
