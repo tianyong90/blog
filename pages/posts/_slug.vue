@@ -55,7 +55,7 @@ export default Vue.extend({
 
   filters: {
     formatTime(val) {
-      return format(new Date(val), 'YYYY-MM-DD')
+      return format(new Date(val), 'yyyy-mm-dd')
     },
   },
 
