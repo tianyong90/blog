@@ -1,6 +1,6 @@
 ---
 title: 在 Laravel 项目中使用 webpack-encore
-date: '2019-07-07 13:47:57'
+date: 2019-07-07 13:47:57
 top_img: ./encore.png
 tags:
   - webpack-encore
