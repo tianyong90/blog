@@ -185,7 +185,7 @@
     "categories": [
       "前端"
     ],
-    "description": ""
+    "description": "前段时间开始在 laravel 项目中使用 webpack-encore。"
   },
   {
     "filename": "用-Algolia-DocSearch-轻松实现文档全站搜索",

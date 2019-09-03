@@ -31,7 +31,7 @@
 import Vue from 'vue'
 import analyze from 'rgbaster'
 import Color from 'color'
-import { format } from 'date-fns'
+import dayjs from 'dayjs'
 // TODO:
 // import 'social-share.js/dist/css/share.min.css'
 // import SocialShare from 'social-share.js'
@@ -55,7 +55,7 @@ export default Vue.extend({
 
   filters: {
     formatTime(val) {
-      return format(new Date(val), 'yyyy-mm-dd')
+      return dayjs(val).format('YYYY-MM-DD')
     },
   },
 
