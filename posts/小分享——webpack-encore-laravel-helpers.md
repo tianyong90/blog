@@ -1,7 +1,7 @@
 ---
 title: 小分享——webpack-encore-laravel-helpers
 date: 2019-09-03 10:52:58
-top_img: ./top_img.jpg
+top_img: ./webpack-encore-laravel.jpg
 tags:
   - webpack-encore
   - laravel

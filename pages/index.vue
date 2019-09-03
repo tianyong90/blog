@@ -4,22 +4,22 @@
       <div
         v-for="(post, index) in posts"
         :key="index"
-        class="my-6 shadow-md p-4 sm:flex-col bg-gray-300 rounded-sm"
+        class="my-6 shadow-md p-4 sm:flex-col bg-white rounded-sm"
       >
         <div class="">
           <nuxt-link
-            class="text-indigo-800 text-lg font-semibold no-underline"
+            class="text-gray-800 text-base no-underline"
             :to="'/posts/' + post.slugifiedFilename"
             >{{ post.title }}</nuxt-link
           >
 
-          <p class="text-base" v-html="post.description" />
+          <p class="text-sm font-thin" v-html="post.description" />
 
           <div class="">
             <span
               v-for="(tag, tagIndex) in post.tags"
               :key="tagIndex"
-              class="bg-gray-700 mx-1 px-2 py-1 rounded-sm text-xs text-white"
+              class="bg-gray-600 mx-1 px-2 py-1 rounded-sm text-xs text-white font-thin"
               >{{ tag }}</span
             >
           </div>

@@ -160,7 +160,7 @@
     "filename": "在-Laravel-项目中使用-webpack-encore",
     "slugifiedFilename": "zai-laravel-xiang-mu-zhong-shi-yong-webpack-encore",
     "title": "在 Laravel 项目中使用 webpack-encore",
-    "date": "2019-07-07 13:47:57",
+    "date": "2019-07-07T13:47:57.000Z",
     "top_img": "./encore.png",
     "tags": [
       "webpack-encore",
@@ -185,7 +185,7 @@
     "categories": [
       "前端"
     ],
-    "description": "前段时间开始在 laravel 项目中使用 webpack-encore。"
+    "description": "在我之前一篇博客《在 Laravel 项目中使用 webpack-encore》中提到，为了方便在 laravel bl"
   },
   {
     "filename": "用-Algolia-DocSearch-轻松实现文档全站搜索",
