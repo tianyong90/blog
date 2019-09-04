@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="top-0 text-center py-24 bg-gray-800 bg-fixed bg-cover post-head-wrapper"
+      class="top-0 text-center py-24 bg-gray-800 bg-fixed bg-cover bg-no-repeat bg-center post-head-wrapper"
       :style="{ backgroundImage: `url(${topImg})` }"
     >
       <div class="hidden md:flex flex-col justify-center items-center z-40">
@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="mx-auto max-w-3xl py-4">
+    <div class="mx-auto max-w-3xl px-2 py-4">
       <div class="sm:block md:hidden mb-5">
         <div class="">
           <h1 class="text-gray-700 text-xl post-title" v-text="title" />

@@ -1,32 +1,30 @@
 <template>
   <div class="max-w-4xl mx-auto">
-    <div class="">
-      <div
-        v-for="(post, index) in posts"
-        :key="index"
-        class="my-6 shadow-md p-4 sm:flex-col bg-white rounded-sm"
-      >
+    <div
+      v-for="(post, index) in posts"
+      :key="index"
+      class="my-6 shadow-md p-4 sm:flex-col bg-white rounded-sm"
+    >
+      <div class="">
+        <nuxt-link
+          class="text-black text-base font-medium no-underline"
+          :to="'/posts/' + post.slugifiedFilename"
+          >{{ post.title }}</nuxt-link
+        >
+
+        <p class="text-sm font-light text-gray-700" v-html="post.description" />
+
         <div class="">
-          <nuxt-link
-            class="text-gray-800 text-base no-underline"
-            :to="'/posts/' + post.slugifiedFilename"
-            >{{ post.title }}</nuxt-link
+          <span
+            v-for="(tag, tagIndex) in post.tags"
+            :key="tagIndex"
+            class="bg-gray-600 mx-1 px-2 py-1 rounded-sm text-xs text-white font-light"
+            >{{ tag }}</span
           >
-
-          <p class="text-sm font-thin" v-html="post.description" />
-
-          <div class="">
-            <span
-              v-for="(tag, tagIndex) in post.tags"
-              :key="tagIndex"
-              class="bg-gray-600 mx-1 px-2 py-1 rounded-sm text-xs text-white font-thin"
-              >{{ tag }}</span
-            >
-          </div>
         </div>
-
-        <!--        <img class="sm:flex lg:hidden w-24 h-24 rounded" :src="coverImgUrl(post)" alt="" />-->
       </div>
+
+      <!--<img class="sm:flex lg:hidden w-24 h-24 bg-cover bg-center rounded" :src="coverImgUrl(post)" alt="" />-->
     </div>
   </div>
 </template>
