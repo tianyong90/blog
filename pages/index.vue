@@ -1,9 +1,9 @@
 <template>
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-4xl mx-auto lg:p-2 px-4 lg:px-0">
     <div
       v-for="(post, index) in posts"
       :key="index"
-      class="my-6 shadow-md p-4 sm:flex-col bg-white rounded-sm"
+      class="flex my-6 shadow-md p-4 sm:flex-col bg-white rounded-sm"
     >
       <div class="">
         <nuxt-link
@@ -18,7 +18,7 @@
           <span
             v-for="(tag, tagIndex) in post.tags"
             :key="tagIndex"
-            class="bg-gray-600 mx-1 px-2 py-1 rounded-sm text-xs text-white font-light"
+            class="bg-gray-600 mr-1 px-2 py-1 rounded-sm text-xs text-white font-light"
             >{{ tag }}</span
           >
         </div>

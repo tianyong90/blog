@@ -1,26 +1,14 @@
 <template>
   <div>
-    <div
-      class="top-0 text-center py-24 bg-gray-800 bg-fixed bg-cover bg-no-repeat bg-center post-head-wrapper"
-      :style="{ backgroundImage: `url(${topImg})` }"
-    >
-      <div class="hidden md:flex flex-col justify-center items-center z-40">
-        <h1 class="text-white text-4xl font-normal post-title post-title" v-text="title" />
-        <div class="text-white text-base font-normal post-date">{{ date | formatTime }}</div>
-      </div>
-    </div>
+    <div class="mx-auto max-w-3xl px-4 lg:px-0 py-4">
+      <img :src="topImg" class="w-full shadow-md" />
 
-    <div class="mx-auto max-w-3xl px-2 py-4">
-      <div class="sm:block md:hidden mb-5">
-        <div class="">
-          <h1 class="text-gray-700 text-xl post-title" v-text="title" />
-          <div class="text-gray-600 text-sm post-date">{{ date | formatTime }}</div>
-        </div>
+      <div class="mb-4">
+        <h1 class="text-gray-700 text-xl post-title" v-text="title" />
+        <div class="text-gray-600 text-sm post-date">{{ date | formatTime }}</div>
       </div>
 
-      <div class="">
-        <div class="markdown-body" v-html="html" />
-      </div>
+      <div class="markdown-body" v-html="html" />
 
       <div class="social-share"></div>
     </div>
@@ -29,7 +17,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import analyze from 'rgbaster'
 import Color from 'color'
 import dayjs from 'dayjs'
 // TODO:
@@ -99,21 +86,6 @@ export default Vue.extend({
   },
 
   async mounted() {
-    if (this.topImg) {
-      // 取出头部图片主色调
-      const result = await analyze(this.topImg, {
-        ignore: ['rgba(255, 255, 255)', 'rgba(0, 0, 0)'],
-        scale: 0.6,
-      })
-      const mainColor = result[0].color
-
-      // 主色调使用透明度后设置为半透明遮罩
-      const coverColor = Color(mainColor)
-        .alpha(0.65)
-        .string()
-      ;(document.styleSheets[0] as any).addRule('.post-head::before', `background: ${coverColor}`)
-    }
-
     // TODO:
     // SocialShare('.social-share', {
     //   title: 'abc'
@@ -128,5 +100,9 @@ export default Vue.extend({
   .post-date {
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
   }
+}
+
+.markdown-body {
+  min-height: 40vh;
 }
 </style>
