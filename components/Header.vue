@@ -1,7 +1,22 @@
 <template>
   <nav class="sticky inset-x-0 top-0 bg-gray-800 z-50">
-    <div class="container mx-auto py-2 z-50 text-center">
+    <div class="container flex mx-auto py-2 z-50 justify-between">
       <nuxt-link tag="a" to="/" class="text-white text-xl font-normal no-underline">田写</nuxt-link>
+
+      <div>
+        <nuxt-link tag="a" to="/github" class="text-white text-xl font-normal no-underline"
+          >github</nuxt-link
+        >
+        <nuxt-link tag="a" to="/github" class="text-white text-xl font-normal no-underline"
+          >开源</nuxt-link
+        >
+        <nuxt-link tag="a" to="/github" class="text-white text-xl font-normal no-underline"
+          >简历</nuxt-link
+        >
+        <nuxt-link tag="a" to="/github" class="text-white text-xl font-normal no-underline"
+          >微博</nuxt-link
+        >
+      </div>
     </div>
   </nav>
 </template>
