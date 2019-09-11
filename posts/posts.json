@@ -28,6 +28,21 @@
     "description": "ElementUI 是自己比较钟爱的一套 vue 组件库，自己好几个项目里都在用它。一直以来这些丰富的组件，让我能快速的"
   },
   {
+    "filename": "github-wakatime-x-dashboard",
+    "slugifiedFilename": "github-wakatime-x-dashboard",
+    "title": "github + wakatime => x-dashboard",
+    "date": "2019-09-11T07:55:43.000Z",
+    "top_img": "",
+    "tags": [
+      "laravel",
+      "react"
+    ],
+    "categories": [
+      ""
+    ],
+    "description": ""
+  },
+  {
     "filename": "highlight-js-在-Vue-中使用的一点儿经验",
     "slugifiedFilename": "highlight.js-zai-vue-zhong-shi-yong-de-yi-dian-er-jing-yan",
     "title": "highlight.js 在 Vue 中使用的一点儿经验",
