@@ -3,7 +3,7 @@
     <div
       v-for="(post, index) in posts"
       :key="index"
-      class="flex my-6 shadow-md p-4 sm:flex-col bg-white rounded-sm"
+      class="flex my-6 shadow-md p-4 sm:flex-col rounded-sm post-list-item"
     >
       <div class="">
         <nuxt-link
@@ -23,8 +23,6 @@
           >
         </div>
       </div>
-
-      <!--<img class="sm:flex lg:hidden w-24 h-24 bg-cover bg-center rounded" :src="coverImgUrl(post)" alt="" />-->
     </div>
   </div>
 </template>
@@ -65,4 +63,8 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.post-list-item {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+</style>

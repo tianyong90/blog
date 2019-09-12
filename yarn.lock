@@ -9652,10 +9652,10 @@ sass-loader@^8.0.0:
     schema-utils "^2.1.0"
     semver "^6.3.0"
 
-sass@^1.21.0:
-  version "1.22.10"
-  resolved "https://registry.npm.taobao.org/sass/download/sass-1.22.10.tgz#b9f01440352ba0be5d99fa64a2040b035cc6e5ff"
-  integrity sha1-ufAUQDUroL5dmfpkogQLA1zG5f8=
+sass@^1.22.12:
+  version "1.22.12"
+  resolved "https://registry.npm.taobao.org/sass/download/sass-1.22.12.tgz#5cbdd38720ffd1857da695331faee9f634bcb5d7"
+  integrity sha1-XL3ThyD/0YV9ppUzH67p9jS8tdc=
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 
