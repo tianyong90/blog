@@ -12,7 +12,7 @@
           >{{ post.title }}</nuxt-link
         >
 
-        <p class="text-sm font-light text-gray-700" v-html="post.description" />
+        <p class="text-xs text-gray-800" v-html="post.description" />
 
         <div class="">
           <span
@@ -63,8 +63,8 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .post-list-item {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 </style>

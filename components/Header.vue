@@ -3,10 +3,8 @@
     <div class="container flex mx-auto py-2 z-50 justify-between">
       <nuxt-link tag="a" to="/" class="text-white text-xl font-normal no-underline">田写</nuxt-link>
 
-      <div>
-        <nuxt-link tag="a" to="/github" class="text-white text-xl font-normal no-underline"
-          >github</nuxt-link
-        >
+      <div class="hidden">
+        <a href="/github" class="text-white text-xl font-normal no-underline">github</a>
         <nuxt-link tag="a" to="/github" class="text-white text-xl font-normal no-underline"
           >开源</nuxt-link
         >
@@ -25,16 +23,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  mounted() {
-    // TODO:
-    window.addEventListener(
-      'scroll',
-      e => {
-        // console.log(window.scrollY)
-      },
-      false
-    )
-  },
+  mounted() {},
 })
 </script>
 

@@ -10,6 +10,10 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background-image: url(../image/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 /// Mixin to customize scrollbars
@@ -50,7 +54,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #333;
+  background-color: #fff;
 }
 
 .markdown-body {

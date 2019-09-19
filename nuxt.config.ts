@@ -48,7 +48,7 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/tailwind.css', '~/assets/css/main.scss'],
+  css: ['~/assets/css/tailwind.css', '~/assets/css/app.scss'],
 
   /*
    ** Plugins to load before mounting the App

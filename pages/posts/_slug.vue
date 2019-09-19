@@ -1,23 +1,20 @@
 <template>
-  <div>
-    <div class="mx-auto max-w-3xl px-4 lg:px-0 py-4">
-      <img :src="topImg" class="w-full shadow-md" />
+  <div class="mx-auto my-4 max-w-3xl p-4 post">
+    <img :src="topImg" class="w-full" />
 
-      <div class="mb-4">
-        <h1 class="text-gray-700 text-xl post-title" v-text="title" />
-        <div class="text-gray-600 text-sm post-date">{{ date | formatTime }}</div>
-      </div>
-
-      <div class="markdown-body" v-html="html" />
-
-      <div class="social-share"></div>
+    <div class="mb-4">
+      <h1 class="text-gray-700 text-xl post-title" v-text="title" />
+      <div class="text-gray-600 text-sm post-date">{{ date | formatTime }}</div>
     </div>
+
+    <div class="markdown-body" v-html="html" />
+
+    <div class="social-share"></div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import Color from 'color'
 import dayjs from 'dayjs'
 // TODO:
 // import 'social-share.js/dist/css/share.min.css'
@@ -95,6 +92,10 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+.post {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
 .post-head-wrapper {
   .post-title,
   .post-date {

@@ -21,7 +21,6 @@
 <style scoped lang="scss">
 .footer {
   padding: 50px 0 20px;
-  background-color: #263238;
 }
 
 .link {
