@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto my-4 max-w-4xl post">
-    <img :src="topImg" class="w-full" />
+    <img :src="topImg" class="w-full cover-image" />
 
     <div class="px-8 py-4">
       <div class="mb-4">
@@ -94,6 +94,11 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+.cover-image {
+  max-height: 420px;
+  object-fit: cover;
+}
+
 .post {
   background-color: rgba(255, 255, 255, 0.65);
 }

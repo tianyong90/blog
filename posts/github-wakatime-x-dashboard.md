@@ -1,7 +1,7 @@
 ---
 title: github + wakatime => x-dashboard
 date: 2019-09-11 07:55:43
-top_img: ''
+top_img: ./top_img.jpg
 tags:
   - laravel
   - react
