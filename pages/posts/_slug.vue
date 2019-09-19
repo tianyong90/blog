@@ -1,15 +1,17 @@
 <template>
-  <div class="mx-auto my-4 max-w-3xl p-4 post">
+  <div class="mx-auto my-4 max-w-3xl post">
     <img :src="topImg" class="w-full" />
 
-    <div class="mb-4">
-      <h1 class="text-gray-700 text-xl post-title" v-text="title" />
-      <div class="text-gray-600 text-sm post-date">{{ date | formatTime }}</div>
+    <div class="p-4">
+      <div class="mb-4">
+        <h1 class="text-gray-800 text-2xl font-normal" v-text="title" />
+        <div class="text-gray-600 text-sm post-date">{{ date | formatTime }}</div>
+      </div>
+
+      <div class="markdown-body" v-html="html" />
+
+      <div class="social-share"></div>
     </div>
-
-    <div class="markdown-body" v-html="html" />
-
-    <div class="social-share"></div>
   </div>
 </template>
 
@@ -93,7 +95,7 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .post {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.65);
 }
 
 .post-head-wrapper {
@@ -105,5 +107,6 @@ export default Vue.extend({
 
 .markdown-body {
   min-height: 40vh;
+  font-size: 1rem;
 }
 </style>

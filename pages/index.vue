@@ -7,7 +7,7 @@
     >
       <div class="">
         <nuxt-link
-          class="text-black text-base font-medium no-underline"
+          class="text-gray-800 text-lg font-normal no-underline"
           :to="'/posts/' + post.slugifiedFilename"
           >{{ post.title }}</nuxt-link
         >
@@ -65,6 +65,6 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .post-list-item {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.65);
 }
 </style>
