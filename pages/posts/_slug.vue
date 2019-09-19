@@ -1,11 +1,11 @@
 <template>
-  <div class="mx-auto my-4 max-w-3xl post">
+  <div class="mx-auto my-4 max-w-4xl post">
     <img :src="topImg" class="w-full" />
 
-    <div class="p-4">
+    <div class="px-8 py-4">
       <div class="mb-4">
         <h1 class="text-gray-800 text-2xl font-normal" v-text="title" />
-        <div class="text-gray-600 text-sm post-date">{{ date | formatTime }}</div>
+        <div class="text-gray-700 text-xs post-date">{{ date | formatTime }}</div>
       </div>
 
       <div class="markdown-body" v-html="html" />
