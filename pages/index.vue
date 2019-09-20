@@ -69,8 +69,8 @@ function getPaginatedItems(items, page, pageSize) {
     total: parseInt(items.length),
     total_pages: Math.ceil(items.length / pgSize),
     data: pagedItems,
-    prev_url: `/?p=${parseInt(pg) - 1}`,
-    next_url: `/?p=${parseInt(pg) + 1}`,
+    prev_url: `/?p=${pg - 1}`,
+    next_url: `/?p=${pg + 1}`,
   }
 }
 
@@ -99,16 +99,16 @@ export default Vue.extend({
 
   mounted() {
     // 第几页
-    const page = get(this.$route, 'query.p', 1)
+    const page = get((this as any).$route, 'query.p', 1)
 
-    this.paginatedPosts = getPaginatedItems(this.posts, page, 10)
+    this.paginatedPosts = getPaginatedItems((this as any).posts, page, 10)
   },
 
   beforeRouteUpdate(to, from, next) {
     // 第几页
     const page = get(to, 'query.p', 1)
 
-    this.paginatedPosts = getPaginatedItems(this.posts, page, 10)
+    this.paginatedPosts = getPaginatedItems((this as any).posts, page, 10)
 
     next()
   },
