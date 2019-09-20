@@ -1,8 +1,8 @@
 <template>
-  <div class="mx-auto my-4 max-w-4xl post">
+  <div class="mx-auto my-0 md:my-4 max-w-4xl post">
     <img :src="topImg" class="w-full cover-image" />
 
-    <div class="px-8 py-4">
+    <div class="px-4 md:px-8 py-4">
       <div class="mb-4">
         <h1 class="text-gray-800 text-2xl font-normal" v-text="title" />
         <div class="text-gray-700 text-xs post-date">{{ date | formatTime }}</div>
@@ -113,5 +113,6 @@ export default Vue.extend({
 .markdown-body {
   min-height: 40vh;
   font-size: 1rem;
+  text-align: justify;
 }
 </style>
