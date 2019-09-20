@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="navigator">
+    <div class="px-4 md:px-0 navigator">
       <nuxt-link v-if="prevLink" tag="a" :to="prevLink" class="navigator-btn mr-auto btn-prev"
         ><span class="mdi mdi-chevron-left"></span> 上一篇
       </nuxt-link>
@@ -123,7 +123,6 @@ export default Vue.extend({
 
 .navigator {
   display: flex;
-  width: 100%;
   justify-content: space-between;
   margin-top: 2rem;
 

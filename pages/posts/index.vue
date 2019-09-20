@@ -1,35 +1,93 @@
 <template>
-  <div class="container post-container">
-    <div class="post-list">
-      <div v-for="(post, index) in posts" :key="index" class="post-list-item shadow">
-        <nuxt-link class="post-title" tag="a" :to="'/posts/' + post.slugifiedFilename">{{
-          post.title
-        }}</nuxt-link>
+  <div class="max-w-4xl mx-auto lg:p-2 px-4 lg:px-0">
+    <div
+      v-for="(post, index) in paginatedPosts.data"
+      :key="index"
+      class="flex my-6 shadow-md p-4 sm:flex-col rounded-sm post-list-item"
+    >
+      <div class="">
+        <nuxt-link
+          class="text-gray-800 text-lg font-normal no-underline"
+          :to="'/posts/' + post.slugifiedFilename"
+          >{{ post.title }}
+        </nuxt-link>
 
-        <p class="post-description" v-html="post.description"></p>
+        <p class="text-xs text-gray-800" v-html="post.description" />
 
-        <div class="tags">
-          <span v-for="(tag, tagIndex) in post.tags" :key="tagIndex" class="tag">{{ tag }}</span>
+        <div class="">
+          <span
+            v-for="(tag, tagIndex) in post.tags"
+            :key="tagIndex"
+            class="bg-gray-600 mr-1 px-2 py-1 rounded-sm text-xs text-white font-light tag"
+            >{{ tag }}</span
+          >
         </div>
-
-        <img class="cover" :src="coverImgUrl(post)" alt="" />
       </div>
+    </div>
+
+    <div class="paginator">
+      <nuxt-link
+        v-if="paginatedPosts.total_pages > 1 && paginatedPosts.page !== 1"
+        tag="a"
+        :to="paginatedPosts.prev_url"
+        class="paginator-btn mr-auto btn-prev"
+        ><span class="mdi mdi-chevron-left"></span> 上一页
+      </nuxt-link>
+      <nuxt-link
+        v-if="paginatedPosts.total_pages > 1 && paginatedPosts.page !== paginatedPosts.total_pages"
+        tag="a"
+        :to="paginatedPosts.next_url"
+        class="paginator-btn ml-auto btn-next"
+        >下一页<span class="mdi mdi-chevron-right"></span
+      ></nuxt-link>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { orderBy } from 'lodash'
+import { orderBy, drop, get } from 'lodash'
 
 interface Post {
   filename: string
   // eslint-disable-next-line
   top_img: string
+
   [key: string]: any
 }
 
+// 分页
+function getPaginatedItems(items, page, pageSize) {
+  const pg = parseInt(page || 1)
+  const pgSize = parseInt(pageSize || 100)
+  const offset = (pg - 1) * pgSize
+  const pagedItems = drop(items, offset).slice(0, pgSize)
+
+  return {
+    page: pg,
+    pageSize: pgSize,
+    total: parseInt(items.length),
+    total_pages: Math.ceil(items.length / pgSize),
+    data: pagedItems,
+    prev_url: `/?p=${pg - 1}`,
+    next_url: `/?p=${pg + 1}`,
+  }
+}
+
 export default Vue.extend({
+  head() {
+    return {
+      title: '首页',
+      // TODO: keyword and description
+    }
+  },
+
+  data() {
+    return {
+      paginatedPosts: {},
+    }
+  },
+
   async asyncData() {
     let { default: posts } = await import('~/posts/posts.json')
 
@@ -37,6 +95,22 @@ export default Vue.extend({
     posts = orderBy(posts, 'date', 'desc')
 
     return { posts }
+  },
+
+  mounted() {
+    // 第几页
+    const page = get((this as any).$route, 'query.p', 1)
+
+    this.paginatedPosts = getPaginatedItems((this as any).posts, page, 10)
+  },
+
+  beforeRouteUpdate(to, from, next) {
+    // 第几页
+    const page = get(to, 'query.p', 1)
+
+    this.paginatedPosts = getPaginatedItems((this as any).posts, page, 10)
+
+    next()
   },
 
   methods: {
@@ -47,76 +121,30 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
-// .post-container {
-//   margin-top: 65px;
-// }
+<style scoped lang="scss">
+.post-list-item {
+  background-color: rgba(255, 255, 255, 0.65);
+}
 
-// .post-list {
-//   .post-list-item {
-//     display: block;
-//     margin: 1rem 0;
-//     padding: 1rem 1.5rem;
+.tag {
+  /*clip-path: polygon();*/
+}
 
-//     .post-title {
-//       display: block;
-//       color: #2b2b2b;
-//       font-size: 1.1rem;
-//       font-weight: 500;
-//       margin-bottom: 1rem;
-//     }
+.paginator {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 
-//     .post-description {
-//       color: #444;
-//       font-size: 0.85rem;
-//       display: -webkit-box;
-//       -webkit-line-clamp: 2;
-//       -webkit-box-orient: vertical;
-//       overflow: hidden;
-//     }
+  .paginator-btn {
+    font-size: 0.85rem;
+    background-color: rgba(255, 255, 255, 0.65);
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    text-decoration: none;
 
-//     .tags {
-//       display: flex;
-//       margin-top: 1rem;
-
-//       .tag {
-//         display: flex;
-//         background-color: #455a64;
-//         margin-right: 0.5rem;
-//         padding: 0.2rem 0.5rem;
-//         color: #fff;
-//         font-size: 0.725rem;
-//         border-radius: 3px;
-//       }
-//     }
-
-//     .cover {
-//       display: none;
-//     }
-
-//     @include media-breakpoint-down(sm) {
-//       display: flex;
-//       overflow: hidden;
-//       justify-content: space-between;
-//       padding: 0;
-//       border-radius: 3px;
-
-//       .post-title {
-//         padding: 0.85rem 1rem;
-//       }
-
-//       .post-description,
-//       .tags {
-//         display: none;
-//       }
-
-//       .cover {
-//         display: block;
-//         width: 85px;
-//         height: 85px;
-//         object-fit: cover;
-//       }
-//     }
-//   }
-// }
+    &:hover {
+      background-color: darken(rgba(255, 255, 255, 0.65), 20);
+    }
+  }
+}
 </style>
