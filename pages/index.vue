@@ -18,7 +18,7 @@
           <span
             v-for="(tag, tagIndex) in post.tags"
             :key="tagIndex"
-            class="bg-gray-600 mr-1 px-2 py-1 rounded-sm text-xs text-white font-light"
+            class="bg-gray-600 mr-1 px-2 py-1 rounded-sm text-xs text-white font-light tag"
             >{{ tag }}</span
           >
         </div>
@@ -31,14 +31,14 @@
         tag="a"
         :to="paginatedPosts.prev_url"
         class="paginator-btn mr-auto btn-prev"
-        ><span class="fas fa-chevron-left"></span> 上一页
+        ><span class="mdi mdi-chevron-left"></span> 上一页
       </nuxt-link>
       <nuxt-link
         v-if="paginatedPosts.total_pages > 1 && paginatedPosts.page !== paginatedPosts.total_pages"
         tag="a"
         :to="paginatedPosts.next_url"
         class="paginator-btn ml-auto btn-next"
-        >下一页<span class="fas fa-chevron-right"></span
+        >下一页<span class="mdi mdi-chevron-right"></span
       ></nuxt-link>
     </div>
   </div>
@@ -124,6 +124,10 @@ export default Vue.extend({
 <style scoped lang="scss">
 .post-list-item {
   background-color: rgba(255, 255, 255, 0.65);
+}
+
+.tag {
+  /*clip-path: polygon();*/
 }
 
 .paginator {

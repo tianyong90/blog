@@ -1,6 +1,6 @@
 <template>
   <div v-show="shouldShow" class="btn-back-to-top" @click.stop="onClick">
-    <i class="iconfont icon-i-back-top" />
+    <i class="mdi mdi-arrow-collapse-up" />
   </div>
 </template>
 

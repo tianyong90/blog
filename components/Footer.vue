@@ -1,18 +1,18 @@
 <template>
   <footer class="footer">
     <div class="container mx-auto">
-      <p class="text-gray-600 text-center text-base">@2019 &hearts; tianyong90</p>
+      <p class="text-gray-100 text-center text-base">@2019 &hearts; tianyong90</p>
     </div>
 
     <div class="container mx-auto justify-center flex">
       <a class="link" href="https://github.com/tianyong90" target="_blank">
-        <i class="icon iconfont icon-github"></i>
+        <i class="icon mdi mdi-github-circle"></i>
       </a>
       <a class="link" href="https://weibo.com/1707227001" target="_blank">
-        <i class="icon iconfont icon-weibo"></i>
+        <i class="icon mdi mdi-sina-weibo"></i>
       </a>
       <a class="link" href="https://twitter.com/tianyong901" target="_blank">
-        <i class="icon iconfont icon-twitter"></i>
+        <i class="icon mdi mdi-twitter"></i>
       </a>
     </div>
   </footer>
@@ -79,7 +79,7 @@
     12.85898% 25.66987%
   );
 
-  .iconfont {
+  .icon {
     font-size: 25px;
   }
 }
