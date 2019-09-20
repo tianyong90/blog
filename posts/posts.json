@@ -32,7 +32,7 @@
     "slugifiedFilename": "github-wakatime-x-dashboard",
     "title": "github + wakatime => x-dashboard",
     "date": "2019-09-11T07:55:43.000Z",
-    "top_img": "",
+    "top_img": "./top_img.jpg",
     "tags": [
       "laravel",
       "react"

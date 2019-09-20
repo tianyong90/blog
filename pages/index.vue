@@ -9,8 +9,8 @@
         <nuxt-link
           class="text-gray-800 text-lg font-normal no-underline"
           :to="'/posts/' + post.slugifiedFilename"
-          >{{ post.title }}</nuxt-link
-        >
+          >{{ post.title }}
+        </nuxt-link>
 
         <p class="text-xs text-gray-800" v-html="post.description" />
 
@@ -29,13 +29,29 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { orderBy } from 'lodash'
+import { orderBy, drop } from 'lodash'
 
 interface Post {
   filename: string
   // eslint-disable-next-line
   top_img: string
+
   [key: string]: any
+}
+
+function getPaginatedItems(items, page, pageSize) {
+  const pg = page || 1
+  const pgSize = pageSize || 100
+  const offset = (pg - 1) * pgSize
+  const pagedItems = drop(items, offset).slice(0, pgSize)
+
+  return {
+    page: pg,
+    pageSize: pgSize,
+    total: items.length,
+    total_pages: Math.ceil(items.length / pgSize),
+    data: pagedItems,
+  }
 }
 
 export default Vue.extend({
@@ -51,6 +67,10 @@ export default Vue.extend({
 
     // 按发布时间排序
     posts = orderBy(posts, 'date', 'desc')
+
+    // 分页
+    const p = getPaginatedItems(posts, 1, 10)
+    console.log(p)
 
     return { posts }
   },
