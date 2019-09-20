@@ -1318,25 +1318,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/color-convert@*":
-  version "1.9.0"
-  resolved "https://registry.npm.taobao.org/@types/color-convert/download/@types/color-convert-1.9.0.tgz#bfa8203e41e7c65471e9841d7e306a7cd8b5172d"
-  integrity sha1-v6ggPkHnxlRx6YQdfjBqfNi1Fy0=
-  dependencies:
-    "@types/color-name" "*"
-
-"@types/color-name@*":
-  version "1.1.1"
-  resolved "https://registry.npm.taobao.org/@types/color-name/download/@types/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
-  integrity sha1-HBJhu+qhCoBVu8XYq4S3sq/IRqA=
-
-"@types/color@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.npm.taobao.org/@types/color/download/@types/color-3.0.0.tgz#40f8a6bf2fd86e969876b339a837d8ff1b0a6e30"
-  integrity sha1-QPimvy/YbpaYdrM5qDfY/xsKbjA=
-  dependencies:
-    "@types/color-convert" "*"
-
 "@types/compression@^1.0.1":
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/@types/compression/download/@types/compression-1.0.1.tgz#f3682a6b3ce2dbd4aece48547153ebc592281fa7"
@@ -3074,7 +3055,7 @@ color-string@^1.5.2:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
 
-color@^3.0.0, color@^3.1.2:
+color@^3.0.0:
   version "3.1.2"
   resolved "https://registry.npm.taobao.org/color/download/color-3.1.2.tgz#68148e7f85d41ad7649c5fa8c8106f098d229e10"
   integrity sha1-aBSOf4XUGtdknF+oyBBvCY0inhA=
@@ -9533,11 +9514,6 @@ rgba-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/rgba-regex/download/rgba-regex-1.0.0.tgz#43374e2e2ca0968b0ef1523460b7d730ff22eeb3"
   integrity sha1-QzdOLiyglosO8VI0YLfXMP8i7rM=
-
-rgbaster@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.npm.taobao.org/rgbaster/download/rgbaster-2.1.1.tgz#d83c0801ffd8887c0a96b0d2b756fc7e1fd68614"
-  integrity sha1-2DwIAf/YiHwKlrDSt1b8fh/WhhQ=
 
 rimraf@2.6.3:
   version "2.6.3"

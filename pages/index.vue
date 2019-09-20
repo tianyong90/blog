@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-4xl mx-auto lg:p-2 px-4 lg:px-0">
     <div
-      v-for="(post, index) in posts"
+      v-for="(post, index) in paginatedPosts.data"
       :key="index"
       class="flex my-6 shadow-md p-4 sm:flex-col rounded-sm post-list-item"
     >
@@ -24,12 +24,29 @@
         </div>
       </div>
     </div>
+
+    <div class="paginator">
+      <nuxt-link
+        v-if="paginatedPosts.total_pages > 1 && paginatedPosts.page !== 1"
+        tag="a"
+        :to="paginatedPosts.prev_url"
+        class="paginator-btn mr-auto btn-prev"
+        ><span class="fas fa-chevron-left"></span> 上一页
+      </nuxt-link>
+      <nuxt-link
+        v-if="paginatedPosts.total_pages > 1 && paginatedPosts.page !== paginatedPosts.total_pages"
+        tag="a"
+        :to="paginatedPosts.next_url"
+        class="paginator-btn ml-auto btn-next"
+        >下一页<span class="fas fa-chevron-right"></span
+      ></nuxt-link>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { orderBy, drop } from 'lodash'
+import { orderBy, drop, get } from 'lodash'
 
 interface Post {
   filename: string
@@ -39,18 +56,21 @@ interface Post {
   [key: string]: any
 }
 
+// 分页
 function getPaginatedItems(items, page, pageSize) {
-  const pg = page || 1
-  const pgSize = pageSize || 100
+  const pg = parseInt(page || 1)
+  const pgSize = parseInt(pageSize || 100)
   const offset = (pg - 1) * pgSize
   const pagedItems = drop(items, offset).slice(0, pgSize)
 
   return {
     page: pg,
     pageSize: pgSize,
-    total: items.length,
+    total: parseInt(items.length),
     total_pages: Math.ceil(items.length / pgSize),
     data: pagedItems,
+    prev_url: `/?p=${parseInt(pg) - 1}`,
+    next_url: `/?p=${parseInt(pg) + 1}`,
   }
 }
 
@@ -62,17 +82,35 @@ export default Vue.extend({
     }
   },
 
+  data() {
+    return {
+      paginatedPosts: {},
+    }
+  },
+
   async asyncData() {
     let { default: posts } = await import('~/posts/posts.json')
 
     // 按发布时间排序
     posts = orderBy(posts, 'date', 'desc')
 
-    // 分页
-    const p = getPaginatedItems(posts, 1, 10)
-    console.log(p)
-
     return { posts }
+  },
+
+  mounted() {
+    // 第几页
+    const page = get(this.$route, 'query.p', 1)
+
+    this.paginatedPosts = getPaginatedItems(this.posts, page, 10)
+  },
+
+  beforeRouteUpdate(to, from, next) {
+    // 第几页
+    const page = get(to, 'query.p', 1)
+
+    this.paginatedPosts = getPaginatedItems(this.posts, page, 10)
+
+    next()
   },
 
   methods: {
@@ -86,5 +124,23 @@ export default Vue.extend({
 <style scoped lang="scss">
 .post-list-item {
   background-color: rgba(255, 255, 255, 0.65);
+}
+
+.paginator {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .paginator-btn {
+    font-size: 0.85rem;
+    background-color: rgba(255, 255, 255, 0.65);
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    text-decoration: none;
+
+    &:hover {
+      background-color: darken(rgba(255, 255, 255, 0.65), 20);
+    }
+  }
 }
 </style>
