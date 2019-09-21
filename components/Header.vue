@@ -8,7 +8,7 @@
           href="https://github.com/tianyong90"
           target="_blank"
           class="text-white text-sm mx-1 font-light no-underline"
-          >github</a
+          >GitHub</a
         >
         <nuxt-link
           tag="a"
