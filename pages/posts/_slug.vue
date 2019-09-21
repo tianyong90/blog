@@ -118,7 +118,7 @@ export default Vue.extend({
 .markdown-body {
   min-height: 40vh;
   font-size: 1rem;
-  text-align: justify;
+  text-align: left;
 }
 
 .navigator {

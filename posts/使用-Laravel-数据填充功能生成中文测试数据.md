@@ -61,7 +61,7 @@ $factory->define(App\Address::class, function () {
 **事实上 Faker 本地化对于中文的支持仍有部分待完善，使用暂时不支持生成随机中文句子或者段落（相应的方法返回的仍然会是英文的），但我相信不久之后会有大牛实现这一些功能。**
 
 最后，上图，实际生成数据效果如下：
-![file](https://lccdn.phphub.org/uploads/images/201707/05/5342/zMrBA0yrtB.png)
+![file](./result.png)
 > 请别纠结省市区从属关系，数据仅供测试而已 :smile:
 
 **评论中大牛提醒后发现， Laravel5.4 及更新版本其实已经考虑了这一问题，并设置了相关的配置项 `app.faker_locale`，只不过在文档和默认的配置文件中看不到这一参数。相关源码在 `Illuminate\Database\DatabaseServiceProvider` 类中，可以查看源码来判断是否支持这一配置项。对于支持的版本，只需要在 `config\app.php` 文件中加入 `faker_locale => 'zh_CN'` 就可以实现了**
