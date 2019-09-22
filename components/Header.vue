@@ -10,12 +10,6 @@
           class="text-white text-sm mx-1 font-light no-underline"
           >GitHub</a
         >
-        <nuxt-link
-          tag="a"
-          to="/github"
-          class="text-white text-sm mx-1 font-light no-underline hidden"
-          >开源</nuxt-link
-        >
         <a
           href="https://weibo.com/1707227001"
           target="_blank"
