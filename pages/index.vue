@@ -1,19 +1,16 @@
 <template>
   <div class="container mx-auto">
     <transition-group name="list" tag="div" class="post-list">
-      <div
+      <nuxt-link
         v-for="(post, index) in paginatedPosts.data"
         :key="index"
-        class="shadow-md rounded-lg overflow-hidden post-list-item"
+        class="shadow-md rounded-lg overflow-hidden no-underline post-list-item"
+        :to="'/posts/' + post.slugifiedFilename"
       >
         <img :src="coverImgUrl(post)" class="post-cover" />
 
         <div class="flex flex-col h-full justify-between p-4">
-          <nuxt-link
-            class="text-gray-800 text-base font-normal no-underline"
-            :to="'/posts/' + post.slugifiedFilename"
-            >{{ post.title }}
-          </nuxt-link>
+          <div class="text-gray-800 text-base font-normal no-underline">{{ post.title }}</div>
 
           <p class="text-xs text-gray-700" v-html="post.description" />
 
@@ -26,7 +23,7 @@
             >
           </div>
         </div>
-      </div>
+      </nuxt-link>
     </transition-group>
 
     <div class="paginator">
@@ -132,7 +129,7 @@ export default Vue.extend({
   margin-top: 20px;
   margin-bottom: 20px;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-gap: 1.5rem;
 
   &-item {
     display: flex;

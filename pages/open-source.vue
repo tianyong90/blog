@@ -61,7 +61,7 @@ export default Vue.extend({
   margin-bottom: 20px;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(200px, auto);
-  grid-gap: 20px;
+  grid-gap: 1.5rem;
 
   &-item {
     display: flex;
