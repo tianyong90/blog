@@ -1,29 +1,33 @@
 <template>
-  <div class="max-w-4xl mx-auto lg:p-2 px-4 lg:px-0">
-    <div
-      v-for="(post, index) in paginatedPosts.data"
-      :key="index"
-      class="flex my-6 shadow-md p-4 sm:flex-col rounded-sm post-list-item"
-    >
-      <div class="">
-        <nuxt-link
-          class="text-gray-800 text-lg font-normal no-underline"
-          :to="'/posts/' + post.slugifiedFilename"
-          >{{ post.title }}
-        </nuxt-link>
+  <div class="container mx-auto">
+    <transition-group name="list" tag="div" class="post-list">
+      <div
+        v-for="(post, index) in paginatedPosts.data"
+        :key="index"
+        class="shadow-md rounded-lg overflow-hidden post-list-item"
+      >
+        <img :src="coverImgUrl(post)" class="post-cover" />
 
-        <p class="text-xs text-gray-800" v-html="post.description" />
+        <div class="flex flex-col h-full justify-between p-4">
+          <nuxt-link
+            class="text-gray-800 text-base font-normal no-underline"
+            :to="'/posts/' + post.slugifiedFilename"
+            >{{ post.title }}
+          </nuxt-link>
 
-        <div class="">
-          <span
-            v-for="(tag, tagIndex) in post.tags"
-            :key="tagIndex"
-            class="bg-gray-600 mr-1 px-2 py-1 rounded-sm text-xs text-white font-light tag"
-            >{{ tag }}</span
-          >
+          <p class="text-xs text-gray-700" v-html="post.description" />
+
+          <div>
+            <span
+              v-for="(tag, tagIndex) in post.tags"
+              :key="tagIndex"
+              class="bg-gray-600 mr-1 px-2 py-1 rounded-sm text-xs text-white font-light tag"
+              >{{ tag }}</span
+            >
+          </div>
         </div>
       </div>
-    </div>
+    </transition-group>
 
     <div class="paginator">
       <nuxt-link
@@ -101,7 +105,7 @@ export default Vue.extend({
     // 第几页
     const page = get((this as any).$route, 'query.p', 1)
 
-    this.paginatedPosts = getPaginatedItems((this as any).posts, page, 10)
+    this.paginatedPosts = getPaginatedItems((this as any).posts, page, 9)
   },
 
   beforeRouteUpdate(to, from, next) {
@@ -122,12 +126,40 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.post-list-item {
-  background-color: rgba(255, 255, 255, 0.65);
-}
+.post-list {
+  display: grid;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
 
-.tag {
-  /*clip-path: polygon();*/
+  &-item {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.65);
+    padding: 0;
+  }
+
+  .post-cover {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  // 小于 768px 两列
+  @media screen and (max-width: 768px) {
+    & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    & {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 }
 
 .paginator {

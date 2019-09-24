@@ -255,3 +255,15 @@ $languages: (
 .custom-block.danger a {
   color: #2c3e50
 }
+
+// 列表动效
+.list-enter-active,
+.list-leave-active {
+  transition: all 500ms;
+}
+
+.list-enter, .list-leave-to
+  /* .list-leave-active for below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
