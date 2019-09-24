@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <nuxt class="main" />
+    <nuxt />
     <Footer />
     <BackToTop />
   </div>

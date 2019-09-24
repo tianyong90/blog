@@ -52,6 +52,7 @@
     "autoprefixer": "^9.6.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.8.0",
+    "color": "^3.1.2",
     "copy-webpack-plugin": "^5.0.3",
     "dayjs": "^1.8.16",
     "eslint": "^6.4.0",

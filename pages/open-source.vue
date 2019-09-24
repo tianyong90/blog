@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-row flex-wrap justify-between max-w-4xl mx-auto my-4">
+  <div class="container flex flex-row flex-wrap justify-between mx-auto my-4">
     <div
       v-for="(repo, index) in repos"
       :key="index"
-      class="flex mb-4 shadow-md sm:flex-col rounded-sm repo-item"
+      class="flex mb-4 shadow-md flex-col rounded-sm repo-item"
     >
       <a
         :href="repo.url"
@@ -48,8 +48,6 @@ export default Vue.extend({
       repos: githubApiData.data.user.repositories.nodes,
     }
   },
-
-  mounted() {},
 })
 </script>
 
@@ -58,5 +56,12 @@ export default Vue.extend({
   flex-basis: calc(50% - 3rem);
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.65);
+}
+
+// 小屏上单列
+@media screen and (max-width: 768px) {
+  .repo-item {
+    flex-basis: 100%;
+  }
 }
 </style>
