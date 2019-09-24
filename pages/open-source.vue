@@ -1,33 +1,35 @@
 <template>
-  <div class="container flex flex-row flex-wrap justify-between mx-auto my-4">
-    <div
-      v-for="(repo, index) in repos"
-      :key="index"
-      class="flex mb-4 shadow-md flex-col rounded-sm repo-item"
-    >
-      <a
-        :href="repo.url"
-        target="_blank"
-        class="text-2xl font-medium text-gray-800 no-underline"
-        v-text="repo.name"
-      ></a>
-      <p class="text-sm font-light text-gray-700">{{ repo.description }}</p>
+  <div class="container mx-auto">
+    <transition-group name="list" tag="div" class="repo-list">
+      <div
+        v-for="(repo, index) in repos"
+        :key="index"
+        class="shadow-md flex-col rounded-lg relative p-4 repo-list-item"
+      >
+        <a
+          :href="repo.url"
+          target="_blank"
+          class="text-xl font-medium text-gray-800 no-underline"
+          v-text="repo.name"
+        ></a>
+        <p class="text-sm font-light text-gray-700">{{ repo.description }}</p>
 
-      <div>
-        <span
-          v-if="repo.languages.nodes.length > 0"
-          class="mr-3 text-white text-xs px-2 py-1 rounded-sm"
-          :style="{ backgroundColor: repo.languages.nodes[0].color }"
-          >{{ repo.languages.nodes[0].name }}</span
-        >
-        <span class="mr-3 text-gray-700 stars"
-          ><span class="mdi mdi-star"></span> {{ repo.stargazers.totalCount }}</span
-        >
-        <span class="mr-3 text-gray-700 stforksars"
-          ><span class="mdi mdi-directions-fork"></span> {{ repo.forks.totalCount }}</span
-        >
+        <div class="absolute bottom-0 mb-4">
+          <span
+            v-if="repo.languages.nodes.length > 0"
+            class="mr-3 text-white text-xs px-2 py-1 rounded-sm"
+            :style="{ backgroundColor: repo.languages.nodes[0].color }"
+            >{{ repo.languages.nodes[0].name }}</span
+          >
+          <span class="mr-3 text-gray-700 stars"
+            ><span class="mdi mdi-star"></span> {{ repo.stargazers.totalCount }}</span
+          >
+          <span class="mr-3 text-gray-700 stforksars"
+            ><span class="mdi mdi-directions-fork"></span> {{ repo.forks.totalCount }}</span
+          >
+        </div>
       </div>
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -52,16 +54,32 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.repo-item {
-  flex-basis: calc(50% - 3rem);
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.65);
-}
+.repo-list {
+  display: grid;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  grid-gap: 20px;
 
-// 小屏上单列
-@media screen and (max-width: 768px) {
-  .repo-item {
-    flex-basis: 100%;
+  &-item {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.65);
+  }
+
+  // 小于 1024px 两列
+  @media screen and (max-width: 1024px) {
+    & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    & {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
 </style>
