@@ -4,6 +4,13 @@
       <nuxt-link tag="a" to="/" class="text-white text-xl font-normal no-underline">田写</nuxt-link>
 
       <div>
+        <nuxt-link
+          class="text-white text-sm mx-1 font-light no-underline"
+          tag="a"
+          to="/open-source"
+        >
+          开源
+        </nuxt-link>
         <a
           href="https://github.com/tianyong90"
           target="_blank"
