@@ -11,9 +11,6 @@
       <a class="link" href="https://weibo.com/1707227001" target="_blank">
         <i class="icon mdi mdi-sina-weibo"></i>
       </a>
-      <a class="link" href="https://twitter.com/tianyong901" target="_blank">
-        <i class="icon mdi mdi-twitter"></i>
-      </a>
     </div>
   </footer>
 </template>
