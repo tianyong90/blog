@@ -18,7 +18,7 @@
           <span
             v-if="repo.languages.nodes.length > 0"
             class="mr-3 text-white text-xs px-2 py-1 rounded-sm"
-            :style="{ backgroundColor: repo.languages.nodes[0].color }"
+            :style="getLanguageTagStyle(repo.languages.nodes[0].color)"
             >{{ repo.languages.nodes[0].name }}</span
           >
           <span class="mr-3 text-gray-700 stars"
@@ -35,6 +35,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import Color from 'color'
 
 export default Vue.extend({
   head() {
@@ -49,6 +50,15 @@ export default Vue.extend({
     return {
       repos: githubApiData.data.user.repositories.nodes,
     }
+  },
+
+  methods: {
+    getLanguageTagStyle(color: string): object {
+      return {
+        backgroundColor: color,
+        color: Color(color).isDark() ? '#fff' : '#000', // 背景深色则文字白色，反之同理
+      }
+    },
   },
 })
 </script>
