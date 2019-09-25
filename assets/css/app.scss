@@ -267,3 +267,8 @@ $languages: (
   opacity: 0;
   transform: translateY(30px);
 }
+
+// IMPORTANT: 覆盖 tailwindcss container
+.container {
+  width: auto !important;
+}
