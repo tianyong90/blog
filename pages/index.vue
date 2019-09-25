@@ -10,7 +10,7 @@
         <img :src="coverImgUrl(post)" class="post-cover" />
 
         <div class="flex flex-col h-full justify-between p-4">
-          <div class="text-gray-800 text-base font-normal no-underline">{{ post.title }}</div>
+          <div class="text-gray-800 text-lg font-normal no-underline" v-html="post.title" />
 
           <p class="text-xs text-gray-700" v-html="post.description" />
 

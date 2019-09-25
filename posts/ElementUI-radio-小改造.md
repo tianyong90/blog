@@ -1,7 +1,7 @@
 ---
 title: ElementUI radio 小改造
 date: '2019-08-10 16:22:20'
-top_img: ''
+top_img: ./top_img.jpg
 tags:
   - ElementUI
   - el-radio
