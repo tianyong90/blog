@@ -2,8 +2,8 @@
   <div class="container mx-auto">
     <transition-group name="list" tag="div" class="post-list">
       <nuxt-link
-        v-for="(post, index) in paginatedPosts.data"
-        :key="index"
+        v-for="post in paginatedPosts.data"
+        :key="post.title"
         class="shadow-md rounded-lg overflow-hidden no-underline post-list-item"
         :to="'/posts/' + post.slugifiedFilename"
       >

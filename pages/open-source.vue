@@ -2,8 +2,8 @@
   <div class="container mx-auto">
     <transition-group name="list" tag="div" class="repo-list">
       <div
-        v-for="(repo, index) in repos"
-        :key="index"
+        v-for="repo in repos"
+        :key="repo.name"
         class="shadow-md flex-col rounded-lg relative p-4 repo-list-item"
       >
         <a
@@ -12,7 +12,7 @@
           class="text-xl font-medium text-gray-800 no-underline"
           v-text="repo.name"
         ></a>
-        <p class="text-sm font-light text-gray-700">{{ repo.description }}</p>
+        <div class="text-sm font-light text-gray-700 py-3">{{ repo.description }}</div>
 
         <div class="absolute bottom-0 mb-4">
           <span
@@ -70,7 +70,7 @@ export default Vue.extend({
   margin-top: 20px;
   margin-bottom: 20px;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(200px, auto);
+  grid-auto-rows: minmax(140px, auto);
   grid-gap: 1.5rem;
 
   &-item {
