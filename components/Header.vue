@@ -1,5 +1,5 @@
 <template>
-  <nav class="sticky inset-x-0 top-0 bg-gray-800 z-50">
+  <nav class="sticky inset-x-0 top-0 bg-gray-800 z-50 nav">
     <div class="container flex mx-auto py-2 z-50 justify-between">
       <nuxt-link tag="a" to="/" class="text-white text-xl font-normal no-underline">田写</nuxt-link>
 
@@ -36,4 +36,8 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.nav {
+  height: 45px;
+}
+</style>
