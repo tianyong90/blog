@@ -44,12 +44,16 @@ export default Vue.extend({
     }
   },
 
-  async asyncData() {
-    const githubApiData = await import('../assets/githubapi-data.json')
-
+  data() {
     return {
-      repos: githubApiData.data.user.repositories.nodes,
+      repos: [],
     }
+  },
+
+  mounted() {
+    ;(this as any).$axios.get('/githubapi-data.json').then(res => {
+      this.repos = res.data.data.user.repositories.nodes
+    })
   },
 
   methods: {
