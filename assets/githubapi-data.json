@@ -11,9 +11,15 @@
             "name": "we-vue",
             "url": "https://github.com/tianyong90/we-vue",
             "description": "we-vue， 不只是 vue.js + weui!",
-            "stargazers": { "totalCount": 441 },
-            "forks": { "totalCount": 104 },
-            "watchers": { "totalCount": 18 },
+            "stargazers": {
+              "totalCount": 442
+            },
+            "forks": {
+              "totalCount": 104
+            },
+            "watchers": {
+              "totalCount": 18
+            },
             "languages": {
               "nodes": [
                 {
@@ -48,9 +54,15 @@
             "name": "willchat",
             "url": "https://github.com/tianyong90/willchat",
             "description": "基于Laravel5的开源微信公众号管理平台系统。",
-            "stargazers": { "totalCount": 67 },
-            "forks": { "totalCount": 16 },
-            "watchers": { "totalCount": 11 },
+            "stargazers": {
+              "totalCount": 67
+            },
+            "forks": {
+              "totalCount": 17
+            },
+            "watchers": {
+              "totalCount": 11
+            },
             "languages": {
               "nodes": [
                 {
@@ -85,9 +97,15 @@
             "name": "willshop",
             "url": "https://github.com/tianyong90/willshop",
             "description": "基于 Laravel5.4 + vue.js2.x 的小网店系统",
-            "stargazers": { "totalCount": 45 },
-            "forks": { "totalCount": 13 },
-            "watchers": { "totalCount": 5 },
+            "stargazers": {
+              "totalCount": 45
+            },
+            "forks": {
+              "totalCount": 13
+            },
+            "watchers": {
+              "totalCount": 5
+            },
             "languages": {
               "nodes": [
                 {
@@ -117,18 +135,32 @@
             "name": "articles",
             "url": "https://github.com/tianyong90/articles",
             "description": "日常写作汇总",
-            "stargazers": { "totalCount": 16 },
-            "forks": { "totalCount": 5 },
-            "watchers": { "totalCount": 1 },
-            "languages": { "nodes": [] }
+            "stargazers": {
+              "totalCount": 16
+            },
+            "forks": {
+              "totalCount": 5
+            },
+            "watchers": {
+              "totalCount": 1
+            },
+            "languages": {
+              "nodes": []
+            }
           },
           {
             "name": "laravel-qrcode-login",
             "url": "https://github.com/tianyong90/laravel-qrcode-login",
             "description": "Laravel + laravel-echo + EasyWechat 实现的扫码登录示例",
-            "stargazers": { "totalCount": 13 },
-            "forks": { "totalCount": 5 },
-            "watchers": { "totalCount": 2 },
+            "stargazers": {
+              "totalCount": 13
+            },
+            "forks": {
+              "totalCount": 5
+            },
+            "watchers": {
+              "totalCount": 2
+            },
             "languages": {
               "nodes": [
                 {
@@ -153,9 +185,15 @@
             "name": "blog",
             "url": "https://github.com/tianyong90/blog",
             "description": "田勇的博客",
-            "stargazers": { "totalCount": 6 },
-            "forks": { "totalCount": 0 },
-            "watchers": { "totalCount": 1 },
+            "stargazers": {
+              "totalCount": 6
+            },
+            "forks": {
+              "totalCount": 0
+            },
+            "watchers": {
+              "totalCount": 1
+            },
             "languages": {
               "nodes": [
                 {
@@ -190,9 +228,15 @@
             "name": "vue-markdown-loader",
             "url": "https://github.com/tianyong90/vue-markdown-loader",
             "description": "A webpack loader that transform markdown to vue component. Extracted from Vuepress.",
-            "stargazers": { "totalCount": 3 },
-            "forks": { "totalCount": 2 },
-            "watchers": { "totalCount": 1 },
+            "stargazers": {
+              "totalCount": 3
+            },
+            "forks": {
+              "totalCount": 2
+            },
+            "watchers": {
+              "totalCount": 1
+            },
             "languages": {
               "nodes": [
                 {
@@ -227,9 +271,15 @@
             "name": "webpack-encore-laravel-helpers",
             "url": "https://github.com/tianyong90/webpack-encore-laravel-helpers",
             "description": "Provide webpack-encore helpers for Laravel.",
-            "stargazers": { "totalCount": 2 },
-            "forks": { "totalCount": 0 },
-            "watchers": { "totalCount": 1 },
+            "stargazers": {
+              "totalCount": 2
+            },
+            "forks": {
+              "totalCount": 0
+            },
+            "watchers": {
+              "totalCount": 1
+            },
             "languages": {
               "nodes": [
                 {
@@ -244,9 +294,15 @@
             "name": "laravel-mix-autoreload-demo",
             "url": "https://github.com/tianyong90/laravel-mix-autoreload-demo",
             "description": "laravel-mix 前端自动刷新的三种方法演示，Browsersync, HotModuleReplacement, LiveReload",
-            "stargazers": { "totalCount": 2 },
-            "forks": { "totalCount": 0 },
-            "watchers": { "totalCount": 1 },
+            "stargazers": {
+              "totalCount": 2
+            },
+            "forks": {
+              "totalCount": 0
+            },
+            "watchers": {
+              "totalCount": 1
+            },
             "languages": {
               "nodes": [
                 {
@@ -271,9 +327,15 @@
             "name": "x-dashboard",
             "url": "https://github.com/tianyong90/x-dashboard",
             "description": "A dashboard collect useful informations.",
-            "stargazers": { "totalCount": 2 },
-            "forks": { "totalCount": 0 },
-            "watchers": { "totalCount": 1 },
+            "stargazers": {
+              "totalCount": 2
+            },
+            "forks": {
+              "totalCount": 0
+            },
+            "watchers": {
+              "totalCount": 1
+            },
             "languages": {
               "nodes": [
                 {
@@ -298,9 +360,15 @@
             "name": "laravel-webpack-encore",
             "url": "https://github.com/tianyong90/laravel-webpack-encore",
             "description": "Laravel 项目中使用 webpack-encore 示例",
-            "stargazers": { "totalCount": 0 },
-            "forks": { "totalCount": 0 },
-            "watchers": { "totalCount": 0 },
+            "stargazers": {
+              "totalCount": 0
+            },
+            "forks": {
+              "totalCount": 0
+            },
+            "watchers": {
+              "totalCount": 0
+            },
             "languages": {
               "nodes": [
                 {
@@ -325,9 +393,15 @@
             "name": "site",
             "url": "https://github.com/tianyong90/site",
             "description": "Easywechat.org",
-            "stargazers": { "totalCount": 0 },
-            "forks": { "totalCount": 9 },
-            "watchers": { "totalCount": 1 },
+            "stargazers": {
+              "totalCount": 0
+            },
+            "forks": {
+              "totalCount": 9
+            },
+            "watchers": {
+              "totalCount": 1
+            },
             "languages": {
               "nodes": [
                 {
