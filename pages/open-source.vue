@@ -51,7 +51,7 @@ export default Vue.extend({
   },
 
   mounted() {
-    ;(this as any).$axios.get('/githubapi-data.json').then(res => {
+    ;(this as any).$axios.get('https://tianyong90.com/githubapi-data.json').then(res => {
       this.repos = res.data.data.user.repositories.nodes
     })
   },
