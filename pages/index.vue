@@ -7,12 +7,17 @@
         class="shadow-md rounded-lg overflow-hidden no-underline post-list-item"
         :to="'/posts/' + post.slugifiedFilename"
       >
-        <img :src="coverImgUrl(post)" class="post-cover" />
+        <div class="cover-wrapper">
+          <img :src="coverImgUrl(post)" class="post-cover" />
+        </div>
 
         <div class="flex flex-col h-full justify-between p-4">
-          <div class="text-gray-800 text-lg font-normal no-underline" v-html="post.title" />
+          <div
+            class="text-gray-800 text-lg font-normal no-underline post-title"
+            v-html="post.title"
+          />
 
-          <p class="text-xs text-gray-700" v-html="post.description" />
+          <p class="text-xs text-gray-700 post-description" v-html="post.description" />
 
           <div>
             <span
@@ -145,11 +150,48 @@ export default Vue.extend({
     padding: 0;
   }
 
+  .cover-wrapper {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      box-shadow: 0 0 5rem 3rem rgba(0, 0, 0, 0.5) inset;
+    }
+
+    &:hover::after {
+      display: none;
+    }
+  }
+
   .post-cover {
     display: flex;
     width: 100%;
     height: 200px;
     object-fit: cover;
+    z-index: 1;
+  }
+
+  .post-title {
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .post-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   // 小于 768px 两列
