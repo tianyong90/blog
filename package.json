@@ -71,6 +71,7 @@
     "eslint-plugin-vue": "^5.2.2",
     "fibers": "^4.0.1",
     "fs-extra": "^8.0.1",
+    "fuse.js": "^3.4.5",
     "github-markdown-css": "^3.0.1",
     "gray-matter": "^4.0.2",
     "highlight.js": "^9.15.8",
