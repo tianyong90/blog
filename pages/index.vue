@@ -63,9 +63,9 @@ interface Post {
 }
 
 // 分页
-function getPaginatedItems(items, page, pageSize) {
-  const pg = parseInt(page || 1)
-  const pgSize = parseInt(pageSize || 100)
+function getPaginatedItems(items, page = 1, pageSize = 6) {
+  const pg = parseInt(page.toString())
+  const pgSize = parseInt(pageSize.toString())
   const offset = (pg - 1) * pgSize
   const pagedItems = drop(items, offset).slice(0, pgSize)
 
@@ -114,14 +114,14 @@ export default Vue.extend({
     // 第几页
     const page = get((this as any).$route, 'query.p', 1)
 
-    this.paginatedPosts = getPaginatedItems((this as any).posts, page, 9)
+    this.paginatedPosts = getPaginatedItems((this as any).posts, page)
   },
 
   beforeRouteUpdate(to, from, next) {
     // 第几页
     const page = get(to, 'query.p', 1)
 
-    this.paginatedPosts = getPaginatedItems((this as any).posts, page, 10)
+    this.paginatedPosts = getPaginatedItems((this as any).posts, page)
 
     next()
   },
