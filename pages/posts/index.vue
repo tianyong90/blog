@@ -7,12 +7,17 @@
         class="shadow-md rounded-lg overflow-hidden no-underline post-list-item"
         :to="'/posts/' + post.slugifiedFilename"
       >
-        <img :src="coverImgUrl(post)" class="post-cover" />
+        <div class="cover-wrapper">
+          <img :src="coverImgUrl(post)" class="post-cover" />
+        </div>
 
         <div class="flex flex-col h-full justify-between p-4">
-          <div class="text-gray-800 text-lg font-normal no-underline" v-html="post.title" />
+          <div
+            class="text-gray-800 text-lg font-normal no-underline post-title"
+            v-html="post.title"
+          />
 
-          <p class="text-xs text-gray-700" v-html="post.description" />
+          <p class="text-xs text-gray-700 post-description" v-html="post.description" />
 
           <div>
             <span
@@ -46,8 +51,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
 import { orderBy, drop, get } from 'lodash'
+import Fuse from 'fuse.js'
+import { Component, Vue } from 'vue-property-decorator'
 
 interface Post {
   filename: string
@@ -58,9 +64,9 @@ interface Post {
 }
 
 // 分页
-function getPaginatedItems(items, page, pageSize) {
-  const pg = parseInt(page || 1)
-  const pgSize = parseInt(pageSize || 100)
+function getPaginatedItems(items, page = 1, pageSize = 6) {
+  const pg = parseInt(page.toString())
+  const pgSize = parseInt(pageSize.toString())
   const offset = (pg - 1) * pgSize
   const pagedItems = drop(items, offset).slice(0, pgSize)
 
@@ -75,7 +81,17 @@ function getPaginatedItems(items, page, pageSize) {
   }
 }
 
-export default Vue.extend({
+@Component({
+  async asyncData() {
+    let { default: posts } = await import('~/posts/posts.json')
+
+    // 按发布时间排序
+    posts = orderBy(posts, 'date', 'desc')
+
+    return { posts }
+  },
+})
+export default class Index extends Vue {
   head() {
     return {
       title: '首页',
@@ -88,45 +104,46 @@ export default Vue.extend({
         },
       ],
     }
-  },
+  }
 
-  data() {
-    return {
-      paginatedPosts: {},
-    }
-  },
+  posts: Post[] = []
 
-  async asyncData() {
-    let { default: posts } = await import('~/posts/posts.json')
-
-    // 按发布时间排序
-    posts = orderBy(posts, 'date', 'desc')
-
-    return { posts }
-  },
+  paginatedPosts = {}
 
   mounted() {
     // 第几页
     const page = get((this as any).$route, 'query.p', 1)
 
-    this.paginatedPosts = getPaginatedItems((this as any).posts, page, 9)
-  },
+    this.paginatedPosts = getPaginatedItems((this as any).posts, page)
+
+    const options: Fuse.FuseOptions<Post> = {
+      shouldSort: true,
+      threshold: 0.6,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 1,
+      keys: ['title', 'tags'],
+    }
+    const fuse = new Fuse(this.posts, options) // "list" is the item array
+    const result = fuse.search('前端')
+
+    console.table(result)
+  }
 
   beforeRouteUpdate(to, from, next) {
     // 第几页
     const page = get(to, 'query.p', 1)
 
-    this.paginatedPosts = getPaginatedItems((this as any).posts, page, 10)
+    this.paginatedPosts = getPaginatedItems((this as any).posts, page)
 
     next()
-  },
+  }
 
-  methods: {
-    coverImgUrl(post: Post): string {
-      return '/_nuxt/posts/' + post.filename + post.top_img.replace('./', '/')
-    },
-  },
-})
+  coverImgUrl(post: Post): string {
+    return '/_nuxt/posts/' + post.filename + post.top_img.replace('./', '/')
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -145,11 +162,48 @@ export default Vue.extend({
     padding: 0;
   }
 
+  .cover-wrapper {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      box-shadow: 0 0 5rem 3rem rgba(0, 0, 0, 0.5) inset;
+    }
+
+    &:hover::after {
+      display: none;
+    }
+  }
+
   .post-cover {
     display: flex;
     width: 100%;
     height: 200px;
     object-fit: cover;
+    z-index: 1;
+  }
+
+  .post-title {
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .post-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   // 小于 768px 两列

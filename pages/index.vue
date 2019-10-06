@@ -51,8 +51,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
 import { orderBy, drop, get } from 'lodash'
+import Fuse from 'fuse.js'
+import { Component, Vue } from 'vue-property-decorator'
 
 interface Post {
   filename: string
@@ -80,7 +81,17 @@ function getPaginatedItems(items, page = 1, pageSize = 6) {
   }
 }
 
-export default Vue.extend({
+@Component({
+  async asyncData() {
+    let { default: posts } = await import('~/posts/posts.json')
+
+    // 按发布时间排序
+    posts = orderBy(posts, 'date', 'desc')
+
+    return { posts }
+  },
+})
+export default class Index extends Vue {
   head() {
     return {
       title: '首页',
@@ -93,29 +104,32 @@ export default Vue.extend({
         },
       ],
     }
-  },
+  }
 
-  data() {
-    return {
-      paginatedPosts: {},
-    }
-  },
+  posts: Post[] = []
 
-  async asyncData() {
-    let { default: posts } = await import('~/posts/posts.json')
-
-    // 按发布时间排序
-    posts = orderBy(posts, 'date', 'desc')
-
-    return { posts }
-  },
+  paginatedPosts = {}
 
   mounted() {
     // 第几页
     const page = get((this as any).$route, 'query.p', 1)
 
     this.paginatedPosts = getPaginatedItems((this as any).posts, page)
-  },
+
+    const options: Fuse.FuseOptions<Post> = {
+      shouldSort: true,
+      threshold: 0.6,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 1,
+      keys: ['title', 'tags'],
+    }
+    const fuse = new Fuse(this.posts, options) // "list" is the item array
+    const result = fuse.search('前端')
+
+    console.table(result)
+  }
 
   beforeRouteUpdate(to, from, next) {
     // 第几页
@@ -124,14 +138,12 @@ export default Vue.extend({
     this.paginatedPosts = getPaginatedItems((this as any).posts, page)
 
     next()
-  },
+  }
 
-  methods: {
-    coverImgUrl(post: Post): string {
-      return '/_nuxt/posts/' + post.filename + post.top_img.replace('./', '/')
-    },
-  },
-})
+  coverImgUrl(post: Post): string {
+    return '/_nuxt/posts/' + post.filename + post.top_img.replace('./', '/')
+  }
+}
 </script>
 
 <style scoped lang="scss">
