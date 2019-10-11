@@ -5,15 +5,14 @@
   "author": "tianyong90",
   "private": true,
   "scripts": {
-    "dev": "node scripts/generate-post-list.js && nuxt-ts",
+    "dev": "node scripts/generate-post-list.ts && nuxt-ts",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .eslintignore .",
     "test": "jest",
-    "generate-post-list": "node scripts/generate-post-list.js",
-    "new": "node scripts/create-post.js new",
-    "dev:scripts": "tsc --project scripts/ --watch"
+    "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts",
+    "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts new"
   },
   "husky": {
     "hooks": {
@@ -27,27 +26,27 @@
     ]
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^0.2.0",
+    "@nuxt/typescript-runtime": "^0.2.1",
     "@nuxtjs/axios": "^5.5.4",
     "@nuxtjs/dotenv": "^1.4.1",
     "cross-env": "^6.0.3",
-    "nuxt": "^2.10.0"
+    "nuxt": "^2.10.1"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.3.0",
-    "@mdi/font": "^4.4.95",
-    "@nuxt/typescript-build": "^0.3.0",
+    "@mdi/font": "^4.5.95",
+    "@nuxt/typescript-build": "^0.3.1",
     "@nuxtjs/eslint-config": "^1.0.0",
-    "@nuxtjs/markdownit": "^1.2.5",
-    "@octokit/graphql": "^4.2.0",
+    "@nuxtjs/markdownit": "^1.2.7",
+    "@octokit/graphql": "^4.2.1",
     "@tianyong90/vue-markdown-loader": "^0.1.1",
     "@types/color": "^3.0.0",
     "@types/fs-extra": "^8.0.0",
-    "@types/lodash": "^4.14.141",
-    "@types/node": "^12.7.11",
+    "@types/lodash": "^4.14.144",
+    "@types/node": "^12.7.12",
     "@types/yargs": "^13.0.3",
-    "@typescript-eslint/eslint-plugin": "^2.3.2",
-    "@typescript-eslint/parser": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
     "@vue/test-utils": "^1.0.0-beta.27",
     "anchor": "^1.4.0",
     "autoprefixer": "^9.6.0",
@@ -67,7 +66,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-unicorn": "^12.0.2",
+    "eslint-plugin-unicorn": "^12.1.0",
     "eslint-plugin-vue": "^5.2.2",
     "fibers": "^4.0.1",
     "fs-extra": "^8.0.1",
@@ -77,7 +76,7 @@
     "highlight.js": "^9.15.8",
     "husky": "^3.0.8",
     "jest": "^24.8.0",
-    "lint-staged": "^9.4.1",
+    "lint-staged": "^9.4.2",
     "lodash": "^4.17.11",
     "nodemon": "^1.19.3",
     "normalize.css": "^8.0.1",
@@ -94,6 +93,6 @@
     "tslint": "^5.17.0",
     "vue-jest": "^3.0.4",
     "vue-property-decorator": "^8.2.2",
-    "yargs": "^14.0.0"
+    "yargs": "^14.2.0"
   }
 }

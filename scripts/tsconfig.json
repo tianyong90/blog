@@ -17,15 +17,7 @@
     "sourceMap": false,
     "strict": true,
     "noImplicitAny": false,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": [
-        "./*"
-      ],
-      "@/*": [
-        "./*"
-      ]
-    }
+    "baseUrl": "."
   },
   "include": [
     "./*.ts"

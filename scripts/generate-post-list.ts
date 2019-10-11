@@ -1,9 +1,9 @@
-const path = require('path')
-const fs = require('fs-extra')
-const matter = require('gray-matter')
-const summarize = require('summarize-markdown')
+import path from 'path'
+import fs from 'fs-extra'
+import matter from 'gray-matter'
+import summarize from 'summarize-markdown'
 
-const { slugify } = require('transliteration')
+import { slugify } from 'transliteration'
 
 const list = fs.readdirSync(path.resolve(__dirname, '../posts'))
 
