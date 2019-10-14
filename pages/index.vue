@@ -158,7 +158,7 @@ export default class Index extends Vue {
   &-item {
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.65);
+    background-color: #fff;
     padding: 0;
   }
 

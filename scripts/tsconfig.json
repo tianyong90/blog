@@ -4,11 +4,6 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
-    ],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,

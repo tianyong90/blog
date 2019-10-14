@@ -35,6 +35,6 @@ export default Vue.extend({
 <style scoped lang="scss">
 .nav {
   height: 45px;
-  background-color: rgba(40, 40, 40, 0.75);
+  background-color: #242424;
 }
 </style>
