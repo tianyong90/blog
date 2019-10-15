@@ -3,6 +3,21 @@
     <div class="container flex mx-auto z-50 justify-between items-center h-full">
       <nuxt-link tag="a" to="/" class="text-white text-xl font-normal no-underline">田写</nuxt-link>
 
+      <div class="ml-auto mr-2 search-bar">
+        <input v-model="keyword" type="text" class="search-input" placeholder="搜索文章" />
+
+        <div v-show="searchResult.length > 0" class="search-result">
+          <nuxt-link
+            v-for="(post, index) in searchResult"
+            :key="index"
+            tag="a"
+            class="search-result-item"
+            :to="'/posts/' + post.slugifiedFilename"
+            >{{ post.title }}</nuxt-link
+          >
+        </div>
+      </div>
+
       <div>
         <nuxt-link class="text-white ml-4 font-light no-underline" tag="a" to="/open-source">
           开源
@@ -27,7 +42,7 @@
 <script lang="ts">
 import { orderBy } from 'lodash'
 import Fuse from 'fuse.js'
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Watch, Vue } from 'vue-property-decorator'
 
 interface Post {
   filename: string
@@ -37,21 +52,20 @@ interface Post {
   [key: string]: any
 }
 
-@Component({
-  async asyncData() {
+@Component
+export default class Header extends Vue {
+  posts: Post[] = []
+  keyword: string = ''
+  searchResult: Post[] = []
+  fuse: any = null
+
+  async mounted() {
     let { default: posts } = await import('~/posts/posts.json')
 
     // 按发布时间排序
     posts = orderBy(posts, 'date', 'desc')
 
-    return { posts }
-  },
-})
-export default class Header extends Vue {
-  posts: Post[] = []
-
-  mounted() {
-    console.log(this.posts)
+    this.posts = posts
 
     // 第几页
     const options: Fuse.FuseOptions<Post> = {
@@ -61,23 +75,76 @@ export default class Header extends Vue {
       distance: 100,
       maxPatternLength: 32,
       minMatchCharLength: 1,
-      keys: ['title', 'tags'],
+      keys: ['title'],
     }
-    const fuse = new Fuse(this.posts, options) // "list" is the item array
-    const result = fuse.search('前端')
-
-    console.table('搜索结果', result)
+    this.fuse = new Fuse(this.posts, options)
   }
 
-  coverImgUrl(post: Post): string {
-    return '/_nuxt/posts/' + post.filename + post.top_img.replace('./', '/')
+  @Watch('keyword')
+  onKeywordChange(val: string) {
+    this.searchResult = this.fuse.search(val)
+  }
+
+  @Watch('$route')
+  onRouteChange() {
+    this.keyword = ''
   }
 }
 </script>
 
 <style scoped lang="scss">
+$nav-bg: #242424;
+
 .nav {
   height: 45px;
-  background-color: #242424;
+  background-color: $nav-bg;
+}
+
+.search-bar {
+  position: relative;
+
+  .search-input {
+    font-size: 0.85rem;
+    border-radius: 100vh;
+    padding: 0.25em 0.5em;
+    background-color: lighten($nav-bg, 5%);
+    border: solid 1px lighten($nav-bg, 30%);
+    outline: none;
+    appearance: none;
+    color: #fff;
+
+    &::placeholder {
+      color: #ababab;
+    }
+  }
+
+  .search-result {
+    display: block;
+    margin: 0;
+    padding: 1rem;
+    width: 300px;
+    position: absolute;
+    top: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    list-style: none;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+
+    &-item {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0.5em 0;
+      color: #333;
+      text-decoration: none;
+
+      &:hover {
+        color: #f00;
+        text-decoration: underline;
+      }
+    }
+  }
 }
 </style>

@@ -52,7 +52,6 @@
 
 <script lang="ts">
 import { orderBy, drop, get } from 'lodash'
-import Fuse from 'fuse.js'
 import { Component, Vue } from 'vue-property-decorator'
 
 interface Post {
@@ -115,20 +114,6 @@ export default class Index extends Vue {
     const page = get((this as any).$route, 'query.p', 1)
 
     this.paginatedPosts = getPaginatedItems((this as any).posts, page)
-
-    const options: Fuse.FuseOptions<Post> = {
-      shouldSort: true,
-      threshold: 0.6,
-      location: 0,
-      distance: 100,
-      maxPatternLength: 32,
-      minMatchCharLength: 1,
-      keys: ['title', 'tags'],
-    }
-    const fuse = new Fuse(this.posts, options) // "list" is the item array
-    const result = fuse.search('前端')
-
-    console.table(result)
   }
 
   beforeRouteUpdate(to, from, next) {
