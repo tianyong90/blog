@@ -48,11 +48,6 @@ export default Vue.extend({
     },
   },
 
-  // TODO: 参数验证
-  // validate({ params }) {
-  //   return true
-  // },
-
   data() {
     return {
       topImg: null,
@@ -101,7 +96,7 @@ export default Vue.extend({
     }
   },
 
-  async mounted() {},
+  mounted() {},
 })
 </script>
 

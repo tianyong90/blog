@@ -25,11 +25,54 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { orderBy } from 'lodash'
+import Fuse from 'fuse.js'
+import { Component, Vue } from 'vue-property-decorator'
 
-export default Vue.extend({
-  mounted() {},
+interface Post {
+  filename: string
+  // eslint-disable-next-line
+  top_img: string
+
+  [key: string]: any
+}
+
+@Component({
+  async asyncData() {
+    let { default: posts } = await import('~/posts/posts.json')
+
+    // 按发布时间排序
+    posts = orderBy(posts, 'date', 'desc')
+
+    return { posts }
+  },
 })
+export default class Header extends Vue {
+  posts: Post[] = []
+
+  mounted() {
+    console.log(this.posts)
+
+    // 第几页
+    const options: Fuse.FuseOptions<Post> = {
+      shouldSort: true,
+      threshold: 0.6,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 1,
+      keys: ['title', 'tags'],
+    }
+    const fuse = new Fuse(this.posts, options) // "list" is the item array
+    const result = fuse.search('前端')
+
+    console.table('搜索结果', result)
+  }
+
+  coverImgUrl(post: Post): string {
+    return '/_nuxt/posts/' + post.filename + post.top_img.replace('./', '/')
+  }
+}
 </script>
 
 <style scoped lang="scss">
