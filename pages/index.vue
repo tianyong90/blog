@@ -80,6 +80,8 @@ function getPaginatedItems(items, page = 1, pageSize = 6) {
   }
 }
 
+Component.registerHooks(['beforeRouteUpdate'])
+
 @Component({
   async asyncData() {
     let { default: posts } = await import('~/posts/posts.json')
