@@ -27,31 +27,15 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Vue } from 'vue-property-decorator'
 import dayjs from 'dayjs'
 import { orderBy } from 'lodash'
 
-export default Vue.extend({
-  head() {
-    return {
-      title: (this as any).title,
-      meta: [
-        { hid: 'keywords', name: 'keywords', content: (this as any).tags.join(',') },
-        { hid: 'description', name: 'description', content: '' },
-      ],
-    }
-  },
-
+@Component({
   filters: {
     formatTime(val) {
       return dayjs(val).format('YYYY-MM-DD')
     },
-  },
-
-  data() {
-    return {
-      topImg: null,
-    }
   },
 
   async asyncData({ params }) {
@@ -95,9 +79,20 @@ export default Vue.extend({
       nextLink,
     }
   },
-
-  mounted() {},
 })
+export default class Slug extends Vue {
+  topImg: string = ''
+
+  head() {
+    return {
+      title: (this as any).title,
+      meta: [
+        { hid: 'keywords', name: 'keywords', content: (this as any).tags.join(',') },
+        { hid: 'description', name: 'description', content: '' },
+      ],
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
