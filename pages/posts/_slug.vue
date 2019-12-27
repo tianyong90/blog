@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto my-0 md:my-4 max-w-4xl">
-    <div class="post">
+    <div class="post rounded-sm">
       <img :src="topImg" class="w-full cover-image" />
 
       <div class="px-4 md:px-8 py-4">
