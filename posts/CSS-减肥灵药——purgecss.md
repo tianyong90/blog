@@ -3,11 +3,11 @@ title: CSS 减肥灵药——purgecss
 date: '2019-12-27 05:34:49'
 top_img: ''
 tags:
-  - ''
+  - 'css'
+  - 'purgecss'
 categories:
-  - ''
+  - '前端'
 ---
-
 
 初识 purgecss
 
