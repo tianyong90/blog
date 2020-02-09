@@ -140,7 +140,7 @@ export default class Index extends Vue {
   margin-top: 20px;
   margin-bottom: 20px;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1.5rem;
+  grid-gap: 2rem;
 
   &-item {
     display: flex;
@@ -160,11 +160,13 @@ export default class Index extends Vue {
       left: 0;
       right: 0;
       z-index: 2;
-      box-shadow: 0 0 5rem 3rem rgba(0, 0, 0, 0.5) inset;
+      background-color: #000;
+      opacity: 0;
+      transition: all 200ms ease-in-out;
     }
 
     &:hover::after {
-      display: none;
+      opacity: 0.25;
     }
   }
 

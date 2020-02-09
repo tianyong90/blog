@@ -9,10 +9,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-image: url(../image/bg.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background: fixed linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
   font-family: 'Arial', Helvetica, Arial, "Microsoft Yahei", sans-serif;
 }
 

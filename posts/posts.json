@@ -153,6 +153,21 @@
     "description": "Laravel5.5 是 Laravel 最新的一个 LTS 版本，发布至今已有些时日，眼看着 5.6 都快出来了，最近"
   },
   {
+    "filename": "swiper-js-loop-小坑",
+    "slugifiedFilename": "swiper.js-loop-xiao-keng",
+    "title": "swiper.js loop 小坑",
+    "date": "2020-02-08 02:15:49",
+    "top_img": "",
+    "tags": [
+      "swiper.js",
+      "vue"
+    ],
+    "categories": [
+      "前端"
+    ],
+    "description": "swiper.js 是一款强大的插件，也是我最喜欢的开源插件之一。它可以轻松实现轮播、tab 标签以及各种风骚的页面滑动"
+  },
+  {
     "filename": "也来扯扯-Vue-单元测试",
     "slugifiedFilename": "ye-lai-che-che-vue-dan-yuan-ce-shi",
     "title": "也来扯扯 Vue 单元测试",
