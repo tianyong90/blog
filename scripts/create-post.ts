@@ -13,7 +13,7 @@ const argv = yargs
   })
   .help('h').argv
 
-if (argv._[0] === 'new') {
+if (argv[0] === 'new') {
   // 标题
   const title = argv.title as string
 

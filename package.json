@@ -5,7 +5,7 @@
   "author": "tianyong90",
   "private": true,
   "scripts": {
-    "dev": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts && nuxt-ts",
+    "dev": "yarn run generate-post-list && nuxt-ts",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",

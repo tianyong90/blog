@@ -2,8 +2,18 @@ import path from 'path'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
 import summarize from 'summarize-markdown'
-
 import { slugify } from 'transliteration'
+import yargs from 'yargs'
+
+const argv = yargs
+  .command('new', 'create new post', {
+    title: {
+      description: 'post title',
+      demand: true,
+      alias: 't',
+    },
+  })
+  .help('h').argv
 
 const list = fs.readdirSync(path.resolve(__dirname, '../posts'))
 
