@@ -34,7 +34,7 @@ jobs:
           paths:
             - ~/.cache/yarn
 
-      - run: yarn run generate-post-list
+      - run: yarn run generate-post-list --production
 
       - run: yarn run generate
 
