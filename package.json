@@ -6,13 +6,13 @@
   "private": true,
   "scripts": {
     "dev": "yarn run generate-post-list && nuxt-ts",
-    "build": "nuxt-ts build",
+    "build": "yarn run generate-post-list --production && nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .eslintignore .",
     "test": "jest",
-    "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts",
-    "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts new"
+    "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts generate",
+    "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts"
   },
   "husky": {
     "hooks": {
