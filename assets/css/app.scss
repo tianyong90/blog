@@ -1,7 +1,6 @@
 $mdi-font-path: '~@mdi/font/fonts';
 @import "~@mdi/font/scss/materialdesignicons";
 
-/* purgecss start ignore */
 @import "~prism-themes/themes/prism-atom-dark.css";
 @import "~github-markdown-css/github-markdown.css";
 @import "~normalize.css/normalize.css";
@@ -267,5 +266,3 @@ $languages: (
   opacity: 0;
   transform: translateY(30px);
 }
-
-/* purgecss end ignore */
