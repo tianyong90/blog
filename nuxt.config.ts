@@ -98,7 +98,7 @@ const config: Configuration = {
 
     postcss: {
       plugins: [
-        require('tailwindcss')(tailwindJS),
+        // require('tailwindcss')(tailwindJS),
         require('autoprefixer'),
         ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
       ],
