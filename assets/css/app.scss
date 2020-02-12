@@ -91,10 +91,10 @@ body {
   }
 }
 
-[class*="language-"] {
+pre[class*="language-"] {
   position: relative;
   z-index: 40;
-  background: #1d1f21;
+  background: #1d1f21 !important;
 
   &::before {
     position: absolute;
