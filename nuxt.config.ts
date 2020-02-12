@@ -49,7 +49,7 @@ const config: Configuration = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#00f' },
+  loading: { color: '#ff9b36' },
 
   /*
    ** Global CSS
@@ -106,7 +106,7 @@ const config: Configuration = {
       plugins: [
         require('tailwindcss')(tailwindJS),
         require('autoprefixer'),
-        ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
+        // ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
       ],
     },
 
