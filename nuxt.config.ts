@@ -17,14 +17,7 @@ const purgecss = Purgecss({
   // Include any special characters you're using in this regular expression
   defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
   whitelist: ['html', 'body', 'nuxt-progress'],
-  whitelistPatternsChildren: [
-    /language-/,
-    /^token/,
-    /^pre/,
-    /^code/,
-    /^line-numbers-wrapper/,
-    /^line-number/,
-  ],
+  whitelistPatternsChildren: [/^token/, /^pre/, /^code/, /^line-numbers-wrapper/, /^line-number/],
 })
 
 // console.log(posts)

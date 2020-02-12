@@ -91,7 +91,7 @@ body {
   }
 }
 
-div[class*="language-"] {
+[class*="language-"] {
   position: relative;
   z-index: 40;
   background: #1d1f21;
