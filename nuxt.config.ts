@@ -11,7 +11,6 @@ const purgecss = Purgecss({
     './pages/**/*.html',
     './pages/**/*.vue',
     './components/**/*.vue',
-    './components/**/*.jsx',
     // etc.
   ],
 
@@ -100,7 +99,7 @@ const config: Configuration = {
       plugins: [
         require('tailwindcss')(tailwindJS),
         require('autoprefixer'),
-        // ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
+        ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
       ],
     },
 
