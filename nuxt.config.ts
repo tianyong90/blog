@@ -121,7 +121,7 @@ const config: Configuration = {
               // sourceDir: ''
               contentCssClass: 'markdown-body',
               markdown: {
-                lineNumbers: true, // enable line numbers
+                lineNumbers: false, // enable line numbers
               },
             },
           },

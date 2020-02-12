@@ -114,7 +114,7 @@ div[class*="language-"] {
     position: relative;
 
     ::before {
-      content: " ";
+      content: "";
       position: absolute;
       z-index: 3;
       left: 0;
@@ -139,12 +139,13 @@ div[class*="language-"] {
       width: 3.5rem;
       text-align: center;
       color: hsla(0, 0, 100%, 0.3);
-      padding: 10px 0;
-      line-height: 18px;
+      padding: 18px 0;
       border-radius: 6px 0 0 6px;
       border-right: 1px solid rgba(0, 0, 0, 0.66);
       background-color: #282c45;
       z-index: 2;
+      font-size: 13.6px;
+      line-height: 1.45;
 
       .line-number,
       br {
@@ -213,7 +214,9 @@ $languages: (
   margin-bottom: .4rem
 }
 
-.custom-block.danger,.custom-block.tip,.custom-block.warning {
+.custom-block.danger,
+.custom-block.tip,
+.custom-block.warning {
   padding: .1rem 1.5rem;
   border-left-width: .5rem;
   border-left-style: solid;
@@ -263,9 +266,4 @@ $languages: (
   /* .list-leave-active for below version 2.1.8 */ {
   opacity: 0;
   transform: translateY(30px);
-}
-
-// IMPORTANT: 覆盖 tailwindcss container
-.container {
-  width: auto !important;
 }
