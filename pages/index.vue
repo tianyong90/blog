@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <transition-group name="list" tag="div" class="post-list">
+    <div class="post-list">
       <nuxt-link
         v-for="post in paginatedPosts.data"
         :key="post.title"
@@ -29,7 +29,7 @@
           </div>
         </div>
       </nuxt-link>
-    </transition-group>
+    </div>
 
     <div class="paginator">
       <nuxt-link
