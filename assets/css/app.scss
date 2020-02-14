@@ -13,6 +13,10 @@ body {
   font-family: 'Arial', Helvetica, Arial, "Microsoft Yahei", sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /// Mixin to customize scrollbars
 /// Beware, this does not work in all browsers
 /// @author Hugo Giraudel
