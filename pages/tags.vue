@@ -12,7 +12,7 @@
           <span v-for="(tag, tagIndex) in post.tags" :key="tagIndex" class="tag">{{ tag }}</span>
         </div>
 
-        <img class="cover" :src="coverImgUrl(post)" />
+        <img class="cover" loading="lazy" :src="coverImgUrl(post)" />
       </div>
     </div>
   </div>

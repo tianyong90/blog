@@ -8,7 +8,7 @@
         :to="'/posts/' + post.slugifiedFilename"
       >
         <div class="cover-wrapper">
-          <img :src="coverImgUrl(post)" class="post-cover" />
+          <img :src="coverImgUrl(post)" loading="lazy" class="post-cover" />
         </div>
 
         <div class="flex flex-col h-full justify-between p-4">
