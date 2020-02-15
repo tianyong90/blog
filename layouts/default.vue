@@ -18,12 +18,5 @@ export default {
     Footer,
     BackToTop,
   },
-
-  head() {
-    return {
-      // 酷暑模板
-      titleTemplate: `%s - 田写`,
-    }
-  },
 }
 </script>

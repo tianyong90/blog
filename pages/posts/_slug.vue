@@ -3,9 +3,9 @@
     <div class="post rounded-lg overflow-hidden">
       <img :src="topImg" loading="lazy" class="w-full cover-image" />
 
-      <div class="px-4 md:px-8 py-4">
+      <div class="px-4 md:px-8 py-2">
         <div class="mb-4">
-          <h1 class="text-gray-800 text-2xl font-normal" v-text="title" />
+          <h1 class="text-gray-800 text-xl font-normal" v-text="title" />
           <div class="text-gray-700 text-xs post-date">{{ date | formatTime }}</div>
         </div>
 

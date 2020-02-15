@@ -30,7 +30,9 @@ const config: Configuration = {
    ** Headers of the page
    */
   head: {
-    title: '田写',
+    titleTemplate: title => {
+      return title ? `${title} - 田写` : '田写'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -52,7 +54,12 @@ const config: Configuration = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    // {
+    //   src: '~/plugins/router-guard.ts',
+    //   mode: 'client',
+    // },
+  ],
 
   /*
    ** Nuxt.js modules
