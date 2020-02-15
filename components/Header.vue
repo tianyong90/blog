@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="hidden md:flex">
         <nuxt-link class="text-white ml-4 font-light no-underline" tag="a" to="/open-source">
           开源
         </nuxt-link>
@@ -34,6 +34,22 @@
           class="text-white ml-4 font-light no-underline"
           >微博</a
         >
+      </div>
+
+      <span
+        class="md:hidden mdi text-white text-lg dropdown-menu-toggle"
+        :class="menutoggleClass"
+        @click="toggleDropdownMenu"
+      />
+
+      <div v-show="dropdownMenuVisible" class="container flex md:hidden dropdown-menu">
+        <nuxt-link class="dropdown-menu-item" tag="a" to="/open-source">
+          开源
+        </nuxt-link>
+        <a href="https://github.com/tianyong90" target="_blank" class="dropdown-menu-item"
+          >GitHub</a
+        >
+        <a href="https://weibo.com/1707227001" target="_blank" class="dropdown-menu-item">微博</a>
       </div>
     </div>
   </nav>
@@ -58,6 +74,11 @@ export default class Header extends Vue {
   keyword: string = ''
   searchResult: Post[] = []
   fuse: any = null
+  dropdownMenuVisible = false
+
+  get menutoggleClass() {
+    return this.dropdownMenuVisible ? 'mdi-close' : 'mdi-menu'
+  }
 
   async mounted() {
     let { default: posts } = await import('~/posts/posts.json')
@@ -89,14 +110,19 @@ export default class Header extends Vue {
   onRouteChange() {
     this.keyword = ''
   }
+
+  toggleDropdownMenu() {
+    this.dropdownMenuVisible = !this.dropdownMenuVisible
+  }
 }
 </script>
 
 <style scoped lang="scss">
 $nav-bg: #242424;
+$nav-height: 45px;
 
 .nav {
-  height: 45px;
+  height: $nav-height;
   background-color: $nav-bg;
 }
 
@@ -145,6 +171,25 @@ $nav-bg: #242424;
         text-decoration: underline;
       }
     }
+  }
+}
+
+.dropdown-menu {
+  position: fixed;
+  width: 100%;
+  top: $nav-height;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 100;
+  flex-direction: column;
+
+  .dropdown-menu-item {
+    color: #445566;
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.25rem 0;
   }
 }
 </style>

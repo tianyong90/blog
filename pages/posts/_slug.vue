@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-4 md:my-4">
-    <div class="post rounded-lg">
+    <div class="post rounded-lg overflow-hidden">
       <img :src="topImg" class="w-full cover-image" />
 
       <div class="px-4 md:px-8 py-4">
