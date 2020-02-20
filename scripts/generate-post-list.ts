@@ -5,6 +5,7 @@ import summarize from 'summarize-markdown'
 import { slugify } from 'transliteration'
 import yargs from 'yargs'
 import dayjs from 'dayjs'
+// import { Post } from 'blog/types'
 
 const args = yargs.option('production', {
   boolean: true,
@@ -19,7 +20,7 @@ const list = fs.readdirSync(path.resolve(__dirname, '../posts'))
 const posts = list.filter(item => item.endsWith('.md')).map(item => item.replace('.md', ''))
 
 // 读取 md 文章 frontmatter 数组并组合
-const jsonData = posts
+const jsonData: Array<any> = posts
   .map(post => {
     const { data, content } = matter.read(`./posts/${post}.md`)
 
@@ -35,12 +36,12 @@ const jsonData = posts
       slugifiedFilename,
       ...data,
       description: summarize(content).substr(0, 60),
-    }
+    } as any
   })
   .filter(item => {
     if (args.production) {
       // 过滤博客草稿草稿
-      return !(item as any).draft
+      return item!.draft
     }
 
     return true

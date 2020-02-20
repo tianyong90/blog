@@ -80,11 +80,11 @@ export default class Header extends Vue {
   }
 
   get dropdownMenuVisible() {
-    return this.$store.state.dropdownMenuVisible
+    return (this as any).$store.state.dropdownMenuVisible
   }
 
   set dropdownMenuVisible(value) {
-    this.$store.commit('UPDATE_DROPDOWN_MENU_VISIBLE', value)
+    ;(this as any).$store.commit('UPDATE_DROPDOWN_MENU_VISIBLE', value)
   }
 
   async mounted() {

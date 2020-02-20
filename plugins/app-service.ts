@@ -1,9 +1,10 @@
+import { Post } from 'blog/types'
 import posts from '~/posts/posts.json'
 import metaData from '~/posts/meta.json'
 
 export default ({ app, store }) => {
   // 过滤掉草稿
-  const publishedPosts = posts.filter(post => {
+  const publishedPosts = (posts as Array<Post>).filter(post => {
     return !post.draft
   })
 
