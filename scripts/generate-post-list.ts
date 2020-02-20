@@ -41,7 +41,7 @@ const jsonData: Array<any> = posts
   .filter(item => {
     if (args.production) {
       // 过滤博客草稿草稿
-      return item!.draft
+      return !item!.draft
     }
 
     return true
