@@ -55,10 +55,10 @@ const config: Configuration = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    // {
-    //   src: '~/plugins/router-guard.ts',
-    //   mode: 'client',
-    // },
+    {
+      src: '~/plugins/app-service.ts',
+      ssr: false,
+    },
   ],
 
   /*

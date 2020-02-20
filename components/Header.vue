@@ -74,10 +74,17 @@ export default class Header extends Vue {
   keyword: string = ''
   searchResult: Post[] = []
   fuse: any = null
-  dropdownMenuVisible = false
 
   get menutoggleClass() {
     return this.dropdownMenuVisible ? 'mdi-close' : 'mdi-menu'
+  }
+
+  get dropdownMenuVisible() {
+    return this.$store.state.dropdownMenuVisible
+  }
+
+  set dropdownMenuVisible(value) {
+    this.$store.commit('UPDATE_DROPDOWN_MENU_VISIBLE', value)
   }
 
   async mounted() {

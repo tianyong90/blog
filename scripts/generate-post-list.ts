@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import summarize from 'summarize-markdown'
 import { slugify } from 'transliteration'
 import yargs from 'yargs'
+import dayjs from 'dayjs'
 
 const args = yargs.option('production', {
   boolean: true,
@@ -47,5 +48,14 @@ const jsonData = posts
 
 // 写入 json
 fs.writeJson('./posts/posts.json', jsonData, {
+  spaces: 2,
+})
+
+// metaData
+const metaData = {
+  updatedAt: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+}
+
+fs.writeJson('./posts/meta.json', metaData, {
   spaces: 2,
 })

@@ -179,7 +179,6 @@ export default class Index extends Vue {
   }
 
   .post-title {
-    margin-bottom: 1rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -193,6 +192,7 @@ export default class Index extends Vue {
     -webkit-line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.5;
   }
 
   // 小于 768px 两列
