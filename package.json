@@ -70,7 +70,7 @@
     "fibers": "^4.0.1",
     "fs-extra": "^8.0.1",
     "fuse.js": "^3.4.5",
-    "github-markdown-css": "^3.0.1",
+    "github-markdown-css": "^4.0.0",
     "gray-matter": "^4.0.2",
     "highlight.js": "^9.18.0",
     "husky": "^4.2.1",
@@ -97,7 +97,7 @@
   },
   "config": {
     "nuxt": {
-      "host": "192.168.1.21",
+      "host": "192.168.0.100",
       "port": "3000"
     }
   }

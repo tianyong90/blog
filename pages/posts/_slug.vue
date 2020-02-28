@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-4 md:my-4">
-    <div class="post rounded-lg overflow-hidden">
+    <div class="post rounded-lg overflow-hidden bg-white">
       <img :src="topImg" loading="lazy" class="w-full cover-image" />
 
       <div class="px-4 md:px-8 py-2">
@@ -96,17 +96,12 @@ export default class Slug extends Vue {
 </script>
 
 <style scoped lang="scss">
-.post {
-  background-color: rgba(255, 255, 255, 0.65);
-}
-
 .cover-image {
   max-height: 420px;
   object-fit: cover;
 }
 
 .markdown-body {
-  min-height: 40vh;
   font-size: 1rem;
   text-align: left;
 }
