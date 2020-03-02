@@ -219,6 +219,21 @@
     "description": "看过我之前写过的博客的应该知道我一直是 laravel-mix 的死忠粉，有好几篇文章都是关于它的。每每提到 larav"
   },
   {
+    "filename": "如何用-Vue-写一个虚拟数字键盘",
+    "slugifiedFilename": "ru-he-yong-vue-xie-yi-ge-xu-ni-shu-zi-jian-pan",
+    "title": "如何用 Vue 写一个虚拟数字键盘",
+    "date": "2020-03-Su 23:14:35",
+    "top_img": "./top_img.png",
+    "tags": [
+      ""
+    ],
+    "categories": [
+      ""
+    ],
+    "draft": true,
+    "description": ""
+  },
+  {
     "filename": "小分享——webpack-encore-laravel-helpers",
     "slugifiedFilename": "xiao-fen-xiang-webpack-encore-laravel-helpers",
     "title": "小分享——webpack-encore-laravel-helpers",

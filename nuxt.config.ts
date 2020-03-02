@@ -147,6 +147,11 @@ const config: Configuration = {
   generate: {
     routes: ['404'].concat(posts.map(post => `/posts/${post.slugifiedFilename}`)),
   },
+
+  server: {
+    host: '0.0.0.0', // 便于在手机上预览效果
+    port: 3000,
+  },
 }
 
 export default config
