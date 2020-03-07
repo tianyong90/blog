@@ -225,13 +225,14 @@
     "date": "2020-03-Su 23:14:35",
     "top_img": "./top_img.png",
     "tags": [
-      ""
+      "vue",
+      "数字键盘"
     ],
     "categories": [
-      ""
+      "前端"
     ],
     "draft": true,
-    "description": ""
+    "description": "数字键盘，应用场景非常广泛，尤其在手机端，很多时候我们需要输入手机号、输入短信验证码或者输入支付金额。熊掌情况下，只需要"
   },
   {
     "filename": "小分享——webpack-encore-laravel-helpers",
