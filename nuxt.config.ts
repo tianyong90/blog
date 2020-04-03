@@ -15,9 +15,16 @@ const purgecss = Purgecss({
   ],
 
   // Include any special characters you're using in this regular expression
-  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
-  whitelist: ['html', 'body', 'nuxt-progress'],
-  whitelistPatternsChildren: [/^token/, /^pre/, /^code/, /^line-numbers-wrapper/, /^line-number/],
+  defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+  whitelist: ['html', 'body', 'nuxt-progress', 'grayscale'],
+  whitelistPatternsChildren: [
+    /^token/,
+    /^pre/,
+    /^code/,
+    /^line-numbers-wrapper/,
+    /^line-number/,
+    /^grayscale/,
+  ],
 })
 
 // console.log(posts)
@@ -30,7 +37,7 @@ const config: Configuration = {
    ** Headers of the page
    */
   head: {
-    titleTemplate: title => {
+    titleTemplate: (title) => {
       return title ? `${title} - 田写` : '田写'
     },
     meta: [
@@ -145,7 +152,7 @@ const config: Configuration = {
   },
 
   generate: {
-    routes: ['404'].concat(posts.map(post => `/posts/${post.slugifiedFilename}`)),
+    routes: ['404'].concat(posts.map((post) => `/posts/${post.slugifiedFilename}`)),
   },
 
   server: {
