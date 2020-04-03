@@ -11,6 +11,7 @@ body {
   padding: 0;
   background: fixed linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
   font-family: 'Arial', Helvetica, Arial, "Microsoft Yahei", sans-serif;
+  min-height: 100vh;
 }
 
 * {
@@ -269,4 +270,9 @@ $languages: (
 .list-enter, .list-leave-to {
   opacity: 0;
   transform: translateY(30px);
+}
+
+.grayscale {
+  // 2020-04-04 页面灰白化
+  filter: grayscale(100%) !important;
 }

@@ -96,7 +96,7 @@ export default class Header extends Vue {
     this.posts = posts
 
     // 第几页
-    const options: Fuse.FuseOptions<Post> = {
+    const options = {
       shouldSort: true,
       threshold: 0.6,
       location: 0,
