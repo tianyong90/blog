@@ -151,14 +151,18 @@ export default class Index extends Vue {
 
   .cover-wrapper {
     position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; // 使用 padding-bottom 实现固定比例 16:9
+    overflow: hidden;
 
     &::after {
       content: '';
       position: absolute;
-      top: 0;
-      bottom: 0;
       left: 0;
-      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
       z-index: 2;
       background-color: #000;
       opacity: 0;
@@ -171,9 +175,11 @@ export default class Index extends Vue {
   }
 
   .post-cover {
-    display: flex;
+    position: absolute;
     width: 100%;
-    height: 200px;
+    height: 100%;
+    left: 0;
+    top: 0;
     object-fit: cover;
     z-index: 1;
   }
