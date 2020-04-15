@@ -43,5 +43,5 @@ jobs:
           name: deploy blog
           when: on_success
           command: |
-            rsync -vzrtopg --progress -e ssh --delete ~/blog/dist/* $DEPLOY_USER@$DEPLOY_HOST:/data/wwwroot/tianyong90.com
+            yarn run deploy
 

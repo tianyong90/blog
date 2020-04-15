@@ -71,9 +71,7 @@ import { fixedEncodeURI } from '@/utils'
     if (attributes.top_img) {
       topImg = attributes.top_img.replace(
         /^\./,
-        fixedEncodeURI(
-          `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`
-        )
+        fixedEncodeURI(`https://tianyong90.com/_nuxt/posts/${filename}/`)
       )
     }
 
@@ -82,10 +80,7 @@ import { fixedEncodeURI } from '@/utils'
       topImg,
       html: html.replace(
         /src="\.\//g,
-        'src="' +
-          fixedEncodeURI(
-            `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`
-          )
+        'src="' + fixedEncodeURI(`https://tianyong90.com/_nuxt/posts/${filename}/`)
       ), // markdown 内容中图片地址引用替换
       prevLink,
       nextLink,
