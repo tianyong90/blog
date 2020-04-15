@@ -30,6 +30,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import dayjs from 'dayjs'
 import { orderBy } from 'lodash'
+import { fixedEncodeURI } from '@/utils'
 
 @Component({
   filters: {
@@ -68,7 +69,12 @@ import { orderBy } from 'lodash'
     let topImg
     // 顶部背景图
     if (attributes.top_img) {
-      topImg = attributes.top_img.replace(/^\./, `/_nuxt/posts/${filename}`)
+      topImg = attributes.top_img.replace(
+        /^\./,
+        fixedEncodeURI(
+          `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`
+        )
+      )
     }
 
     return {
@@ -76,7 +82,10 @@ import { orderBy } from 'lodash'
       topImg,
       html: html.replace(
         /src="\.\//g,
-        `src="https://github.com/tianyong90/blog/blob/gh-pages/_nuxt/posts/${filename}/`
+        'src="' +
+          fixedEncodeURI(
+            `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`
+          )
       ), // markdown 内容中图片地址引用替换
       prevLink,
       nextLink,

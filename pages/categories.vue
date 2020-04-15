@@ -21,6 +21,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { orderBy } from 'lodash'
+import { fixedEncodeURI } from '@/utils'
 
 interface Post {
   filename: string
@@ -41,8 +42,8 @@ export default Vue.extend({
 
   methods: {
     coverImgUrl(post: Post): string {
-      return encodeURI(
-        'https://github.com/tianyong90/blog/blob/gh-pages/_nuxt/posts/' +
+      return fixedEncodeURI(
+        'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +
           post.filename +
           post.top_img.replace('./', '/')
       )

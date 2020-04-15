@@ -53,10 +53,7 @@
 <script lang="ts">
 import { orderBy, drop, get } from 'lodash'
 import { Component, Vue } from 'vue-property-decorator'
-
-function fixedEncodeURI(str) {
-  return encodeURI(str).replace(/%5B/g, '[').replace(/%5D/g, ']')
-}
+import { fixedEncodeURI } from '@/utils'
 
 interface Post {
   filename: string
@@ -133,7 +130,7 @@ export default class Index extends Vue {
 
   coverImgUrl(post: Post): string {
     return fixedEncodeURI(
-      'https://github.com/tianyong90/blog/blob/gh-pages/_nuxt/posts/' +
+      'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +
         post.filename +
         post.top_img.replace('./', '/')
     )
