@@ -41,10 +41,10 @@ export default Vue.extend({
 
   methods: {
     coverImgUrl(post: Post): string {
-      return (
+      return encodeURI(
         'https://github.com/tianyong90/blog/blob/gh-pages/_nuxt/posts/' +
-        post.filename +
-        post.top_img.replace('./', '/')
+          post.filename +
+          post.top_img.replace('./', '/')
       )
     },
   },
