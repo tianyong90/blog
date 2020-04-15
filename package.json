@@ -15,7 +15,7 @@
     "test": "jest",
     "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts generate",
     "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup --allow-unclean"
   },
   "husky": {
     "hooks": {
