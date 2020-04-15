@@ -9,10 +9,13 @@
     "build": "yarn run generate-post-list --production && nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
+    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .eslintignore .",
     "test": "jest",
     "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts generate",
-    "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts"
+    "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "husky": {
     "hooks": {
@@ -28,7 +31,7 @@
     "@nuxt/typescript-runtime": "^0.4.0",
     "@nuxtjs/axios": "^5.9.3",
     "@nuxtjs/dotenv": "^1.4.1",
-    "cross-env": "^7.0.0",
+    "cross-env": "^7.0.2",
     "nuxt": "^2.11.0"
   },
   "devDependencies": {
