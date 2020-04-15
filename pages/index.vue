@@ -54,6 +54,10 @@
 import { orderBy, drop, get } from 'lodash'
 import { Component, Vue } from 'vue-property-decorator'
 
+function fixedEncodeURI(str) {
+  return encodeURI(str).replace(/%5B/g, '[').replace(/%5D/g, ']')
+}
+
 interface Post {
   filename: string
   // eslint-disable-next-line
@@ -128,7 +132,7 @@ export default class Index extends Vue {
   }
 
   coverImgUrl(post: Post): string {
-    return encodeURI(
+    return fixedEncodeURI(
       'https://github.com/tianyong90/blog/blob/gh-pages/_nuxt/posts/' +
         post.filename +
         post.top_img.replace('./', '/')
