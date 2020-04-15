@@ -42,12 +42,6 @@ const tailwindJS = join(__dirname, 'tailwind.config.js')
 const config: Configuration = {
   mode: 'universal',
 
-  // ...routerBase,
-
-  router: {
-    base: '/blog/',
-  },
-
   /*
    ** Headers of the page
    */
