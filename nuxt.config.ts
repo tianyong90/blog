@@ -30,19 +30,23 @@ const purgecss = Purgecss({
 // console.log(posts)
 const tailwindJS = join(__dirname, 'tailwind.config.js')
 
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        router: {
-          base: '/<repository-name>/',
-        },
-      }
-    : {}
+// const routerBase =
+//   process.env.DEPLOY_ENV === 'GH_PAGES'
+//     ? {
+//         router: {
+//           base: '/blog/',
+//         },
+//       }
+//     : {}
 
 const config: Configuration = {
   mode: 'universal',
 
-  ...routerBase,
+  // ...routerBase,
+
+  router: {
+    base: '/blog/',
+  },
 
   /*
    ** Headers of the page
