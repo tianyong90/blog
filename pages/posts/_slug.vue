@@ -74,7 +74,10 @@ import { orderBy } from 'lodash'
     return {
       ...attributes,
       topImg,
-      html: html.replace(/src="\.\//g, `src="/_nuxt/posts/${filename}/`), // markdown 内容中图片地址引用替换
+      html: html.replace(
+        /src="\.\//g,
+        `src="https://github.com/tianyong90/blog/blob/gh-pages/_nuxt/posts/${filename}/`
+      ), // markdown 内容中图片地址引用替换
       prevLink,
       nextLink,
     }

@@ -128,7 +128,11 @@ export default class Index extends Vue {
   }
 
   coverImgUrl(post: Post): string {
-    return '/_nuxt/posts/' + post.filename + post.top_img.replace('./', '/')
+    return (
+      'https://github.com/tianyong90/blog/blob/gh-pages/_nuxt/posts/' +
+      post.filename +
+      post.top_img.replace('./', '/')
+    )
   }
 }
 </script>
