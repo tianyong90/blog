@@ -43,7 +43,9 @@ export default Vue.extend({
   methods: {
     coverImgUrl(post: Post): string {
       return fixedEncodeURI(
-        'https://tianyong90.com/_nuxt/posts/' + post.filename + post.top_img.replace('./', '/')
+        'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +
+          post.filename +
+          post.top_img.replace('./', '/')
       )
     },
   },

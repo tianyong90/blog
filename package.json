@@ -8,7 +8,7 @@
     "dev": "yarn run generate-post-list && nuxt-ts",
     "build": "yarn run generate-post-list --production && nuxt-ts build",
     "start": "nuxt-ts start",
-    "generate": "nuxt-ts generate",
+    "generate": "yarn run generate-post-list --production && nuxt-ts generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .eslintignore .",
     "test": "jest",
     "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts generate",
