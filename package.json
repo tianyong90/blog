@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "yarn run generate-post-list && nuxt-ts",
     "build": "yarn run generate-post-list --production && nuxt-ts build",
-    "start": "nuxt-ts start",
     "generate": "yarn run generate-post-list --production && nuxt-ts generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .eslintignore .",
     "test": "jest",
