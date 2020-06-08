@@ -1,5 +1,6 @@
 <template>
   <div class="container mx-auto">
+    <span>hello</span>
     <div class="post-list">
       <nuxt-link
         v-for="post in paginatedPosts.data"
