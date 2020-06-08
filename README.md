@@ -1,5 +1,7 @@
 # 田勇的博客
 
+![build](https://github.com/tianyong90/blog/workflows/build/badge.svg)
+
 > My splendid Nuxt.js project
 
 ## Build Setup
