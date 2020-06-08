@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{219:function(t,e){t.exports={html:"<p>初识 purgecss</p>\n<p>基本配置</p>\n<p>效果对比（tailwindcss)</p>\n<p>白名单使用以及注意事项</p>\n",attributes:{title:"CSS 减肥灵药——purgecss",date:"2019-12-27 05:34:49",top_img:"",tags:["css","purgecss"],categories:["前端"],draft:!0}}}}]);
