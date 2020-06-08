@@ -142,11 +142,13 @@ const config: Configuration = {
       })
 
       config.plugins!.push(
-        new CopyPlugin([
-          { from: './posts/**/*.jpg', to: '' },
-          { from: './posts/**/*.png', to: '' },
-          { from: './posts/**/*.gif', to: '' },
-        ])
+        new CopyPlugin({
+          patterns: [
+            { from: './posts/**/*.jpg', to: '' },
+            { from: './posts/**/*.png', to: '' },
+            { from: './posts/**/*.gif', to: '' },
+          ],
+        })
       )
     },
   },
