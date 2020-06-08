@@ -19,9 +19,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Install packages
+      working-directory: ./blog
       uses: borales/actions-yarn@v2.3.0
       with:
-        working-directory: ./blog
         cmd: install # will run `yarn install` command
         registry-url: registry.npmjs.org
     - name: Generate static dist
@@ -30,6 +30,7 @@ jobs:
       with:
         cmd: generate
     - name: Deploy to github pages
+      working-directory: ./blog
       uses: borales/actions-yarn@v2.3.0
       with:
         cmd: push-dir --dir=./blog/dist --branch=gh-pages --cleanup --allow-unclean
