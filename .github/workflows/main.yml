@@ -18,13 +18,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
-    - uses: borales/actions-yarn@v2.0.0
+    - name: Install packages
+      uses: borales/actions-yarn@v2.3.0
       with:
         cmd: install # will run `yarn install` command
         registry-url: registry.npmjs.org
-    - uses: borales/actions-yarn@v2.0.0
+    - name: Generate static dist
+      uses: borales/actions-yarn@v2.3.0
       with:
         cmd: generate
-    - uses: borales/actions-yarn@v2.0.0
+    - name: Deploy to github pages
+      uses: borales/actions-yarn@v2.3.0
       with:
         cmd: deploy
