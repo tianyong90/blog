@@ -19,9 +19,9 @@
       </div>
 
       <div class="hidden md:flex">
-        <nuxt-link class="text-white ml-4 font-light no-underline" tag="a" to="/open-source">
+        <!-- <nuxt-link class="text-white ml-4 font-light no-underline" tag="a" to="/open-source">
           开源
-        </nuxt-link>
+        </nuxt-link> -->
         <a
           href="https://github.com/tianyong90"
           target="_blank"
