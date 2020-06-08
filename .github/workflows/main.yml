@@ -24,5 +24,4 @@ jobs:
         registry-url: registry.npmjs.org
     - run: yarn install
     - run: yarn generate
-      # with:
-      #   cmd: push-dir --dir=./blog/dist --branch=gh-pages --cleanup --allow-unclean
+    - run: yarn push-dir --dir=./dist --branch=gh-pages --cleanup --allow-unclean
