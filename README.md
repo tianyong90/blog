@@ -2,7 +2,7 @@
 
 ![build](https://github.com/tianyong90/blog/workflows/build/badge.svg)
 
-> My splendid Nuxt.js project
+## 博客地址，[https://tianyong90.com](https://tianyong90.com)
 
 ## Build Setup
 
