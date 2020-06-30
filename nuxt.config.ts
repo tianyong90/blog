@@ -85,6 +85,7 @@ const config: Configuration = {
         ignoreNotFoundWarnings: true,
       },
     ],
+    '@aceforth/nuxt-optimized-images',
   ],
 
   /*
