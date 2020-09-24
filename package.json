@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.0.1",
-    "@fullhuman/postcss-purgecss": "^2.0.5",
+    "@fullhuman/postcss-purgecss": "^3.0.0",
     "@nuxt/typescript-build": "^2.0.0",
     "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/markdownit": "^1.2.7",
@@ -77,7 +77,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-unicorn": "^21.0.0",
+    "eslint-plugin-unicorn": "^22.0.0",
     "eslint-plugin-vue": "^6.2.0",
     "fibers": "^5.0.0",
     "fs-extra": "^9.0.0",
