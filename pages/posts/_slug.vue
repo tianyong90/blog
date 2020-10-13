@@ -26,13 +26,13 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+<script lang="js">
+import Vue from 'vue'
 import dayjs from 'dayjs'
 import { orderBy } from 'lodash'
 import { fixedEncodeURI } from '@/utils'
 
-@Component({
+export default Vue.extend({
   filters: {
     formatTime(val) {
       return dayjs(val).format('YYYY-MM-DD')
@@ -48,7 +48,7 @@ import { fixedEncodeURI } from '@/utils'
     // 链接中拼音化的文件名
     const slugifiedFilename = params.slug
 
-    const thePost: any = posts.find((item: any) => {
+    const thePost = posts.find((item) => {
       return item.slugifiedFilename === slugifiedFilename
     })
 
@@ -72,8 +72,8 @@ import { fixedEncodeURI } from '@/utils'
       topImg = attributes.top_img.replace(
         /^\./,
         fixedEncodeURI(
-          `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`
-        )
+          `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`,
+        ),
       )
     }
 
@@ -83,28 +83,31 @@ import { fixedEncodeURI } from '@/utils'
       html: html.replace(
         /src="\.\//g,
         'src="' +
-          fixedEncodeURI(
-            `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`
-          )
+        fixedEncodeURI(
+          `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`,
+        ),
       ), // markdown 内容中图片地址引用替换
       prevLink,
       nextLink,
     }
   },
-})
-export default class Slug extends Vue {
-  topImg: string = ''
+
+  data() {
+    return {
+      topImg: '',
+    }
+  },
 
   head() {
     return {
-      title: (this as any).title,
+      title: this.title,
       meta: [
-        { hid: 'keywords', name: 'keywords', content: (this as any).tags.join(',') },
+        { hid: 'keywords', name: 'keywords', content: this.tags.join(',') },
         { hid: 'description', name: 'description', content: '' },
       ],
     }
-  }
-}
+  },
+})
 </script>
 
 <style scoped lang="scss">

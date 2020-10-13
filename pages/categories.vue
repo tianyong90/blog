@@ -18,17 +18,10 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue'
 import { orderBy } from 'lodash'
 import { fixedEncodeURI } from '@/utils'
-
-interface Post {
-  filename: string
-  // eslint-disable-next-line
-  top_img: string
-  [key: string]: any
-}
 
 export default Vue.extend({
   async asyncData() {
@@ -41,7 +34,7 @@ export default Vue.extend({
   },
 
   methods: {
-    coverImgUrl(post: Post): string {
+    coverImgUrl(post) {
       return fixedEncodeURI(
         'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +
           post.filename +
@@ -52,76 +45,4 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
-// .post-container {
-//   margin-top: 65px;
-// }
-
-// .post-list {
-//   .post-list-item {
-//     display: block;
-//     margin: 1rem 0;
-//     padding: 1rem 1.5rem;
-
-//     .post-title {
-//       display: block;
-//       color: #2b2b2b;
-//       font-size: 1.1rem;
-//       font-weight: 500;
-//       margin-bottom: 1rem;
-//     }
-
-//     .post-description {
-//       color: #444;
-//       font-size: 0.85rem;
-//       display: -webkit-box;
-//       -webkit-line-clamp: 2;
-//       -webkit-box-orient: vertical;
-//       overflow: hidden;
-//     }
-
-//     .tags {
-//       display: flex;
-//       margin-top: 1rem;
-
-//       .tag {
-//         display: flex;
-//         background-color: #455a64;
-//         margin-right: 0.5rem;
-//         padding: 0.2rem 0.5rem;
-//         color: #fff;
-//         font-size: 0.725rem;
-//         border-radius: 3px;
-//       }
-//     }
-
-//     .cover {
-//       display: none;
-//     }
-
-//     @include media-breakpoint-down(sm) {
-//       display: flex;
-//       overflow: hidden;
-//       justify-content: space-between;
-//       padding: 0;
-//       border-radius: 3px;
-
-//       .post-title {
-//         padding: 0.85rem 1rem;
-//       }
-
-//       .post-description,
-//       .tags {
-//         display: none;
-//       }
-
-//       .cover {
-//         display: block;
-//         width: 85px;
-//         height: 85px;
-//         object-fit: cover;
-//       }
-//     }
-//   }
-// }
-</style>
+<style lang="scss"></style>

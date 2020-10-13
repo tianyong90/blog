@@ -50,18 +50,10 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { orderBy, drop, get } from 'lodash'
-import { Component, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 import { fixedEncodeURI } from '@/utils'
-
-interface Post {
-  filename: string
-  // eslint-disable-next-line
-  top_img: string
-
-  [key: string]: any
-}
 
 // 分页
 function getPaginatedItems(items, page = 1, pageSize = 6) {
@@ -81,9 +73,16 @@ function getPaginatedItems(items, page = 1, pageSize = 6) {
   }
 }
 
-Component.registerHooks(['beforeRouteUpdate'])
+export default Vue.extend({
+  beforeRouteUpdate(to, from, next) {
+    // 第几页
+    const page = get(to, 'query.p', 1)
 
-@Component({
+    this.paginatedPosts = getPaginatedItems(this.posts, page)
+
+    next()
+  },
+
   async asyncData() {
     let { default: posts } = await import('~/posts/posts.json')
 
@@ -92,8 +91,14 @@ Component.registerHooks(['beforeRouteUpdate'])
 
     return { posts }
   },
-})
-export default class Index extends Vue {
+
+  data() {
+    return {
+      post: [],
+      paginatedPosts: {},
+    }
+  },
+
   head() {
     return {
       title: '首页',
@@ -106,36 +111,25 @@ export default class Index extends Vue {
         },
       ],
     }
-  }
-
-  posts: Post[] = []
-
-  paginatedPosts = {}
+  },
 
   mounted() {
     // 第几页
-    const page = get((this as any).$route, 'query.p', 1)
+    const page = get(this.$route, 'query.p', 1)
 
-    this.paginatedPosts = getPaginatedItems((this as any).posts, page)
-  }
+    this.paginatedPosts = getPaginatedItems(this.posts, page)
+  },
 
-  beforeRouteUpdate(to, from, next) {
-    // 第几页
-    const page = get(to, 'query.p', 1)
-
-    this.paginatedPosts = getPaginatedItems((this as any).posts, page)
-
-    next()
-  }
-
-  coverImgUrl(post: Post): string {
-    return fixedEncodeURI(
-      'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +
+  methods: {
+    coverImgUrl(post) {
+      return fixedEncodeURI(
+        'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +
         post.filename +
-        post.top_img.replace('./', '/')
-    )
-  }
-}
+        post.top_img.replace('./', '/'),
+      )
+    },
+  },
+})
 </script>
 
 <style scoped lang="scss">

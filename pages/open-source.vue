@@ -33,31 +33,30 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import Color from 'color'
 
 export default Vue.extend({
+  data() {
+    return {
+      repos: [],
+    }
+  },
   head() {
     return {
       title: '开源',
     }
   },
 
-  data() {
-    return {
-      repos: [],
-    }
-  },
-
   mounted() {
-    ;(this as any).$axios.get('https://tianyong90.com/githubapi-data.json').then(res => {
+    this.$axios.get('https://tianyong90.com/githubapi-data.json').then((res) => {
       this.repos = res.data.data.user.repositories.nodes
     })
   },
 
   methods: {
-    getLanguageTagStyle(color: string): object {
+    getLanguageTagStyle(color) {
       return {
         backgroundColor: color,
         color: Color(color).isDark() ? '#fff' : '#000', // 背景深色则文字白色，反之同理
