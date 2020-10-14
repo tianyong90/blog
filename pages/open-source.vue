@@ -11,22 +11,25 @@
           target="_blank"
           class="text-xl font-medium text-gray-800 no-underline"
           v-text="repo.name"
-        ></a>
-        <div class="text-sm font-light text-gray-700 py-3">{{ repo.description }}</div>
+        />
+        <div class="text-sm font-light text-gray-700 py-3">
+          {{ repo.description }}
+        </div>
 
         <div class="absolute bottom-0 mb-4">
           <span
             v-if="repo.languages.nodes.length > 0"
             class="mr-3 text-white text-xs px-2 py-1 rounded-sm"
             :style="getLanguageTagStyle(repo.languages.nodes[0].color)"
-            >{{ repo.languages.nodes[0].name }}</span
+          >{{ repo.languages.nodes[0].name }}</span>
+          <div
+            class="mr-3 text-gray-700 stars"
           >
-          <span class="mr-3 text-gray-700 stars"
-            ><span class="mdi mdi-star"></span> {{ repo.stargazers.totalCount }}</span
-          >
-          <span class="mr-3 text-gray-700 stforksars"
-            ><span class="mdi mdi-directions-fork"></span> {{ repo.forks.totalCount }}</span
-          >
+            <span class="mdi mdi-star" /> {{ repo.stargazers.totalCount }}
+          </div>
+          <div class="mr-3 text-gray-700 stforksars">
+            <span class="mdi mdi-directions-fork" /> {{ repo.forks.totalCount }}
+          </div>
         </div>
       </div>
     </transition-group>
@@ -38,31 +41,31 @@ import Vue from 'vue'
 import Color from 'color'
 
 export default Vue.extend({
-  data() {
+  data () {
     return {
-      repos: [],
+      repos: []
     }
   },
-  head() {
+  head () {
     return {
-      title: '开源',
+      title: '开源'
     }
   },
 
-  mounted() {
+  mounted () {
     this.$axios.get('https://tianyong90.com/githubapi-data.json').then((res) => {
       this.repos = res.data.data.user.repositories.nodes
     })
   },
 
   methods: {
-    getLanguageTagStyle(color) {
+    getLanguageTagStyle (color) {
       return {
         backgroundColor: color,
-        color: Color(color).isDark() ? '#fff' : '#000', // 背景深色则文字白色，反之同理
+        color: Color(color).isDark() ? '#fff' : '#000' // 背景深色则文字白色，反之同理
       }
-    },
-  },
+    }
+  }
 })
 </script>
 
