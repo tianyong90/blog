@@ -46,6 +46,7 @@ export default Vue.extend({
       repos: []
     }
   },
+
   head () {
     return {
       title: '开源'

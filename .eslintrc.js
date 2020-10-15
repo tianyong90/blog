@@ -7,8 +7,8 @@ module.exports = {
   parserOptions: {
     parser: '@typescript-eslint/parser'
   },
-  extends: ['@nuxtjs', 'plugin:vue/recommended', 'standard'],
-  plugins: ['@typescript-eslint', 'vue'],
+  extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'standard'],
+  plugins: ['@typescript-eslint', 'standard', 'vue'],
   rules: {
     'no-console': 'off',
     'vue/no-v-html': 'off',

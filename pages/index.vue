@@ -8,7 +8,11 @@
         :to="'/posts/' + post.slugifiedFilename"
       >
         <div class="cover-wrapper">
-          <img :src="coverImgUrl(post)" loading="lazy" class="post-cover" />
+          <img
+            :src="coverImgUrl(post)"
+            loading="lazy"
+            class="post-cover"
+          >
         </div>
 
         <div class="flex flex-col h-full justify-between p-4">
@@ -24,8 +28,9 @@
               v-for="(tag, tagIndex) in post.tags"
               :key="tagIndex"
               class="bg-gray-600 mr-1 px-2 py-1 rounded-sm text-xs text-white font-light tag"
-              >{{ tag }}</span
             >
+              {{ tag }}
+            </span>
           </div>
         </div>
       </nuxt-link>
@@ -37,15 +42,17 @@
         tag="a"
         :to="paginatedPosts.prev_url"
         class="paginator-btn mr-auto btn-prev"
-        ><span class="mdi mdi-chevron-left"></span> 上一页
+      >
+        <span class="mdi mdi-chevron-left" /> 上一页
       </nuxt-link>
       <nuxt-link
         v-if="paginatedPosts.total_pages > 1 && paginatedPosts.page !== paginatedPosts.total_pages"
         tag="a"
         :to="paginatedPosts.next_url"
         class="paginator-btn ml-auto btn-next"
-        >下一页<span class="mdi mdi-chevron-right"></span
-      ></nuxt-link>
+      >
+        下一页<span class="mdi mdi-chevron-right" />
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -56,7 +63,7 @@ import Vue from 'vue'
 import { fixedEncodeURI } from '@/utils'
 
 // 分页
-function getPaginatedItems(items, page = 1, pageSize = 6) {
+function getPaginatedItems (items, page = 1, pageSize = 6) {
   const pg = parseInt(page.toString())
   const pgSize = parseInt(pageSize.toString())
   const offset = (pg - 1) * pgSize
@@ -69,12 +76,12 @@ function getPaginatedItems(items, page = 1, pageSize = 6) {
     total_pages: Math.ceil(items.length / pgSize),
     data: pagedItems,
     prev_url: `/?p=${pg - 1}`,
-    next_url: `/?p=${pg + 1}`,
+    next_url: `/?p=${pg + 1}`
   }
 }
 
 export default Vue.extend({
-  beforeRouteUpdate(to, from, next) {
+  beforeRouteUpdate (to, from, next) {
     // 第几页
     const page = get(to, 'query.p', 1)
 
@@ -83,7 +90,7 @@ export default Vue.extend({
     next()
   },
 
-  async asyncData() {
+  async asyncData () {
     let { default: posts } = await import('~/posts/posts.json')
 
     // 按发布时间排序
@@ -92,14 +99,14 @@ export default Vue.extend({
     return { posts }
   },
 
-  data() {
+  data () {
     return {
       post: [],
-      paginatedPosts: {},
+      paginatedPosts: {}
     }
   },
 
-  head() {
+  head () {
     return {
       title: '首页',
       meta: [
@@ -107,13 +114,13 @@ export default Vue.extend({
         {
           hid: 'description',
           name: 'description',
-          content: '田勇的个人博客，技术、分享、生活及其它',
-        },
-      ],
+          content: '田勇的个人博客，技术、分享、生活及其它'
+        }
+      ]
     }
   },
 
-  mounted() {
+  mounted () {
     // 第几页
     const page = get(this.$route, 'query.p', 1)
 
@@ -121,14 +128,14 @@ export default Vue.extend({
   },
 
   methods: {
-    coverImgUrl(post) {
+    coverImgUrl (post) {
       return fixedEncodeURI(
         'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +
         post.filename +
-        post.top_img.replace('./', '/'),
+        post.top_img.replace('./', '/')
       )
-    },
-  },
+    }
+  }
 })
 </script>
 
