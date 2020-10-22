@@ -10,12 +10,12 @@ const purgecss = Purgecss({
   content: [
     './pages/**/*.html',
     './pages/**/*.vue',
-    './components/**/*.vue',
+    './components/**/*.vue'
     // etc.
   ],
 
   // Include any special characters you're using in this regular expression
-  defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
   whitelist: ['html', 'body', 'nuxt-progress', 'grayscale'],
   whitelistPatternsChildren: [
     /^token/,
@@ -23,8 +23,8 @@ const purgecss = Purgecss({
     /^code/,
     /^line-numbers-wrapper/,
     /^line-number/,
-    /^grayscale/,
-  ],
+    /^grayscale/
+  ]
 })
 
 // console.log(posts)
@@ -43,9 +43,9 @@ const config: Configuration = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '田勇的博客。技术、生活及其它……' },
+      { hid: 'description', name: 'description', content: '田勇的博客。技术、生活及其它……' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   /*
@@ -64,8 +64,8 @@ const config: Configuration = {
   plugins: [
     {
       src: '~/plugins/app-service.ts',
-      ssr: false,
-    },
+      ssr: false
+    }
   ],
 
   /*
@@ -74,7 +74,8 @@ const config: Configuration = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/dotenv',
+    '@nuxt/content',
+    '@nuxtjs/dotenv'
   ],
 
   buildModules: [
@@ -82,10 +83,10 @@ const config: Configuration = {
       '@nuxt/typescript-build',
       {
         typeCheck: true,
-        ignoreNotFoundWarnings: true,
-      },
+        ignoreNotFoundWarnings: true
+      }
     ],
-    '@aceforth/nuxt-optimized-images',
+    '@aceforth/nuxt-optimized-images'
   ],
 
   /*
@@ -93,6 +94,10 @@ const config: Configuration = {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+
+  content: {
+    // Options
   },
 
   /*
@@ -106,22 +111,22 @@ const config: Configuration = {
 
     loaders: {
       scss: {
-        implementation: Sass,
-      },
+        implementation: Sass
+      }
     },
 
     postcss: {
       plugins: [
         require('tailwindcss')(tailwindJS),
         // require('autoprefixer')({}), // TODO:
-        ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
-      ],
+        ...(process.env.NODE_ENV === 'production' ? [purgecss] : [])
+      ]
     },
 
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
+    extend (config, ctx) {
       // markdown loader
       config.module!.rules.push({
         test: /\.md$/,
@@ -135,11 +140,11 @@ const config: Configuration = {
               // sourceDir: ''
               contentCssClass: 'markdown-body',
               markdown: {
-                lineNumbers: false, // enable line numbers
-              },
-            },
-          },
-        ],
+                lineNumbers: false // enable line numbers
+              }
+            }
+          }
+        ]
       })
 
       config.plugins!.push(
@@ -147,21 +152,21 @@ const config: Configuration = {
           patterns: [
             { from: './posts/**/*.jpg', to: '' },
             { from: './posts/**/*.png', to: '' },
-            { from: './posts/**/*.gif', to: '' },
-          ],
+            { from: './posts/**/*.gif', to: '' }
+          ]
         })
       )
-    },
+    }
   },
 
   generate: {
-    routes: ['404'].concat(posts.map((post) => `/posts/${post.slugifiedFilename}`)),
+    routes: ['404'].concat(posts.map(post => `/posts/${post.slugifiedFilename}`))
   },
 
   server: {
     host: '0.0.0.0', // 便于在手机上预览效果
-    port: 3000,
-  },
+    port: 3000
+  }
 }
 
 export default config
