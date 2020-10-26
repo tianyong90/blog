@@ -16,17 +16,28 @@ const purgecss = Purgecss({
     './components/**/*.vue'
   ],
 
-  // Include any special characters you're using in this regular expression
-  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
-  whitelist: ['html', 'body', 'nuxt-progress', 'grayscale'],
-  whitelistPatternsChildren: [
-    /^token/,
-    /^pre/,
-    /^code/,
-    /^line-numbers-wrapper/,
-    /^line-number/,
-    /^grayscale/
-  ]
+  // This is the function used to extract class names from your templates
+  defaultExtractor: (content) => {
+    // Capture as liberally as possible, including things like `h-(screen-1.5)`
+    const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
+
+    // Capture classes within other delimiters like .block(class="w-1/2") in Pug
+    const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
+
+    return broadMatches.concat(innerMatches)
+  },
+  safelist: {
+    standard: [
+      /^token/,
+      /^pre/,
+      /^code/,
+      /^line-numbers-wrapper/,
+      /^line-number/,
+      /^grayscale/
+    ],
+    deep: [],
+    greedy: []
+  }
 })
 
 // console.log(posts)

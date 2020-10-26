@@ -53,6 +53,7 @@
     "@nuxt/builder-edge": "^2.14.8-26727882.046a0a4b",
     "@nuxt/cli-edge": "^2.14.8-26727882.046a0a4b",
     "@nuxt/core-edge": "^2.14.8-26727882.046a0a4b",
+    "@nuxt/generator-edge": "^2.14.8-26727882.046a0a4b",
     "@nuxt/typescript-build": "^2.0.0",
     "@nuxtjs/eslint-config": "^4.0.0",
     "@nuxtjs/markdownit": "^1.2.7",
