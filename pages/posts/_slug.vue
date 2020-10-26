@@ -1,27 +1,39 @@
 <template>
   <div class="container mt-4 md:my-4">
     <div class="post rounded-lg overflow-hidden bg-white">
-      <img :src="topImg" loading="lazy" class="w-full cover-image" />
+      <img :src="topImg" loading="lazy" class="w-full cover-image">
 
-      <div class="px-4 md:px-8 py-2">
+      <div class="px-4 md:px-8 pt-2 pb-10">
         <div class="mb-4">
           <h1 class="text-gray-800 text-xl font-normal" v-text="title" />
-          <div class="text-gray-700 text-xs post-date">{{ date | formatTime }}</div>
+          <div class="text-gray-700 text-xs post-date">
+            {{ date | formatTime }}
+          </div>
         </div>
 
         <div class="markdown-body" v-html="html" />
 
-        <div class="social-share"></div>
+        <div class="social-share" />
       </div>
     </div>
 
     <div class="px-4 md:px-0 navigator">
-      <nuxt-link v-if="prevLink" tag="a" :to="prevLink" class="navigator-btn mr-auto btn-prev"
-        ><span class="mdi mdi-chevron-left"></span> 上一篇
+      <nuxt-link
+        v-if="prevLink"
+        tag="a"
+        :to="prevLink"
+        class="navigator-btn mr-auto btn-prev"
+      >
+        <span class="mdi mdi-chevron-left" /> 上一篇
       </nuxt-link>
-      <nuxt-link v-if="nextLink" tag="a" :to="nextLink" class="navigator-btn ml-auto btn-next"
-        >下一篇<span class="mdi mdi-chevron-right"></span
-      ></nuxt-link>
+      <nuxt-link
+        v-if="nextLink"
+        tag="a"
+        :to="nextLink"
+        class="navigator-btn ml-auto btn-next"
+      >
+        下一篇<span class="mdi mdi-chevron-right" />
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -34,12 +46,12 @@ import { fixedEncodeURI } from '@/utils'
 
 export default Vue.extend({
   filters: {
-    formatTime(val) {
+    formatTime (val) {
       return dayjs(val).format('YYYY-MM-DD')
-    },
+    }
   },
 
-  async asyncData({ params }) {
+  async asyncData ({ params }) {
     let { default: posts } = await import('~/posts/posts.json')
 
     // 按发布时间排序
@@ -72,8 +84,8 @@ export default Vue.extend({
       topImg = attributes.top_img.replace(
         /^\./,
         fixedEncodeURI(
-          `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`,
-        ),
+          `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`
+        )
       )
     }
 
@@ -84,29 +96,29 @@ export default Vue.extend({
         /src="\.\//g,
         'src="' +
         fixedEncodeURI(
-          `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`,
-        ),
+          `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`
+        )
       ), // markdown 内容中图片地址引用替换
       prevLink,
-      nextLink,
+      nextLink
     }
   },
 
-  data() {
+  data () {
     return {
-      topImg: '',
+      topImg: ''
     }
   },
 
-  head() {
+  head () {
     return {
       title: this.title,
       meta: [
         { hid: 'keywords', name: 'keywords', content: this.tags.join(',') },
-        { hid: 'description', name: 'description', content: '' },
-      ],
+        { hid: 'description', name: 'description', content: '' }
+      ]
     }
-  },
+  }
 })
 </script>
 
