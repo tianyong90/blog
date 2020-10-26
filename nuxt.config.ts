@@ -3,7 +3,10 @@ import { Configuration } from '@nuxt/types'
 import CopyPlugin from 'copy-webpack-plugin'
 import Sass from 'sass'
 import Purgecss from '@fullhuman/postcss-purgecss'
+import highlightjs from 'highlight.js'
 import posts from './posts/posts.json'
+
+const wrap = (code, lang) => `<pre><code class="hljs ${lang}">${code}</code></pre>`
 
 const purgecss = Purgecss({
   // Specify the paths to all of the template files in your project
@@ -11,7 +14,6 @@ const purgecss = Purgecss({
     './pages/**/*.html',
     './pages/**/*.vue',
     './components/**/*.vue'
-    // etc.
   ],
 
   // Include any special characters you're using in this regular expression
@@ -56,7 +58,7 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/tailwind.css', '~/assets/css/app.scss'],
+  css: ['~/assets/css/tailwind.css', '~/assets/css/app.scss', 'highlight.js/styles/nord.css'],
 
   /*
    ** Plugins to load before mounting the App
@@ -97,7 +99,14 @@ const config: Configuration = {
   },
 
   content: {
-    // Options
+    markdown: {
+      highlighter (rawCode, lang) {
+        if (!lang) {
+          return wrap(highlightjs.highlightAuto(rawCode).value, lang)
+        }
+        return wrap(highlightjs.highlight(lang, rawCode).value, lang)
+      }
+    }
   },
 
   /*

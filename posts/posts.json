@@ -138,6 +138,21 @@
     "description": "采集网页内容是一项很常见的需求，比较传统的静态页面，curl 就能搞定。但如果页面中有动态加载的内容，比如有些页面里通过"
   },
   {
+    "filename": "Laravel-自动转换长整型雪花-ID-为字符串",
+    "slugifiedFilename": "laravel-zi-dong-zhuan-huan-chang-zheng-xing-xue-hua-id-wei-zi-fu-chuan",
+    "title": "Laravel 自动转换长整型雪花 ID 为字符串",
+    "date": "2020-10-Mo 16:05:59",
+    "top_img": "./top_img.png",
+    "tags": [
+      ""
+    ],
+    "categories": [
+      ""
+    ],
+    "draft": true,
+    "description": ""
+  },
+  {
     "filename": "laravel5-5-中读写分离需要注意的一点小问题",
     "slugifiedFilename": "laravel5.5-zhong-du-xie-fen-chi-xu-yao-zhu-yi-de-yi-dian-xiao-wen-ti",
     "title": "laravel5.5 中读写分离需要注意的一点小问题",
