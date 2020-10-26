@@ -144,13 +144,14 @@
     "date": "2020-10-Mo 16:05:59",
     "top_img": "./top_img.png",
     "tags": [
-      ""
+      "Laravel",
+      "雪花 ID"
     ],
     "categories": [
-      ""
+      "Laravel"
     ],
     "draft": true,
-    "description": ""
+    "description": "在设计 API 时，出于安全性等因素考虑，有时需要放弃使用自增 ID，使 ID 非连续且不可猜测。通常可以使用 Hash"
   },
   {
     "filename": "laravel5-5-中读写分离需要注意的一点小问题",

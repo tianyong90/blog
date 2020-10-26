@@ -33,8 +33,6 @@ const purgecss = Purgecss({
 const tailwindJS = join(__dirname, 'tailwind.config.js')
 
 const config: Configuration = {
-  mode: 'universal',
-
   /*
    ** Headers of the page
    */
