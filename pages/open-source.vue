@@ -55,7 +55,7 @@ export default Vue.extend({
 
   mounted () {
     // github token, 仅有 repo 读取权限
-    // 5dad5fbd0810ba986abed700f2322ce6d2af1781
+    // 7e289a20c2136347e992530b284f3307dab442e1
 
     this.$axios.post('https://api.github.com/graphql', {
       query: `
@@ -84,7 +84,7 @@ export default Vue.extend({
       `
     }, {
       headers: {
-        Authorization: 'Bearer 5dad5fbd0810ba986abed700f2322ce6d2af1781'
+        Authorization: 'bearer 7e289a20c2136347e992530b284f3307dab442e1'
       }
     }).then(({ data }) => {
       this.repos = data.data.viewer.repositories.edges.map(i => i.node)
