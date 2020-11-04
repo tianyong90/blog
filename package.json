@@ -10,7 +10,6 @@
     "generate": "yarn run generate-post-list --production && nuxt-ts generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .eslintignore .",
     "test": "ts-node --project scripts/tsconfig.json scripts/test.ts",
-    "graphql-test": "ts-node --project scripts/tsconfig.json scripts/graphql-test.ts",
     "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts generate",
     "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup --allow-unclean"

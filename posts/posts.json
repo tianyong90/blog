@@ -142,7 +142,7 @@
     "slugifiedFilename": "laravel-zi-dong-zhuan-huan-chang-zheng-xing-xue-hua-id-wei-zi-fu-chuan",
     "title": "Laravel 自动转换长整型雪花 ID 为字符串",
     "date": "2020-10-Mo 16:05:59",
-    "top_img": "./top_img.png",
+    "top_img": "./top_img.jpg",
     "tags": [
       "Laravel",
       "雪花 ID"
@@ -182,6 +182,21 @@
       "前端"
     ],
     "description": "swiper.js 是一款强大的插件，也是我最喜欢的开源插件之一。它可以轻松实现轮播、tab 标签以及各种风骚的页面滑动"
+  },
+  {
+    "filename": "Vue-axios-便捷提示-Loading-状态",
+    "slugifiedFilename": "vue-axios-bian-jie-ti-shi-loading-zhuang-tai",
+    "title": "Vue + axios, 便捷提示 Loading 状态",
+    "date": "2020-11-We 11:24:25",
+    "top_img": "./top_img.png",
+    "tags": [
+      ""
+    ],
+    "categories": [
+      ""
+    ],
+    "draft": true,
+    "description": ""
   },
   {
     "filename": "也来扯扯-Vue-单元测试",

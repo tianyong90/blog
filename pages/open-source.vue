@@ -1,38 +1,38 @@
 <template>
   <div class="container mx-auto">
-    <transition-group name="list" tag="div" class="repo-list">
+    <div class="grid grid-cols-3 gap-6 my-10">
       <div
         v-for="repo in repos"
-        :key="repo.name"
-        class="shadow-md flex-col rounded-lg relative p-4 repo-list-item"
+        :key="repo.id"
+        class="flex flex-col bg-white shadow-md rounded-lg p-4 repo-list-item"
       >
         <a
           :href="repo.url"
           target="_blank"
-          class="text-xl font-medium text-gray-800 no-underline"
+          class="text-2xl font-semibold text-gray-700 no-underline"
           v-text="repo.name"
         />
-        <div class="text-sm font-light text-gray-700 py-3">
+        <div class="text-gray-700 my-4">
           {{ repo.description }}
         </div>
 
-        <div class="absolute bottom-0 mb-4">
+        <div class="flex flex-row mt-auto">
           <span
-            v-if="repo.languages.nodes.length > 0"
+            v-if="repo.primaryLanguage"
             class="mr-3 text-white text-xs px-2 py-1 rounded-sm"
-            :style="getLanguageTagStyle(repo.languages.nodes[0].color)"
-          >{{ repo.languages.nodes[0].name }}</span>
+            :style="getLanguageTagStyle(repo.primaryLanguage.color)"
+          >{{ repo.primaryLanguage.name }}</span>
           <div
             class="mr-3 text-gray-700 stars"
           >
-            <span class="mdi mdi-star" /> {{ repo.stargazers.totalCount }}
+            <span class="mdi mdi-star" /> {{ repo.stargazerCount }}
           </div>
           <div class="mr-3 text-gray-700 stforksars">
-            <span class="mdi mdi-directions-fork" /> {{ repo.forks.totalCount }}
+            <span class="mdi mdi-directions-fork" /> {{ repo.forkCount }}
           </div>
         </div>
       </div>
-    </transition-group>
+    </div>
   </div>
 </template>
 
@@ -54,8 +54,42 @@ export default Vue.extend({
   },
 
   mounted () {
-    this.$axios.get('https://tianyong90.com/githubapi-data.json').then((res) => {
-      this.repos = res.data.data.user.repositories.nodes
+    // github token, 仅有 repo 读取权限
+    // 5dad5fbd0810ba986abed700f2322ce6d2af1781
+
+    this.$axios.post('https://api.github.com/graphql', {
+      query: `
+        query {
+          viewer {
+            repositories(first: 100, isFork: false, privacy: PUBLIC) {
+              edges {
+                node {
+                  id,
+                  name,
+                  nameWithOwner,
+                  url,
+                  description,
+                  stargazerCount,
+                  forkCount,
+                  primaryLanguage {
+                    id,
+                    name,
+                    color
+                  }
+                }
+              }
+            }
+          }
+        }
+      `
+    }, {
+      headers: {
+        Authorization: 'Bearer 5dad5fbd0810ba986abed700f2322ce6d2af1781'
+      }
+    }).then(({ data }) => {
+      this.repos = data.data.viewer.repositories.edges.map(i => i.node)
+
+      console.log(this.repos)
     })
   },
 
@@ -69,34 +103,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style scoped lang="scss">
-.repo-list {
-  display: grid;
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(140px, auto);
-  grid-gap: 1.5rem;
-
-  &-item {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.65);
-  }
-
-  // 小于 1024px 两列
-  @media screen and (max-width: 1024px) {
-    & {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media screen and (max-width: 640px) {
-    & {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-}
-</style>

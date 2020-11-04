@@ -1,10 +1,12 @@
 <template>
   <nav class="sticky inset-x-0 top-0 z-50 nav">
     <div class="container flex mx-auto z-50 justify-between items-center h-full">
-      <nuxt-link tag="a" to="/" class="text-white text-xl font-normal no-underline">田写</nuxt-link>
+      <nuxt-link tag="a" to="/" class="text-white text-xl font-normal no-underline">
+        田写
+      </nuxt-link>
 
       <div class="ml-auto mr-2 search-bar">
-        <input v-model="keyword" type="text" class="search-input" placeholder="搜索文章" />
+        <input v-model="keyword" type="text" class="search-input" placeholder="搜索文章">
 
         <div v-show="searchResult.length > 0" class="search-result">
           <nuxt-link
@@ -13,27 +15,30 @@
             tag="a"
             class="search-result-item"
             :to="'/posts/' + post.slugifiedFilename"
-            >{{ post.title }}</nuxt-link
           >
+            {{ post.title }}
+          </nuxt-link>
         </div>
       </div>
 
       <div class="hidden md:flex">
-        <!-- <nuxt-link class="text-white ml-4 font-light no-underline" tag="a" to="/open-source">
+        <nuxt-link
+          class="text-white ml-4 font-light no-underline"
+          tag="a"
+          to="/open-source"
+        >
           开源
-        </nuxt-link> -->
+        </nuxt-link>
         <a
           href="https://github.com/tianyong90"
           target="_blank"
           class="text-white ml-4 font-light no-underline"
-          >GitHub</a
-        >
+        >GitHub</a>
         <a
           href="https://weibo.com/1707227001"
           target="_blank"
           class="text-white ml-4 font-light no-underline"
-          >微博</a
-        >
+        >微博</a>
       </div>
 
       <span
@@ -46,9 +51,11 @@
         <nuxt-link class="dropdown-menu-item" tag="a" to="/open-source">
           开源
         </nuxt-link>
-        <a href="https://github.com/tianyong90" target="_blank" class="dropdown-menu-item"
-          >GitHub</a
-        >
+        <a
+          href="https://github.com/tianyong90"
+          target="_blank"
+          class="dropdown-menu-item"
+        >GitHub</a>
         <a href="https://weibo.com/1707227001" target="_blank" class="dropdown-menu-item">微博</a>
       </div>
     </div>
@@ -75,19 +82,19 @@ export default class Header extends Vue {
   searchResult: Post[] = []
   fuse: any = null
 
-  get menutoggleClass() {
+  get menutoggleClass () {
     return this.dropdownMenuVisible ? 'mdi-close' : 'mdi-menu'
   }
 
-  get dropdownMenuVisible() {
+  get dropdownMenuVisible () {
     return (this as any).$store.state.dropdownMenuVisible
   }
 
-  set dropdownMenuVisible(value) {
+  set dropdownMenuVisible (value) {
     ;(this as any).$store.commit('UPDATE_DROPDOWN_MENU_VISIBLE', value)
   }
 
-  async mounted() {
+  async mounted () {
     let { default: posts } = await import('~/posts/posts.json')
 
     // 按发布时间排序
@@ -102,22 +109,22 @@ export default class Header extends Vue {
       location: 0,
       distance: 100,
       minMatchCharLength: 1,
-      keys: ['title'],
+      keys: ['title']
     }
     this.fuse = new Fuse(this.posts, options)
   }
 
   @Watch('keyword')
-  onKeywordChange(val: string) {
+  onKeywordChange (val: string) {
     this.searchResult = this.fuse.search(val)
   }
 
   @Watch('$route')
-  onRouteChange() {
+  onRouteChange () {
     this.keyword = ''
   }
 
-  toggleDropdownMenu() {
+  toggleDropdownMenu () {
     this.dropdownMenuVisible = !this.dropdownMenuVisible
   }
 }
