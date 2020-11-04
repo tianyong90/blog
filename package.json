@@ -9,10 +9,10 @@
     "build": "yarn run generate-post-list --production && nuxt-ts build",
     "generate": "yarn run generate-post-list --production && nuxt-ts generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .eslintignore .",
-    "test": "jest",
+    "test": "ts-node --project scripts/tsconfig.json scripts/test.ts",
+    "graphql-test": "ts-node --project scripts/tsconfig.json scripts/graphql-test.ts",
     "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts generate",
     "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts",
-    "test": "ts-node --project scripts/tsconfig.json scripts/test.ts",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup --allow-unclean"
   },
   "husky": {
@@ -36,6 +36,7 @@
     "dayjs": "^1.8.19",
     "fuse.js": "^6.0.4",
     "github-markdown-css": "^4.0.0",
+    "graphql": "^15.4.0",
     "gray-matter": "^4.0.2",
     "highlight.js": "^10.0.3",
     "lodash": "^4.17.11",
@@ -58,7 +59,6 @@
     "@nuxt/typescript-build": "^2.0.0",
     "@nuxtjs/eslint-config": "^4.0.0",
     "@nuxtjs/markdownit": "^1.2.7",
-    "@octokit/graphql": "^4.2.1",
     "@tianyong90/vue-markdown-loader": "^0.1.1",
     "@types/color": "^3.0.1",
     "@types/fs-extra": "^9.0.1",

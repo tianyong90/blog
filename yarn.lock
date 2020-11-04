@@ -1575,54 +1575,6 @@
     mustache "^2.3.0"
     stack-trace "0.0.10"
 
-"@octokit/endpoint@^6.0.1":
-  version "6.0.9"
-  resolved "https://registry.npm.taobao.org/@octokit/endpoint/download/@octokit/endpoint-6.0.9.tgz#c6a772e024202b1bd19ab69f90e0536a2598b13e"
-  integrity sha1-xqdy4CQgKxvRmrafkOBTaiWYsT4=
-  dependencies:
-    "@octokit/types" "^5.0.0"
-    is-plain-object "^5.0.0"
-    universal-user-agent "^6.0.0"
-
-"@octokit/graphql@^4.2.1":
-  version "4.5.7"
-  resolved "https://registry.npm.taobao.org/@octokit/graphql/download/@octokit/graphql-4.5.7.tgz#f4562dcd9e80ea94602068e85aefac19a88f8578"
-  integrity sha1-9FYtzZ6A6pRgIGjoWu+sGaiPhXg=
-  dependencies:
-    "@octokit/request" "^5.3.0"
-    "@octokit/types" "^5.0.0"
-    universal-user-agent "^6.0.0"
-
-"@octokit/request-error@^2.0.0":
-  version "2.0.3"
-  resolved "https://registry.npm.taobao.org/@octokit/request-error/download/@octokit/request-error-2.0.3.tgz#b51b200052bf483f6fa56c9e7e3aa51ead36ecd8"
-  integrity sha1-tRsgAFK/SD9vpWyefjqlHq027Ng=
-  dependencies:
-    "@octokit/types" "^5.0.1"
-    deprecation "^2.0.0"
-    once "^1.4.0"
-
-"@octokit/request@^5.3.0":
-  version "5.4.10"
-  resolved "https://registry.npm.taobao.org/@octokit/request/download/@octokit/request-5.4.10.tgz#402d2c53768bde12b99348329ba4129746aebb9c"
-  integrity sha1-QC0sU3aL3hK5k0gym6QSl0auu5w=
-  dependencies:
-    "@octokit/endpoint" "^6.0.1"
-    "@octokit/request-error" "^2.0.0"
-    "@octokit/types" "^5.0.0"
-    deprecation "^2.0.0"
-    is-plain-object "^5.0.0"
-    node-fetch "^2.6.1"
-    once "^1.4.0"
-    universal-user-agent "^6.0.0"
-
-"@octokit/types@^5.0.0", "@octokit/types@^5.0.1":
-  version "5.5.0"
-  resolved "https://registry.npm.taobao.org/@octokit/types/download/@octokit/types-5.5.0.tgz#e5f06e8db21246ca102aa28444cdb13ae17a139b"
-  integrity sha1-5fBujbISRsoQKqKERM2xOuF6E5s=
-  dependencies:
-    "@types/node" ">= 8"
-
 "@sailshq/lodash@^3.10.2":
   version "3.10.4"
   resolved "https://registry.npm.taobao.org/@sailshq/lodash/download/@sailshq/lodash-3.10.4.tgz#2299648a81a67f4c6ee222c6cf8e261bd9c3fa50"
@@ -1933,7 +1885,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@>= 8", "@types/node@^14.0.11":
+"@types/node@*", "@types/node@^14.0.11":
   version "14.14.6"
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.14.6.tgz#146d3da57b3c636cc0d1769396ce1cfa8991147f"
   integrity sha1-FG09pXs8Y2zA0XaTls4c+omRFH8=
@@ -4683,11 +4635,6 @@ depd@~1.1.2:
   resolved "https://registry.npm.taobao.org/depd/download/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
 
-deprecation@^2.0.0:
-  version "2.3.1"
-  resolved "https://registry.npm.taobao.org/deprecation/download/deprecation-2.3.1.tgz#6368cbdb40abf3373b525ac87e4a260c3a700919"
-  integrity sha1-Y2jL20Cr8zc7UlrIfkomDDpwCRk=
-
 des.js@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/des.js/download/des.js-1.0.1.tgz#5382142e1bdc53f85d86d53e5f4aa7deb91e0843"
@@ -6212,6 +6159,11 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
   resolved "https://registry.npm.taobao.org/graceful-fs/download/graceful-fs-4.2.4.tgz?cache=0&sync_timestamp=1589682809142&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgraceful-fs%2Fdownload%2Fgraceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha1-Ila94U02MpWMRl68ltxGfKB6Kfs=
 
+graphql@^15.4.0:
+  version "15.4.0"
+  resolved "https://registry.npm.taobao.org/graphql/download/graphql-15.4.0.tgz?cache=0&sync_timestamp=1603896817223&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgraphql%2Fdownload%2Fgraphql-15.4.0.tgz#e459dea1150da5a106486ba7276518b5295a4347"
+  integrity sha1-5FneoRUNpaEGSGunJ2UYtSlaQ0c=
+
 gray-matter@^4.0.2:
   version "4.0.2"
   resolved "https://registry.npm.taobao.org/gray-matter/download/gray-matter-4.0.2.tgz#9aa379e3acaf421193fce7d2a28cebd4518ac454"
@@ -7168,11 +7120,6 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   integrity sha1-LBY7P6+xtgbZ0Xko8FwqHDjgdnc=
   dependencies:
     isobject "^3.0.1"
-
-is-plain-object@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npm.taobao.org/is-plain-object/download/is-plain-object-5.0.0.tgz#4427f50ab3429e9025ea7d52e9043a9ef4159344"
-  integrity sha1-RCf1CrNCnpAl6n1S6QQ6nvQVk0Q=
 
 is-potential-custom-element-name@^1.0.0:
   version "1.0.0"
@@ -12755,11 +12702,6 @@ unist-util-visit@^2.0.0:
     "@types/unist" "^2.0.0"
     unist-util-is "^4.0.0"
     unist-util-visit-parents "^3.0.0"
-
-universal-user-agent@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.npm.taobao.org/universal-user-agent/download/universal-user-agent-6.0.0.tgz#3381f8503b251c0d9cd21bc1de939ec9df5480ee"
-  integrity sha1-M4H4UDslHA2c0hvB3pOeyd9UgO4=
 
 universalify@^0.1.0:
   version "0.1.2"
