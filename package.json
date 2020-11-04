@@ -12,6 +12,7 @@
     "test": "jest",
     "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts generate",
     "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts",
+    "test": "ts-node --project scripts/tsconfig.json scripts/test.ts",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup --allow-unclean"
   },
   "husky": {
@@ -95,6 +96,7 @@
     "push-dir": "^0.4.1",
     "sass": "^1.25.0",
     "sass-loader": "^10.0.2",
+    "sharp": "^0.26.2",
     "ts-node": "^9.0.0",
     "vue-jest": "^3.0.4",
     "yargs": "^16.0.3"
