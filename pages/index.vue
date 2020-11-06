@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto">
+  <div class="co1ntainer mx-auto">
     <div class="post-list">
       <nuxt-link
         v-for="post in paginatedPosts.data"
@@ -140,6 +140,12 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+#container {
+  width: 100%;
+  height: 400px;
+  background-color: #f00;
+}
+
 .post-list {
   display: grid;
   width: 100%;

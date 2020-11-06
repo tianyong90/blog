@@ -6,20 +6,21 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 export default Vue.extend({
-  data() {
+  data () {
     return {
-      shouldShow: false,
+      shouldShow: false
     }
   },
 
-  mounted() {
+  mounted () {
     this.$nextTick(() => {
       this.shouldShow = window.scrollY > 500
 
       window.addEventListener(
         'scroll',
-        e => {
+        (e) => {
           this.shouldShow = window.scrollY > 500
         },
         false
@@ -28,13 +29,13 @@ export default Vue.extend({
   },
 
   methods: {
-    onClick() {
+    onClick () {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth',
+        behavior: 'smooth'
       })
-    },
-  },
+    }
+  }
 })
 </script>
 

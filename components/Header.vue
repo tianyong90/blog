@@ -63,9 +63,9 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import { orderBy } from 'lodash'
 import Fuse from 'fuse.js'
-import { Component, Watch, Vue } from 'vue-property-decorator'
 
 interface Post {
   filename: string
@@ -75,24 +75,41 @@ interface Post {
   [key: string]: any
 }
 
-@Component
-export default class Header extends Vue {
-  posts: Post[] = []
-  keyword: string = ''
-  searchResult: Post[] = []
-  fuse: any = null
+export default Vue.extend({
+  data () {
+    return {
+      posts: [] as Array<Post>,
+      keyword: '',
+      searchResult: [],
+      fuse: null
+    }
+  },
 
-  get menutoggleClass () {
-    return this.dropdownMenuVisible ? 'mdi-close' : 'mdi-menu'
-  }
+  computed: {
+    menutoggleClass () {
+      return this.dropdownMenuVisible ? 'mdi-close' : 'mdi-menu'
+    },
 
-  get dropdownMenuVisible () {
-    return (this as any).$store.state.dropdownMenuVisible
-  }
+    dropdownMenuVisible: {
+      get () {
+        return (this as any).$store.state.dropdownMenuVisible
+      },
 
-  set dropdownMenuVisible (value) {
-    ;(this as any).$store.commit('UPDATE_DROPDOWN_MENU_VISIBLE', value)
-  }
+      set (value) {
+        ;(this as any).$store.commit('UPDATE_DROPDOWN_MENU_VISIBLE', value)
+      }
+    }
+  },
+
+  watch: {
+    keyword (val) {
+      this.searchResult = this.fuse.search(val)
+    },
+
+    '$route' () {
+      this.keyword = ''
+    }
+  },
 
   async mounted () {
     let { default: posts } = await import('~/posts/posts.json')
@@ -112,22 +129,14 @@ export default class Header extends Vue {
       keys: ['title']
     }
     this.fuse = new Fuse(this.posts, options)
-  }
+  },
 
-  @Watch('keyword')
-  onKeywordChange (val: string) {
-    this.searchResult = this.fuse.search(val)
+  methods: {
+    toggleDropdownMenu () {
+      this.dropdownMenuVisible = !this.dropdownMenuVisible
+    }
   }
-
-  @Watch('$route')
-  onRouteChange () {
-    this.keyword = ''
-  }
-
-  toggleDropdownMenu () {
-    this.dropdownMenuVisible = !this.dropdownMenuVisible
-  }
-}
+})
 </script>
 
 <style scoped lang="scss">
