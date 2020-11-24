@@ -1,23 +1,20 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
+      "ESNext",
+      "ESNext.AsyncIterable",
+      "DOM"
     ],
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "importHelpers": true,
-    "experimentalDecorators": true,
     "allowJs": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "strict": false,
-    "noImplicitAny": false,
     "noEmit": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
       "~/*": [
@@ -30,12 +27,12 @@
     "types": [
       "@types/node",
       "@nuxt/types",
-      "@nuxtjs/axios",
       "@nuxt/content"
     ]
   },
   "exclude": [
     "node_modules",
-    "./scripts/**/*.ts"
+    ".nuxt",
+    "dist"
   ]
 }

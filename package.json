@@ -12,7 +12,10 @@
     "test": "ts-node --project scripts/tsconfig.json scripts/test.ts",
     "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts generate",
     "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup --allow-unclean"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup --allow-unclean",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+    "lint": "yarn lint:js && yarn lint:style"
   },
   "husky": {
     "hooks": {
@@ -28,8 +31,11 @@
     "@mdi/font": "^5.0.45",
     "@nuxt/content": "^1.10.0",
     "@nuxt/typescript-runtime": "^2.0.0",
-    "@nuxtjs/axios": "^5.9.3",
+    "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/svg-sprite": "^0.5.1",
+    "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@tailwindcss/typography": "^0.3.1",
     "anchor": "^1.4.0",
     "cross-env": "^7.0.2",
     "dayjs": "^1.8.19",
@@ -96,6 +102,9 @@
     "sharp": "^0.26.2",
     "ts-node": "^9.0.0",
     "vue-jest": "^3.0.4",
-    "yargs": "^16.0.3"
+    "yargs": "^16.0.3",
+        "babel-plugin-component": "^1.1.1",
+    "default-gateway": "^6.0.2"，
+    "stylelint-config-standard": "^20.0.0",
   }
 }

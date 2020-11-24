@@ -2,40 +2,36 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
-  parserOptions: {
-    parser: '@typescript-eslint/parser'
-  },
-  extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'standard'],
-  plugins: ['@typescript-eslint', 'standard', 'vue'],
+  extends: [
+    'plugin:vue/recommended',
+    'plugin:nuxt/recommended',
+    '@vue/standard',
+    '@vue/typescript/recommended',
+  ],
+  // add your custom rules here
   rules: {
-    'no-console': 'off',
-    'vue/no-v-html': 'off',
-    'vue/require-default-prop': 'off'
+    'no-undef': 'off',
+    'import/namespace': 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-unreachable': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'comma-dangle': ['error', 'always-multiline'],
+    'array-element-newline': [
+      'error',
+      {
+        multiline: true,
+        minItems: 3,
+      },
+    ],
+    'array-bracket-newline': [
+      'error',
+      {
+        multiline: true,
+        minItems: 3,
+      },
+    ],
+
   },
-  overrides: [
-    {
-      files: ['**/*.ts', '**/*.tsx'],
-      rules: {
-        'import/export': 'off',
-        'no-unused-vars': 'off',
-        '@typescript-eslint/prefer-namespace-keyword': 'error',
-        '@typescript-eslint/adjacent-overload-signatures': 'error',
-        '@typescript-eslint/member-delimiter-style': [
-          'error',
-          {
-            multiline: {
-              delimiter: 'none'
-            },
-            singleline: {
-              delimiter: 'comma'
-            }
-          }
-        ],
-        '@typescript-eslint/member-ordering': 'off',
-        '@typescript-eslint/type-annotation-spacing': 'error'
-      }
-    }
-  ]
 }
