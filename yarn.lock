@@ -25,7 +25,7 @@
   resolved "https://registry.npm.taobao.org/@babel/compat-data/download/@babel/compat-data-7.12.7.tgz?cache=0&sync_timestamp=1605904555025&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fcompat-data%2Fdownload%2F%40babel%2Fcompat-data-7.12.7.tgz#9329b4782a7d6bbd7eef57e11addf91ee3ef1e41"
   integrity sha1-kym0eCp9a71+71fhGt35HuPvHkE=
 
-"@babel/core@^7.1.0", "@babel/core@^7.12.3", "@babel/core@^7.7.5":
+"@babel/core@^7.1.0", "@babel/core@^7.7.5":
   version "7.12.8"
   resolved "https://registry.npm.taobao.org/@babel/core/download/@babel/core-7.12.8.tgz?cache=0&sync_timestamp=1606169025197&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fcore%2Fdownload%2F%40babel%2Fcore-7.12.8.tgz#8ad76c1a7d2a6a3beecc4395fa4f7b4cb88390e6"
   integrity sha1-itdsGn0qajvuzEOV+k97TLiDkOY=
@@ -37,6 +37,28 @@
     "@babel/parser" "^7.12.7"
     "@babel/template" "^7.12.7"
     "@babel/traverse" "^7.12.8"
+    "@babel/types" "^7.12.7"
+    convert-source-map "^1.7.0"
+    debug "^4.1.0"
+    gensync "^1.0.0-beta.1"
+    json5 "^2.1.2"
+    lodash "^4.17.19"
+    resolve "^1.3.2"
+    semver "^5.4.1"
+    source-map "^0.5.0"
+
+"@babel/core@^7.12.3":
+  version "7.12.9"
+  resolved "https://registry.npm.taobao.org/@babel/core/download/@babel/core-7.12.9.tgz?cache=0&sync_timestamp=1606249935746&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fcore%2Fdownload%2F%40babel%2Fcore-7.12.9.tgz#fd450c4ec10cdbb980e2928b7aa7a28484593fc8"
+  integrity sha1-/UUMTsEM27mA4pKLeqeihIRZP8g=
+  dependencies:
+    "@babel/code-frame" "^7.10.4"
+    "@babel/generator" "^7.12.5"
+    "@babel/helper-module-transforms" "^7.12.1"
+    "@babel/helpers" "^7.12.5"
+    "@babel/parser" "^7.12.7"
+    "@babel/template" "^7.12.7"
+    "@babel/traverse" "^7.12.9"
     "@babel/types" "^7.12.7"
     convert-source-map "^1.7.0"
     debug "^4.1.0"
@@ -857,10 +879,25 @@
     "@babel/parser" "^7.12.7"
     "@babel/types" "^7.12.7"
 
-"@babel/traverse@^7.1.0", "@babel/traverse@^7.10.4", "@babel/traverse@^7.12.1", "@babel/traverse@^7.12.5", "@babel/traverse@^7.12.8", "@babel/traverse@^7.7.0":
+"@babel/traverse@^7.1.0", "@babel/traverse@^7.12.1", "@babel/traverse@^7.12.5", "@babel/traverse@^7.12.8", "@babel/traverse@^7.7.0":
   version "7.12.8"
   resolved "https://registry.npm.taobao.org/@babel/traverse/download/@babel/traverse-7.12.8.tgz?cache=0&sync_timestamp=1606169026694&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Ftraverse%2Fdownload%2F%40babel%2Ftraverse-7.12.8.tgz#c1c2983bf9ba0f4f0eaa11dff7e77fa63307b2a4"
   integrity sha1-wcKYO/m6D08OqhHf9+d/pjMHsqQ=
+  dependencies:
+    "@babel/code-frame" "^7.10.4"
+    "@babel/generator" "^7.12.5"
+    "@babel/helper-function-name" "^7.10.4"
+    "@babel/helper-split-export-declaration" "^7.11.0"
+    "@babel/parser" "^7.12.7"
+    "@babel/types" "^7.12.7"
+    debug "^4.1.0"
+    globals "^11.1.0"
+    lodash "^4.17.19"
+
+"@babel/traverse@^7.10.4", "@babel/traverse@^7.12.9":
+  version "7.12.9"
+  resolved "https://registry.npm.taobao.org/@babel/traverse/download/@babel/traverse-7.12.9.tgz?cache=0&sync_timestamp=1606249933297&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Ftraverse%2Fdownload%2F%40babel%2Ftraverse-7.12.9.tgz#fad26c972eabbc11350e0b695978de6cc8e8596f"
+  integrity sha1-+tJsly6rvBE1DgtpWXjebMjoWW8=
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@babel/generator" "^7.12.5"
@@ -1172,10 +1209,10 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@nuxt/babel-preset-app-edge@2.14.8-26769632.9ce75c5d":
-  version "2.14.8-26769632.9ce75c5d"
-  resolved "https://registry.npm.taobao.org/@nuxt/babel-preset-app-edge/download/@nuxt/babel-preset-app-edge-2.14.8-26769632.9ce75c5d.tgz#0ebe564fe9048b44cd1abf076747072483e882c4"
-  integrity sha1-Dr5WT+kEi0TNGr8HZ0cHJIPogsQ=
+"@nuxt/babel-preset-app-edge@2.14.8-26771071.9ce75c5d":
+  version "2.14.8-26771071.9ce75c5d"
+  resolved "https://registry.npm.taobao.org/@nuxt/babel-preset-app-edge/download/@nuxt/babel-preset-app-edge-2.14.8-26771071.9ce75c5d.tgz#c032df4cbe9a17312579b96b7e06f129ff7f7f45"
+  integrity sha1-wDLfTL6aFzEleblrfgbxKf9/f0U=
   dependencies:
     "@babel/core" "^7.12.3"
     "@babel/helper-compilation-targets" "^7.12.5"
@@ -1190,14 +1227,14 @@
     core-js "^2.6.5"
 
 "@nuxt/builder-edge@^2.14.8-26727882.046a0a4b":
-  version "2.14.8-26769632.9ce75c5d"
-  resolved "https://registry.npm.taobao.org/@nuxt/builder-edge/download/@nuxt/builder-edge-2.14.8-26769632.9ce75c5d.tgz#6b5ffc78408ecbc960438c686b23ad09ae1488bf"
-  integrity sha1-a1/8eECOy8lgQ4xoayOtCa4UiL8=
+  version "2.14.8-26771071.9ce75c5d"
+  resolved "https://registry.npm.taobao.org/@nuxt/builder-edge/download/@nuxt/builder-edge-2.14.8-26771071.9ce75c5d.tgz#966930faf66a9766c227cb11c244073c93c6b5fd"
+  integrity sha1-lmkw+vZql2bCJ8sRwkQHPJPGtf0=
   dependencies:
     "@nuxt/devalue" "^1.2.4"
-    "@nuxt/utils-edge" "2.14.8-26769632.9ce75c5d"
-    "@nuxt/vue-app-edge" "2.14.8-26769632.9ce75c5d"
-    "@nuxt/webpack-edge" "2.14.8-26769632.9ce75c5d"
+    "@nuxt/utils-edge" "2.14.8-26771071.9ce75c5d"
+    "@nuxt/vue-app-edge" "2.14.8-26771071.9ce75c5d"
+    "@nuxt/webpack-edge" "2.14.8-26771071.9ce75c5d"
     chalk "^3.0.0"
     chokidar "^3.4.3"
     consola "^2.15.0"
@@ -1212,13 +1249,13 @@
     upath "^2.0.1"
 
 "@nuxt/cli-edge@^2.14.8-26727882.046a0a4b":
-  version "2.14.8-26769632.9ce75c5d"
-  resolved "https://registry.npm.taobao.org/@nuxt/cli-edge/download/@nuxt/cli-edge-2.14.8-26769632.9ce75c5d.tgz#6ab389932d3cb41b7b4d5264fdbe0b836702f247"
-  integrity sha1-arOJky08tBt7TVJk/b4Lg2cC8kc=
+  version "2.14.8-26771071.9ce75c5d"
+  resolved "https://registry.npm.taobao.org/@nuxt/cli-edge/download/@nuxt/cli-edge-2.14.8-26771071.9ce75c5d.tgz#d04f889a0e7dbfc74cd9bcbc7a65bb3515fe4997"
+  integrity sha1-0E+Img59v8dM2by8emW7NRX+SZc=
   dependencies:
-    "@nuxt/config-edge" "2.14.8-26769632.9ce75c5d"
+    "@nuxt/config-edge" "2.14.8-26771071.9ce75c5d"
     "@nuxt/static" "^1.0.0"
-    "@nuxt/utils-edge" "2.14.8-26769632.9ce75c5d"
+    "@nuxt/utils-edge" "2.14.8-26771071.9ce75c5d"
     boxen "^4.2.0"
     chalk "^3.0.0"
     compression "^1.7.4"
@@ -1240,12 +1277,12 @@
     upath "^2.0.1"
     wrap-ansi "^6.2.0"
 
-"@nuxt/config-edge@2.14.8-26769632.9ce75c5d":
-  version "2.14.8-26769632.9ce75c5d"
-  resolved "https://registry.npm.taobao.org/@nuxt/config-edge/download/@nuxt/config-edge-2.14.8-26769632.9ce75c5d.tgz#84d69238a8001ffe16144276731ac1e9ca269774"
-  integrity sha1-hNaSOKgAH/4WFEJ2cxrB6coml3Q=
+"@nuxt/config-edge@2.14.8-26771071.9ce75c5d":
+  version "2.14.8-26771071.9ce75c5d"
+  resolved "https://registry.npm.taobao.org/@nuxt/config-edge/download/@nuxt/config-edge-2.14.8-26771071.9ce75c5d.tgz#1c6481f9a813bec4b264c1f8505d7b8e281e2102"
+  integrity sha1-HGSB+agTvsSyZMH4UF17jigeIQI=
   dependencies:
-    "@nuxt/utils-edge" "2.14.8-26769632.9ce75c5d"
+    "@nuxt/utils-edge" "2.14.8-26771071.9ce75c5d"
     consola "^2.15.0"
     create-require "^1.0.2"
     defu "^2.0.4"
@@ -1302,15 +1339,15 @@
     xml2js "^0.4.23"
 
 "@nuxt/core-edge@^2.14.8-26727882.046a0a4b":
-  version "2.14.8-26769632.9ce75c5d"
-  resolved "https://registry.npm.taobao.org/@nuxt/core-edge/download/@nuxt/core-edge-2.14.8-26769632.9ce75c5d.tgz#95a401cc90ee0cb9e113000495c4e2c3e65306f7"
-  integrity sha1-laQBzJDuDLnhEwAElcTiw+ZTBvc=
+  version "2.14.8-26771071.9ce75c5d"
+  resolved "https://registry.npm.taobao.org/@nuxt/core-edge/download/@nuxt/core-edge-2.14.8-26771071.9ce75c5d.tgz#6222e54e68771794b200efab8af374b057de86ab"
+  integrity sha1-YiLlTmh3F5SyAO+rivN0sFfehqs=
   dependencies:
-    "@nuxt/config-edge" "2.14.8-26769632.9ce75c5d"
+    "@nuxt/config-edge" "2.14.8-26771071.9ce75c5d"
     "@nuxt/devalue" "^1.2.4"
-    "@nuxt/server-edge" "2.14.8-26769632.9ce75c5d"
-    "@nuxt/utils-edge" "2.14.8-26769632.9ce75c5d"
-    "@nuxt/vue-renderer-edge" "2.14.8-26769632.9ce75c5d"
+    "@nuxt/server-edge" "2.14.8-26771071.9ce75c5d"
+    "@nuxt/utils-edge" "2.14.8-26771071.9ce75c5d"
+    "@nuxt/vue-renderer-edge" "2.14.8-26771071.9ce75c5d"
     consola "^2.15.0"
     debug "^4.2.0"
     esm "^3.2.25"
@@ -1337,25 +1374,25 @@
     string-width "^2.0.0"
 
 "@nuxt/generator-edge@^2.14.8-26727882.046a0a4b":
-  version "2.14.8-26769632.9ce75c5d"
-  resolved "https://registry.npm.taobao.org/@nuxt/generator-edge/download/@nuxt/generator-edge-2.14.8-26769632.9ce75c5d.tgz#a79a7c078a683bb2f4e91369b20d76c6b76c5f77"
-  integrity sha1-p5p8B4poO7L06RNpsg12xrdsX3c=
+  version "2.14.8-26771071.9ce75c5d"
+  resolved "https://registry.npm.taobao.org/@nuxt/generator-edge/download/@nuxt/generator-edge-2.14.8-26771071.9ce75c5d.tgz#054d548ce0ccf797ff3ed8964484d48d534524e9"
+  integrity sha1-BU1UjODM95f/PtiWRITUjVNFJOk=
   dependencies:
-    "@nuxt/utils-edge" "2.14.8-26769632.9ce75c5d"
+    "@nuxt/utils-edge" "2.14.8-26771071.9ce75c5d"
     chalk "^3.0.0"
     consola "^2.15.0"
     fs-extra "^8.1.0"
     html-minifier "^4.0.0"
     node-html-parser "^2.0.0"
 
-"@nuxt/server-edge@2.14.8-26769632.9ce75c5d":
-  version "2.14.8-26769632.9ce75c5d"
-  resolved "https://registry.npm.taobao.org/@nuxt/server-edge/download/@nuxt/server-edge-2.14.8-26769632.9ce75c5d.tgz#6bcdeb18097feb93b2d5bafd57f348a73b3062cf"
-  integrity sha1-a83rGAl/65Oy1br9V/NIpzswYs8=
+"@nuxt/server-edge@2.14.8-26771071.9ce75c5d":
+  version "2.14.8-26771071.9ce75c5d"
+  resolved "https://registry.npm.taobao.org/@nuxt/server-edge/download/@nuxt/server-edge-2.14.8-26771071.9ce75c5d.tgz#f66e8eca72e802962699e45b7f9f72b95fdd137b"
+  integrity sha1-9m6OynLoApYmmeRbf59yuV/dE3s=
   dependencies:
-    "@nuxt/config-edge" "2.14.8-26769632.9ce75c5d"
-    "@nuxt/utils-edge" "2.14.8-26769632.9ce75c5d"
-    "@nuxt/vue-renderer-edge" "2.14.8-26769632.9ce75c5d"
+    "@nuxt/config-edge" "2.14.8-26771071.9ce75c5d"
+    "@nuxt/utils-edge" "2.14.8-26771071.9ce75c5d"
+    "@nuxt/vue-renderer-edge" "2.14.8-26771071.9ce75c5d"
     "@nuxtjs/youch" "^4.2.3"
     chalk "^3.0.0"
     compression "^1.7.4"
@@ -1425,10 +1462,10 @@
     ts-node "^9.0.0"
     typescript "~4.0"
 
-"@nuxt/utils-edge@2.14.8-26769632.9ce75c5d":
-  version "2.14.8-26769632.9ce75c5d"
-  resolved "https://registry.npm.taobao.org/@nuxt/utils-edge/download/@nuxt/utils-edge-2.14.8-26769632.9ce75c5d.tgz#7a2cfd9f377d5166529cc91acf6af17b8d5a4454"
-  integrity sha1-eiz9nzd9UWZSnMkaz2rxe41aRFQ=
+"@nuxt/utils-edge@2.14.8-26771071.9ce75c5d":
+  version "2.14.8-26771071.9ce75c5d"
+  resolved "https://registry.npm.taobao.org/@nuxt/utils-edge/download/@nuxt/utils-edge-2.14.8-26771071.9ce75c5d.tgz#5f98603ea4ebeef9ca33781560426127dafcfac5"
+  integrity sha1-X5hgPqTr7vnKM3gVYEJhJ9r8+sU=
   dependencies:
     consola "^2.15.0"
     fs-extra "^8.1.0"
@@ -1439,10 +1476,10 @@
     signal-exit "^3.0.3"
     ua-parser-js "^0.7.22"
 
-"@nuxt/vue-app-edge@2.14.8-26769632.9ce75c5d":
-  version "2.14.8-26769632.9ce75c5d"
-  resolved "https://registry.npm.taobao.org/@nuxt/vue-app-edge/download/@nuxt/vue-app-edge-2.14.8-26769632.9ce75c5d.tgz#db7fbc452976de283c5eb97c294a2681c7c5095f"
-  integrity sha1-23+8RSl23ig8Xrl8KUomgcfFCV8=
+"@nuxt/vue-app-edge@2.14.8-26771071.9ce75c5d":
+  version "2.14.8-26771071.9ce75c5d"
+  resolved "https://registry.npm.taobao.org/@nuxt/vue-app-edge/download/@nuxt/vue-app-edge-2.14.8-26771071.9ce75c5d.tgz#4d86e6f4c13d282634f0ac6c57ad47b79ae253fe"
+  integrity sha1-TYbm9ME9KCY08KxsV61Ht5riU/4=
   dependencies:
     node-fetch "^2.6.1"
     unfetch "^4.2.0"
@@ -1454,13 +1491,13 @@
     vue-template-compiler "^2.6.12"
     vuex "^3.5.1"
 
-"@nuxt/vue-renderer-edge@2.14.8-26769632.9ce75c5d":
-  version "2.14.8-26769632.9ce75c5d"
-  resolved "https://registry.npm.taobao.org/@nuxt/vue-renderer-edge/download/@nuxt/vue-renderer-edge-2.14.8-26769632.9ce75c5d.tgz#6431a258411b967792516322808857b719269ead"
-  integrity sha1-ZDGiWEEblneSUWMigIhXtxkmnq0=
+"@nuxt/vue-renderer-edge@2.14.8-26771071.9ce75c5d":
+  version "2.14.8-26771071.9ce75c5d"
+  resolved "https://registry.npm.taobao.org/@nuxt/vue-renderer-edge/download/@nuxt/vue-renderer-edge-2.14.8-26771071.9ce75c5d.tgz#4c98962638a322cac562c4a44276ac541421e44a"
+  integrity sha1-TJiWJjijIsrFYsSkQnasVBQh5Eo=
   dependencies:
     "@nuxt/devalue" "^1.2.4"
-    "@nuxt/utils-edge" "2.14.8-26769632.9ce75c5d"
+    "@nuxt/utils-edge" "2.14.8-26771071.9ce75c5d"
     consola "^2.15.0"
     fs-extra "^8.1.0"
     lru-cache "^5.1.1"
@@ -1468,15 +1505,15 @@
     vue-meta "^2.4.0"
     vue-server-renderer "^2.6.12"
 
-"@nuxt/webpack-edge@2.14.8-26769632.9ce75c5d":
-  version "2.14.8-26769632.9ce75c5d"
-  resolved "https://registry.npm.taobao.org/@nuxt/webpack-edge/download/@nuxt/webpack-edge-2.14.8-26769632.9ce75c5d.tgz#88b62811d98d8c28ee0b2029a831f4b255d91d84"
-  integrity sha1-iLYoEdmNjCjuCyApqDH0slXZHYQ=
+"@nuxt/webpack-edge@2.14.8-26771071.9ce75c5d":
+  version "2.14.8-26771071.9ce75c5d"
+  resolved "https://registry.npm.taobao.org/@nuxt/webpack-edge/download/@nuxt/webpack-edge-2.14.8-26771071.9ce75c5d.tgz#a4a10388efa22a6767fab9ed6f92e0fcc5367dc7"
+  integrity sha1-pKEDiO+iKmdn+rntb5Lg/MU2fcc=
   dependencies:
     "@babel/core" "^7.12.3"
-    "@nuxt/babel-preset-app-edge" "2.14.8-26769632.9ce75c5d"
+    "@nuxt/babel-preset-app-edge" "2.14.8-26771071.9ce75c5d"
     "@nuxt/friendly-errors-webpack-plugin" "^2.5.0"
-    "@nuxt/utils-edge" "2.14.8-26769632.9ce75c5d"
+    "@nuxt/utils-edge" "2.14.8-26771071.9ce75c5d"
     babel-loader "^8.1.0"
     cache-loader "^4.1.0"
     caniuse-lite "^1.0.30001157"
@@ -2805,21 +2842,9 @@ atob@^2.1.2:
   resolved "https://registry.npm.taobao.org/atob/download/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha1-bZUX654DDSQ2ZmZR6GvZ9vE1M8k=
 
-autoprefixer@^10.0.0:
-  version "10.0.2"
-  resolved "https://registry.npm.taobao.org/autoprefixer/download/autoprefixer-10.0.2.tgz#a79f9a02bfb95c621998776ac0d85f8f855b367e"
-  integrity sha1-p5+aAr+5XGIZmHdqwNhfj4VbNn4=
-  dependencies:
-    browserslist "^4.14.7"
-    caniuse-lite "^1.0.30001157"
-    colorette "^1.2.1"
-    normalize-range "^0.1.2"
-    num2fraction "^1.2.2"
-    postcss-value-parser "^4.1.0"
-
-autoprefixer@^9.4.5, autoprefixer@^9.6.1:
+autoprefixer@^9.4.5, autoprefixer@^9.6.1, autoprefixer@^9.8.6:
   version "9.8.6"
-  resolved "https://registry.npm.taobao.org/autoprefixer/download/autoprefixer-9.8.6.tgz#3b73594ca1bf9266320c5acf1588d74dea74210f"
+  resolved "https://registry.npm.taobao.org/autoprefixer/download/autoprefixer-9.8.6.tgz?cache=0&sync_timestamp=1605020611210&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fautoprefixer%2Fdownload%2Fautoprefixer-9.8.6.tgz#3b73594ca1bf9266320c5acf1588d74dea74210f"
   integrity sha1-O3NZTKG/kmYyDFrPFYjXTep0IQ8=
   dependencies:
     browserslist "^4.12.0"
@@ -3275,7 +3300,7 @@ browserify-zlib@^0.2.0:
   dependencies:
     pako "~1.0.5"
 
-browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.14.5, browserslist@^4.14.6, browserslist@^4.14.7, browserslist@^4.6.4:
+browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.14.5, browserslist@^4.14.6, browserslist@^4.6.4:
   version "4.14.7"
   resolved "https://registry.npm.taobao.org/browserslist/download/browserslist-4.14.7.tgz?cache=0&sync_timestamp=1604945065806&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbrowserslist%2Fdownload%2Fbrowserslist-4.14.7.tgz#c071c1b3622c1c2e790799a37bb09473a4351cb6"
   integrity sha1-wHHBs2IsHC55B5mje7CUc6Q1HLY=
@@ -3862,7 +3887,7 @@ color-string@^1.5.4:
 
 color@^3.0.0, color@^3.1.2, color@^3.1.3:
   version "3.1.3"
-  resolved "https://registry.npm.taobao.org/color/download/color-3.1.3.tgz#ca67fb4e7b97d611dcde39eceed422067d91596e"
+  resolved "https://registry.npm.taobao.org/color/download/color-3.1.3.tgz?cache=0&sync_timestamp=1602228883047&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcolor%2Fdownload%2Fcolor-3.1.3.tgz#ca67fb4e7b97d611dcde39eceed422067d91596e"
   integrity sha1-ymf7TnuX1hHc3jns7tQiBn2RWW4=
   dependencies:
     color-convert "^1.9.1"
@@ -8760,11 +8785,6 @@ nan@^2.12.1:
   resolved "https://registry.npm.taobao.org/nan/download/nan-2.14.2.tgz?cache=0&sync_timestamp=1602591684976&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnan%2Fdownload%2Fnan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha1-9TdkAGlRaPTMaUrJOT0MlYXu6hk=
 
-nanoid@^3.1.18:
-  version "3.1.18"
-  resolved "https://registry.npm.taobao.org/nanoid/download/nanoid-3.1.18.tgz?cache=0&sync_timestamp=1605907803916&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnanoid%2Fdownload%2Fnanoid-3.1.18.tgz#0680db22ab01c372e89209f5d18283d98de3e96d"
-  integrity sha1-BoDbIqsBw3Lokgn10YKD2Y3j6W0=
-
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.npm.taobao.org/nanomatch/download/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -10319,7 +10339,7 @@ postcss@7.0.32:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@7.x.x, postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.11, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.18, postcss@^7.0.2, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.5, postcss@^7.0.6:
+postcss@7.x.x, postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.11, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.18, postcss@^7.0.2, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.5, postcss@^7.0.6:
   version "7.0.35"
   resolved "https://registry.npm.taobao.org/postcss/download/postcss-7.0.35.tgz#d2be00b998f7f211d8a276974079f2e92b970e24"
   integrity sha1-0r4AuZj38hHYonaXQHny6SuXDiQ=
@@ -10336,16 +10356,6 @@ postcss@^6.0.9:
     chalk "^2.4.1"
     source-map "^0.6.1"
     supports-color "^5.4.0"
-
-postcss@^8.1.1:
-  version "8.1.10"
-  resolved "https://registry.npm.taobao.org/postcss/download/postcss-8.1.10.tgz#129834f94c720554d2cfdaeb27d5542ac4a026ea"
-  integrity sha1-Epg0+UxyBVTSz9rrJ9VUKsSgJuo=
-  dependencies:
-    colorette "^1.2.1"
-    nanoid "^3.1.18"
-    source-map "^0.6.1"
-    vfile-location "^3.2.0"
 
 prebuild-install@^6.0.0:
   version "6.0.0"
@@ -12157,7 +12167,7 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwindcss@^1.9.5, tailwindcss@^1.9.6:
+tailwindcss@^1.9.5:
   version "1.9.6"
   resolved "https://registry.npm.taobao.org/tailwindcss/download/tailwindcss-1.9.6.tgz#0c5089911d24e1e98e592a31bfdb3d8f34ecf1a0"
   integrity sha1-DFCJkR0k4emOWSoxv9s9jzTs8aA=

@@ -1,5 +1,9 @@
 <template>
-  <div v-show="shouldShow" class="btn-back-to-top" @click.stop="onClick">
+  <div
+    v-show="shouldShow"
+    class="btn-back-to-top"
+    @click.stop="onClick"
+  >
     <i class="mdi mdi-arrow-collapse-up" />
   </div>
 </template>
@@ -8,9 +12,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  name: 'BackToTop',
+
   data () {
     return {
-      shouldShow: false
+      shouldShow: false,
     }
   },
 
@@ -23,7 +29,7 @@ export default Vue.extend({
         (e) => {
           this.shouldShow = window.scrollY > 500
         },
-        false
+        false,
       )
     })
   },
@@ -32,10 +38,10 @@ export default Vue.extend({
     onClick () {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
       })
-    }
-  }
+    },
+  },
 })
 </script>
 

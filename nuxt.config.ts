@@ -31,9 +31,6 @@ try {
   // ignored
 }
 
-// console.log(posts)
-const tailwindJS = join(__dirname, 'tailwind.config.js')
-
 const config: Configuration = {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
@@ -41,6 +38,7 @@ const config: Configuration = {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
 
+  // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
   /*
@@ -67,7 +65,6 @@ const config: Configuration = {
    ** Global CSS
    */
   css: [
-    // '~/assets/css/tailwind.css',
     '~/assets/css/app.scss',
     // 'highlight.js/styles/nord.css',
   ],
@@ -95,13 +92,7 @@ const config: Configuration = {
   ],
 
   buildModules: [
-    [
-      '@nuxt/typescript-build',
-      {
-        typeCheck: true,
-        ignoreNotFoundWarnings: true,
-      },
-    ],
+    '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/dotenv',
@@ -141,10 +132,9 @@ const config: Configuration = {
     },
 
     postcss: {
-      plugins: [
-        require('tailwindcss')(tailwindJS),
-        // require('autoprefixer')({}), // TODO:
-      ],
+      plugins: {
+        autoprefixer: {},
+      },
     },
 
     // /*

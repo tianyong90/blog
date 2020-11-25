@@ -2,7 +2,10 @@
   <div>
     <Header />
     <nuxt />
-    <Footer :post-count="postCount" :updated-at="updatedAt" />
+    <Footer
+      :post-count="postCount"
+      :updated-at="updatedAt"
+    />
     <BackToTop />
   </div>
 </template>

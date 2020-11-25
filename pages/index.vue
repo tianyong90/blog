@@ -1,6 +1,6 @@
 <template>
-  <div class="co1ntainer mx-auto">
-    <div class="post-list">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10 post-list">
       <nuxt-link
         v-for="post in paginatedPosts.data"
         :key="post.title"
@@ -21,7 +21,10 @@
             v-html="post.title"
           />
 
-          <p class="text-xs text-gray-700 post-description" v-html="post.description" />
+          <p
+            class="text-xs text-gray-700 post-description"
+            v-html="post.description"
+          />
 
           <div>
             <span
@@ -76,7 +79,7 @@ function getPaginatedItems (items, page = 1, pageSize = 6) {
     total_pages: Math.ceil(items.length / pgSize),
     data: pagedItems,
     prev_url: `/?p=${pg - 1}`,
-    next_url: `/?p=${pg + 1}`
+    next_url: `/?p=${pg + 1}`,
   }
 }
 
@@ -102,7 +105,7 @@ export default Vue.extend({
   data () {
     return {
       post: [],
-      paginatedPosts: {}
+      paginatedPosts: {},
     }
   },
 
@@ -114,9 +117,9 @@ export default Vue.extend({
         {
           hid: 'description',
           name: 'description',
-          content: '田勇的个人博客，技术、分享、生活及其它'
-        }
-      ]
+          content: '田勇的个人博客，技术、分享、生活及其它',
+        },
+      ],
     }
   },
 
@@ -132,28 +135,15 @@ export default Vue.extend({
       return fixedEncodeURI(
         'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +
         post.filename +
-        post.top_img.replace('./', '/')
+        post.top_img.replace('./', '/'),
       )
-    }
-  }
+    },
+  },
 })
 </script>
 
 <style scoped lang="scss">
-#container {
-  width: 100%;
-  height: 400px;
-  background-color: #f00;
-}
-
 .post-list {
-  display: grid;
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-
   &-item {
     display: flex;
     flex-direction: column;

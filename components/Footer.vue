@@ -15,15 +15,17 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  name: 'Footer',
+
   props: {
     postCount: {
       type: Number,
-      default: 0
+      default: 0,
     },
     updatedAt: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>

@@ -1,9 +1,8 @@
 $mdi-font-path: '~@mdi/font/fonts';
-@import "~@mdi/font/scss/materialdesignicons";
+@import "@mdi/font/scss/materialdesignicons";
 
-@import "~prism-themes/themes/prism-atom-dark.css";
-@import "~github-markdown-css/github-markdown.css";
-@import "~normalize.css/normalize.css";
+@import "github-markdown-css/github-markdown.css";
+@import "normalize.css/normalize.css";
 
 html,
 body {

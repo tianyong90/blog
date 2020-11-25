@@ -1,14 +1,26 @@
 <template>
   <nav class="sticky inset-x-0 top-0 z-50 nav">
     <div class="container flex mx-auto z-50 justify-between items-center h-full">
-      <nuxt-link tag="a" to="/" class="text-white text-xl font-normal no-underline">
+      <nuxt-link
+        tag="a"
+        to="/"
+        class="text-white text-xl font-normal no-underline"
+      >
         田写
       </nuxt-link>
 
       <div class="ml-auto mr-2 search-bar">
-        <input v-model="keyword" type="text" class="search-input" placeholder="搜索文章">
+        <input
+          v-model="keyword"
+          type="text"
+          class="search-input"
+          placeholder="搜索文章"
+        >
 
-        <div v-show="searchResult.length > 0" class="search-result">
+        <div
+          v-show="searchResult.length > 0"
+          class="search-result"
+        >
           <nuxt-link
             v-for="(post, index) in searchResult"
             :key="index"
@@ -47,8 +59,15 @@
         @click="toggleDropdownMenu"
       />
 
-      <div v-show="dropdownMenuVisible" class="container flex md:hidden dropdown-menu">
-        <nuxt-link class="dropdown-menu-item" tag="a" to="/open-source">
+      <div
+        v-show="dropdownMenuVisible"
+        class="container flex md:hidden dropdown-menu"
+      >
+        <nuxt-link
+          class="dropdown-menu-item"
+          tag="a"
+          to="/open-source"
+        >
           开源
         </nuxt-link>
         <a
@@ -56,7 +75,11 @@
           target="_blank"
           class="dropdown-menu-item"
         >GitHub</a>
-        <a href="https://weibo.com/1707227001" target="_blank" class="dropdown-menu-item">微博</a>
+        <a
+          href="https://weibo.com/1707227001"
+          target="_blank"
+          class="dropdown-menu-item"
+        >微博</a>
       </div>
     </div>
   </nav>
@@ -76,12 +99,14 @@ interface Post {
 }
 
 export default Vue.extend({
+  name: 'Header',
+
   data () {
     return {
       posts: [] as Array<Post>,
       keyword: '',
       searchResult: [],
-      fuse: null
+      fuse: null,
     }
   },
 
@@ -96,9 +121,9 @@ export default Vue.extend({
       },
 
       set (value) {
-        ;(this as any).$store.commit('UPDATE_DROPDOWN_MENU_VISIBLE', value)
-      }
-    }
+        (this as any).$store.commit('UPDATE_DROPDOWN_MENU_VISIBLE', value)
+      },
+    },
   },
 
   watch: {
@@ -108,7 +133,7 @@ export default Vue.extend({
 
     '$route' () {
       this.keyword = ''
-    }
+    },
   },
 
   async mounted () {
@@ -126,7 +151,7 @@ export default Vue.extend({
       location: 0,
       distance: 100,
       minMatchCharLength: 1,
-      keys: ['title']
+      keys: ['title'],
     }
     this.fuse = new Fuse(this.posts, options)
   },
@@ -134,8 +159,8 @@ export default Vue.extend({
   methods: {
     toggleDropdownMenu () {
       this.dropdownMenuVisible = !this.dropdownMenuVisible
-    }
-  }
+    },
+  },
 })
 </script>
 
