@@ -7,6 +7,7 @@ tags:
   - Nuxt.js
 categories:
   - Vue
+draft: false
 ---
 
 [博客地址: https://tianyong90.com](https://tianyong90.com/)

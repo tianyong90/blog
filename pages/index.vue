@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10 post-list">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 post-list">
       <nuxt-link
         v-for="post in posts"
         :key="post.title"
@@ -84,7 +84,12 @@ function getPaginatedItems (items, page = 1, pageSize = 6) {
 
 export default Vue.extend({
   async asyncData ({ $content }) {
-    const posts = await $content('posts').fetch()
+    const posts = await $content('posts')
+      .where({ draft: false })
+      .sortBy('createdAt', 'desc')
+      .limit(9)
+      .skip(9)
+      .fetch()
 
     // let { default: posts } = await import('~/posts/posts.json')
 

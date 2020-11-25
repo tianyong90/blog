@@ -104,8 +104,14 @@ const config: Configuration = {
   },
 
   content: {
-    // Disable for security reason on CodeSandBox
-    liveEdit: false,
+    liveEdit: true,
+    markdown: {
+      remarkPlugins: ['remark-emoji'],
+
+      prism: {
+        theme: 'prism-themes/themes/prism-material-oceanic.css',
+      },
+    },
   },
 
   svgSprite: {

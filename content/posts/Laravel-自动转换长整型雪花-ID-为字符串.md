@@ -7,6 +7,7 @@ tags:
   - 雪花 ID
 categories:
   - Laravel
+draft: false
 ---
 
 在设计 API 时，出于安全性等因素考虑，有时需要放弃使用自增 ID，使 ID 非连续且不可猜测。通常可以使用 Hash id，UUID,雪花 ID 等来实现。

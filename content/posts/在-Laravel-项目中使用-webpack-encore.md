@@ -8,6 +8,7 @@ tags:
   - laravel
 categories:
   - 前端
+draft: false
 ---
 
 看过我之前写过的博客的应该知道我一直是 laravel-mix 的死忠粉，有好几篇文章都是关于它的。每每提到 laravel-mix 时更是不吝溢美之词。然而就在大概一个月前，我却决定不再使用它，而转投 webpack-encore 阵营。

@@ -9,6 +9,7 @@ tags:
 categories:
     - php
     - Laravel
+draft: false
 ---
 
 ![install puppeteer](./install_puppeteer.jpg)

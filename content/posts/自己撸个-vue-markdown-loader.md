@@ -8,6 +8,7 @@ tags:
 categories:
     - vue
     - webpack
+draft: false
 ---
 
 最近，当我把 vue-loader 升级到 v15 后发现，自己项目中所使用的一个 vue-markdown-loader 因为兼容问题而没法用了，正当我一筹莫展的时候，无意间看到 vuepress 中使用了当时还处于 v15.0.0 rc 版本的 vue-loader,仔细研究其源码后发现，vuepress 对于 markdown 的支持相当完善，而且代码也规范易懂。于是心生一计，把里面部分相关的代码拿出来魔改一番，做成一个新的 loader 用到自己的项目……

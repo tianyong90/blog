@@ -8,6 +8,7 @@ tags:
 categories:
     - js
     - vue
+draft: false
 ---
 
 使用 markdown 来给程序写文档是非常方便的，自从用顺了 markdown 之后，都很久没打开过 Word 了。

@@ -10,6 +10,7 @@ tags:
 categories:
     - js
     - vue
+draft: false
 ---
 
 ![we-vue 单测覆盖率](./we-vue-coverage.jpg)

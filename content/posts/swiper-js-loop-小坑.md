@@ -7,6 +7,7 @@ tags:
   - 'vue'
 categories:
   - '前端'
+draft: false
 ---
 
 swiper.js 是一款强大的插件，也是我最喜欢的开源插件之一。它可以轻松实现轮播、tab 标签以及各种风骚的页面滑动效果。

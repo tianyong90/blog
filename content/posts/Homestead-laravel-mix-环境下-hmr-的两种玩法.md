@@ -9,6 +9,7 @@ tags:
 categories:
     - 前端
     - webpack
+draft: false
 ---
 
 我在前几天刚写过的[《让 F5 歇一会儿——laravel-mix 自动刷新之道》](https://tianyong90.com/2019/04/12/rang-f5-xie-yi-hui-er-laravel-mix-zi-dong-shua-xin-zhi-dao/)中介绍了 laravel-mix 实现自动刷新的几种方法，其中就有涉及 hmr（Hot Module Replacement），但里面都是以 Laradock 环境为例。对于 Laravel 官方首推的 Homestead 当然也是可以的，只不过用法上有些差别，于加上 laravel-mix 本身的一些 BUG（在 issue 里搜索 `hmr` 结果就有好几页 :smile:），对于刚接触的人来说可能无从下手。
