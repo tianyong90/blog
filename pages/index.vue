@@ -41,17 +41,15 @@
 
     <div class="paginator">
       <nuxt-link
-        v-if="paginatedPosts.total_pages > 1 && paginatedPosts.page !== 1"
-        tag="a"
-        :to="paginatedPosts.prev_url"
+        v-if="!paginatedPosts.is_first_page"
+        :to="paginatedPosts.prev_link"
         class="paginator-btn mr-auto btn-prev"
       >
         <span class="mdi mdi-chevron-left" /> 上一页
       </nuxt-link>
       <nuxt-link
-        v-if="paginatedPosts.total_pages > 1 && paginatedPosts.page !== paginatedPosts.total_pages"
-        tag="a"
-        :to="paginatedPosts.next_url"
+        v-if="!paginatedPosts.is_last_page"
+        :to="paginatedPosts.next_link"
         class="paginator-btn ml-auto btn-next"
       >
         下一页<span class="mdi mdi-chevron-right" />
@@ -64,47 +62,27 @@
 import { drop, get } from 'lodash'
 import Vue from 'vue'
 
-// 分页
-function getPaginatedItems (items, page = 1, pageSize = 6) {
-  const pg = parseInt(page.toString())
-  const pgSize = parseInt(pageSize.toString())
-  const offset = (pg - 1) * pgSize
-  const pagedItems = drop(items, offset).slice(0, pgSize)
-
-  return {
-    page: pg,
-    pageSize: pgSize,
-    total: parseInt(items.length),
-    total_pages: Math.ceil(items.length / pgSize),
-    data: pagedItems,
-    prev_url: `/?p=${pg - 1}`,
-    next_url: `/?p=${pg + 1}`,
-  }
-}
+const PAGE_SIZE = 9
 
 export default Vue.extend({
-  async asyncData ({ $content }) {
+  async asyncData ({ $content, query }) {
+    const page = parseInt(query.page || 1)
+
     const posts = await $content('posts')
       .where({ draft: false })
       .sortBy('createdAt', 'desc')
-      .limit(9)
-      .skip(9)
+      .limit(PAGE_SIZE)
+      .skip(PAGE_SIZE * (page - 1))
       .fetch()
-
-    // let { default: posts } = await import('~/posts/posts.json')
 
     console.log(posts)
 
-    // // 按发布时间排序
-    // posts = orderBy(posts, 'date', 'desc')
-
-    return { posts }
+    return { posts, page }
   },
 
   data () {
     return {
       post: [],
-      paginatedPosts: {},
     }
   },
 
@@ -122,23 +100,30 @@ export default Vue.extend({
     }
   },
 
-  mounted () {
-    // 第几页
-    const page = get(this.$route, 'query.p', 1)
+  computed: {
+    paginatedPosts () {
+      const totalPages = Math.ceil(this.post.length / PAGE_SIZE)
 
-    // this.paginatedPosts = getPaginatedItems(this.posts, page)
+      const page = parseInt(this.page)
+
+      const isFirstPage = page === 1
+      const isLastPage = page === totalPages
+
+      return {
+        is_first_page: isFirstPage,
+        is_last_page: isLastPage,
+        prev_link: isFirstPage ? '' : '/?page=' + (page - 1),
+        next_link: isLastPage ? '' : '/?page=' + (page + 1),
+      }
+    },
+  },
+
+  mounted () {
   },
 
   methods: {
     coverImgUrl (post) {
-      // todo:
       return '/images/post-images/' + post.slug + post.top_img
-
-      // return fixedEncodeURI(
-      //   'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +
-      //   post.filename +
-      //   post.top_img.replace('./', '/'),
-      // )
     },
   },
 })
