@@ -1,7 +1,7 @@
 ---
 title: Laravel 中使用 puppeteer 采集异步加载的网页内容
 date: 2019-03-10 16:44:31
-top_img: ./top_img.png
+top_img: /top_img.png
 tags:
     - laravel
     - puppeteer

@@ -1,7 +1,7 @@
 ---
 title: Laravel 自动转换长整型雪花 ID 为字符串
 date: '2020-10-Mo 16:05:59'
-top_img: ./top_img.jpg
+top_img: /top_img.jpg
 tags:
   - Laravel
   - 雪花 ID

@@ -1,7 +1,7 @@
 ---
 title: deployer 实战经验分享
 date: 2019-03-10 16:45:56
-top_img: ./top_img.jpg
+top_img: /top_img.jpg
 tags:
     - deployer
     - php

@@ -1,7 +1,12 @@
 <template>
   <div class="container mx-auto my-4">
+    <img
+      :src="coverUrl"
+      alt=""
+    >
+
     <nuxt-content
-      class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto my-10 p-10 container overflow-hidden md:border-2 bg-white article-content"
+      class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto p-10 container overflow-hidden md:border-2 bg-white article-content"
       :document="post"
     />
 
@@ -81,6 +86,12 @@ export default Vue.extend({
       // title: this.title,
       // meta: [{ hid: 'keywords', name: 'keywords', content: this.tags.join(',') }, { hid: 'description', name: 'description', content: '' }],
     }
+  },
+
+  computed: {
+    coverUrl () {
+      return '/images/post-images/' + this.post.slug + this.post.top_img
+    },
   },
 })
 </script>

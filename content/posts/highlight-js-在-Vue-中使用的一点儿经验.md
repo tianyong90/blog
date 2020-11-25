@@ -1,7 +1,7 @@
 ---
 title: highlight.js 在 Vue 中使用的一点儿经验
 date: 2019-03-10 16:42:07
-top_img: ./top_img.jpg
+top_img: /top_img.jpg
 tags:
     - vue
     - highlight.js

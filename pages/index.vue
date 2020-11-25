@@ -7,8 +7,6 @@
         class="shadow-md rounded-lg overflow-hidden no-underline post-list-item"
         :to="post.path"
       >
-        {{ post.path }}
-
         <div class="cover-wrapper">
           <img
             :src="coverImgUrl(post)"
@@ -63,9 +61,8 @@
 </template>
 
 <script lang="js">
-import { orderBy, drop, get } from 'lodash'
+import { drop, get } from 'lodash'
 import Vue from 'vue'
-import { fixedEncodeURI } from '@/utils'
 
 // 分页
 function getPaginatedItems (items, page = 1, pageSize = 6) {
@@ -86,15 +83,6 @@ function getPaginatedItems (items, page = 1, pageSize = 6) {
 }
 
 export default Vue.extend({
-  // beforeRouteUpdate (to, from, next) {
-  //   // 第几页
-  //   const page = get(to, 'query.p', 1)
-  //
-  //   this.paginatedPosts = getPaginatedItems(this.posts, page)
-  //
-  //   next()
-  // },
-
   async asyncData ({ $content }) {
     const posts = await $content('posts').fetch()
 
@@ -139,7 +127,7 @@ export default Vue.extend({
   methods: {
     coverImgUrl (post) {
       // todo:
-      return ''
+      return '/images/post-images/' + post.slug + post.top_img
 
       // return fixedEncodeURI(
       //   'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +

@@ -1,7 +1,7 @@
 ---
 title: 也来扯扯 Vue 单元测试
 date: 2019-03-10 16:43:51
-top_img: ./top_img.png
+top_img: /top_img.png
 tags:
     - js
     - vue

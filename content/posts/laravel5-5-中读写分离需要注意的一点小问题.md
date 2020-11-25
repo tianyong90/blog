@@ -1,7 +1,7 @@
 ---
 title: laravel5.5 中读写分离需要注意的一点小问题
 date: 2019-03-10 16:41:04
-top_img: ./top_img.jpg
+top_img: /top_img.jpg
 tags:
     - laravel
     - 读写分离

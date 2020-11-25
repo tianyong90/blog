@@ -1,7 +1,7 @@
 ---
 title: 自己撸个 vue markdown loader
 date: 2019-03-10 16:45:23
-top_img: ./top_img.jpg
+top_img: /top_img.jpg
 tags:
     - vue loader
     - markdown-loader

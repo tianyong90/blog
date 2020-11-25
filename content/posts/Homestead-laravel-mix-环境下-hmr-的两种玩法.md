@@ -1,7 +1,7 @@
 ---
 title: Homestead + laravel-mix 环境下 hmr 的两种玩法
 date: 2019-04-18 01:33:24
-top_img: ./top_img.png
+top_img: /top_img.png
 tags:
     - laravel-mix
     - homestead

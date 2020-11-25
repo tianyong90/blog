@@ -1,7 +1,7 @@
 ---
 title: swiper.js loop 小坑
 date: '2020-02-08 02:15:49'
-top_img: ./top_img.png
+top_img: /top_img.png
 tags:
   - 'swiper.js'
   - 'vue'

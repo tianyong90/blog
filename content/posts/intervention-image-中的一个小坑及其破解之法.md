@@ -1,7 +1,7 @@
 ---
 title: intervention/image 中的一个小坑及其破解之法
 date: 2019-03-10 16:39:54
-top_img: ./top_img.jpg
+top_img: /top_img.jpg
 tags:
     - intervention-image
     - php

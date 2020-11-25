@@ -1,7 +1,7 @@
 ---
 title: 让 F5 歇一会儿——laravel-mix 自动刷新之道
 date: 2019-04-12 22:07:38
-top_img: ./top_img.jpg
+top_img: /top_img.jpg
 tags:
     - laravel-mix
     - 前端

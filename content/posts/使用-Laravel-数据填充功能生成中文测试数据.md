@@ -1,7 +1,7 @@
 ---
 title: 使用 Laravel 数据填充功能生成中文测试数据
 date: 2019-03-10 16:38:18
-top_img: ./top_img.jpg
+top_img: /top_img.jpg
 tags:
     - laravel
     - 数据填充

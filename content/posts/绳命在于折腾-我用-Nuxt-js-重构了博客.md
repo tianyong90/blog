@@ -1,7 +1,7 @@
 ---
 title: 绳命在于折腾，我用 Nuxt.js 重构了博客
 date: 2019-05-26 03:11:46
-top_img: ./top_img.png
+top_img: /top_img.png
 tags:
   - 博客
   - Nuxt.js

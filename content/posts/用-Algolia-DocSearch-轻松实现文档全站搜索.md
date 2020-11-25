@@ -1,7 +1,7 @@
 ---
 title: 用 Algolia DocSearch 轻松实现文档全站搜索
 date: 2019-03-10 16:46:31
-top_img: ./top_img.jpg
+top_img: /top_img.jpg
 tags:
     - Algolia DocSearch
     - 全站搜索
