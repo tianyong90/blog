@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn run generate-post-list --production && nuxt-ts build",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup --allow-unclean",
-    "dev": "yarn run generate-post-list && nuxt-ts",
+    "dev": "nuxt-ts",
     "generate": "yarn run generate-post-list --production && nuxt-ts generate",
     "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts generate",
     "lint": "yarn lint:js && yarn lint:style",

@@ -19,11 +19,11 @@ module.exports = {
         /^code/,
         /^line-numbers-wrapper/,
         /^line-number/,
-        /^grayscale/
+        /^grayscale/,
       ],
       deep: [],
-      greedy: []
-    }
+      greedy: [],
+    },
   },
 
   theme: {
@@ -31,7 +31,7 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            color: '#ab633f',
+            color: '#333',
             strong: {
               fontWeight: '800',
             },

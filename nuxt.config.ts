@@ -173,9 +173,10 @@ const config: Configuration = {
     // },
   },
 
-  generate: {
-    routes: ['404'].concat(posts.map(post => `/posts/${post.slugifiedFilename}`)),
-  },
+  // TODO:
+  // generate: {
+  //   routes: ['404'].concat(posts.map(post => `/posts/${post.slugifiedFilename}`)),
+  // },
 
   server: {
     host: process.env.DEV_SERVER_HOST || localIp,

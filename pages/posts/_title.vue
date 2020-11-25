@@ -1,50 +1,23 @@
 <template>
   <div class="container mx-auto my-4">
     <nuxt-content
-      class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto my-10 p-10 container overflow-hidden md:border-2 article-content"
+      class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto my-10 p-10 container overflow-hidden md:border-2 bg-white article-content"
       :document="post"
     />
 
-    <div class="post rounded-lg overflow-hidden bg-white">
-      <img
-        :src="topImg"
-        loading="lazy"
-        class="w-full cover-image"
-      >
-
-      <div class="px-4 md:px-8 pt-2 pb-10">
-        <div class="mb-4">
-          <h1
-            class="text-gray-800 text-xl font-normal"
-            v-text="title"
-          />
-          <div class="text-gray-700 text-xs post-date">
-            {{ date | formatTime }}
-          </div>
-        </div>
-
-        <!--        <div
-          class="markdown-body"
-          v-html="html"
-        />-->
-
-        <div class="social-share" />
-      </div>
-    </div>
-
     <div class="px-4 md:px-0 navigator">
       <nuxt-link
-        v-if="prevLink"
+        v-if="prev"
         tag="a"
-        :to="prevLink"
+        :to="prev.path"
         class="navigator-btn mr-auto btn-prev"
       >
         <span class="mdi mdi-chevron-left" /> 上一篇
       </nuxt-link>
       <nuxt-link
-        v-if="nextLink"
+        v-if="next"
         tag="a"
-        :to="nextLink"
+        :to="next.path"
         class="navigator-btn ml-auto btn-next"
       >
         下一篇<span class="mdi mdi-chevron-right" />
@@ -56,8 +29,6 @@
 <script lang="js">
 import Vue from 'vue'
 import dayjs from 'dayjs'
-import { orderBy } from 'lodash'
-import { fixedEncodeURI } from '@/utils'
 
 export default Vue.extend({
   filters: {
@@ -66,64 +37,36 @@ export default Vue.extend({
     },
   },
 
-  async asyncData ({ params, $content }) {
-    let { default: posts } = await import('~/posts/posts.json')
-
-    // 按发布时间排序
-    posts = orderBy(posts, 'date', 'desc')
-
+  async asyncData ({ params, $content, error }) {
     // 链接中拼音化的文件名
     const slugifiedFilename = params.title
 
-    const thePost = posts.find((item) => {
-      return item.slugifiedFilename === slugifiedFilename
-    })
+    let post
 
-    // 上一篇和下一篇
-    const thePostIndex = posts.indexOf(thePost)
+    try {
+      post = await $content('posts', params.title).fetch()
+      // OR const article = await $content(`articles/${params.slug}`).fetch()
+    } catch (e) {
+      return error({ message: 'Article not found' })
+    }
 
-    const prevPost = thePostIndex === 0 ? null : posts[thePostIndex - 1]
-    const nextPost = thePostIndex === posts.length - 1 ? null : posts[thePostIndex + 1]
-
-    const prevLink = prevPost ? `/posts/${prevPost.slugifiedFilename}` : null
-    const nextLink = nextPost ? `/posts/${nextPost.slugifiedFilename}` : null
-
-    // posts 目录中 markdown 实际文件名
-    const filename = thePost.filename
-
-    console.log(filename)
-
-    const post = await $content('posts/abc').fetch()
+    // const post = await $content('posts', slugifiedFilename).fetch()
     // const post = await $content('documents/test').fetch()
 
     console.log(post)
 
-    // const { html, attributes } = await import(`~/posts/${filename}.md`)
+    const [prev, next] = await $content('posts')
+      .only(['title', 'slug'])
+      .sortBy('createdAt', 'asc')
+      .surround(slugifiedFilename)
+      .fetch()
 
-    // let topImg
-    // // 顶部背景图
-    // if (attributes.top_img) {
-    //   topImg = attributes.top_img.replace(
-    //     /^\./,
-    //     fixedEncodeURI(
-    //       `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`,
-    //     ),
-    //   )
-    // }
+    console.log(prev, next)
 
     return {
-      // ...attributes,
-      // topImg,
-      // html: html.replace(
-      //   /src="\.\//g,
-      //   'src="' +
-      //   fixedEncodeURI(
-      //     `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`,
-      //   ),
-      // ), // markdown 内容中图片地址引用替换
-      prevLink,
-      nextLink,
       post,
+      prev,
+      next,
     }
   },
 

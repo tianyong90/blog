@@ -2,11 +2,13 @@
   <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10 post-list">
       <nuxt-link
-        v-for="post in paginatedPosts.data"
+        v-for="post in posts"
         :key="post.title"
         class="shadow-md rounded-lg overflow-hidden no-underline post-list-item"
-        :to="'/posts/' + post.slugifiedFilename"
+        :to="post.path"
       >
+        {{ post.path }}
+
         <div class="cover-wrapper">
           <img
             :src="coverImgUrl(post)"
@@ -84,20 +86,24 @@ function getPaginatedItems (items, page = 1, pageSize = 6) {
 }
 
 export default Vue.extend({
-  beforeRouteUpdate (to, from, next) {
-    // 第几页
-    const page = get(to, 'query.p', 1)
+  // beforeRouteUpdate (to, from, next) {
+  //   // 第几页
+  //   const page = get(to, 'query.p', 1)
+  //
+  //   this.paginatedPosts = getPaginatedItems(this.posts, page)
+  //
+  //   next()
+  // },
 
-    this.paginatedPosts = getPaginatedItems(this.posts, page)
+  async asyncData ({ $content }) {
+    const posts = await $content('posts').fetch()
 
-    next()
-  },
+    // let { default: posts } = await import('~/posts/posts.json')
 
-  async asyncData () {
-    let { default: posts } = await import('~/posts/posts.json')
+    console.log(posts)
 
-    // 按发布时间排序
-    posts = orderBy(posts, 'date', 'desc')
+    // // 按发布时间排序
+    // posts = orderBy(posts, 'date', 'desc')
 
     return { posts }
   },
@@ -127,16 +133,19 @@ export default Vue.extend({
     // 第几页
     const page = get(this.$route, 'query.p', 1)
 
-    this.paginatedPosts = getPaginatedItems(this.posts, page)
+    // this.paginatedPosts = getPaginatedItems(this.posts, page)
   },
 
   methods: {
     coverImgUrl (post) {
-      return fixedEncodeURI(
-        'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +
-        post.filename +
-        post.top_img.replace('./', '/'),
-      )
+      // todo:
+      return ''
+
+      // return fixedEncodeURI(
+      //   'https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/' +
+      //   post.filename +
+      //   post.top_img.replace('./', '/'),
+      // )
     },
   },
 })
