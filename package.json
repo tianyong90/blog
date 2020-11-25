@@ -5,17 +5,16 @@
   "description": "田勇（田较瘦）的博客",
   "author": "tianyong90",
   "scripts": {
-    "dev": "yarn run generate-post-list && nuxt-ts",
     "build": "yarn run generate-post-list --production && nuxt-ts build",
-    "generate": "yarn run generate-post-list --production && nuxt-ts generate",
-    "lint": "eslint --ext .ts,.js,.vue --ignore-path .eslintignore .",
-    "test": "ts-node --project scripts/tsconfig.json scripts/test.ts",
-    "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts generate",
-    "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup --allow-unclean",
+    "dev": "yarn run generate-post-list && nuxt-ts",
+    "generate": "yarn run generate-post-list --production && nuxt-ts generate",
+    "generate-post-list": "ts-node --project scripts/tsconfig.json scripts/generate-post-list.ts generate",
+    "lint": "yarn lint:js && yarn lint:style",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
-    "lint": "yarn lint:js && yarn lint:style"
+    "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts",
+    "test": "ts-node --project scripts/tsconfig.json scripts/test.ts"
   },
   "husky": {
     "hooks": {
@@ -29,7 +28,7 @@
   },
   "dependencies": {
     "@mdi/font": "^5.0.45",
-    "@nuxt/content": "^1.10.0",
+    "@nuxt/content": "^1.11.0",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
@@ -62,6 +61,7 @@
     "@nuxt/typescript-build": "^2.0.0",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/markdownit": "^1.2.7",
+    "@nuxtjs/tailwindcss": "^3.2.0",
     "@tianyong90/vue-markdown-loader": "^0.1.1",
     "@types/color": "^3.0.1",
     "@types/fs-extra": "^9.0.1",
@@ -70,12 +70,16 @@
     "@types/yargs": "^15.0.2",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/test-utils": "^1.0.0-beta.31",
     "autoprefixer": "^10.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^26.0.1",
+    "babel-plugin-component": "^1.1.1",
     "color": "^3.1.2",
     "copy-webpack-plugin": "^6.0.2",
+    "default-gateway": "^6.0.2",
     "eslint": "^7.2.0",
     "eslint-config-standard": "^16.0.1",
     "eslint-loader": "^4.0.0",
@@ -100,11 +104,9 @@
     "sass": "^1.25.0",
     "sass-loader": "^10.0.2",
     "sharp": "^0.26.2",
+    "stylelint-config-standard": "^20.0.0",
     "ts-node": "^9.0.0",
     "vue-jest": "^3.0.4",
-    "yargs": "^16.0.3",
-        "babel-plugin-component": "^1.1.1",
-    "default-gateway": "^6.0.2"，
-    "stylelint-config-standard": "^20.0.0",
+    "yargs": "^16.0.3"
   }
 }

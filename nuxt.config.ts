@@ -2,48 +2,43 @@ import path, { join } from 'path'
 import { Configuration } from '@nuxt/types'
 import CopyPlugin from 'copy-webpack-plugin'
 import Sass from 'sass'
-import Purgecss from '@fullhuman/postcss-purgecss'
-import highlightjs from 'highlight.js'
 import posts from './posts/posts.json'
 
-const wrap = (code, lang) => `<pre><code class="hljs ${lang}">${code}</code></pre>`
-
-const purgecss = Purgecss({
-  // Specify the paths to all of the template files in your project
-  content: [
-    './pages/**/*.html',
-    './pages/**/*.vue',
-    './components/**/*.vue'
-  ],
-
-  // This is the function used to extract class names from your templates
-  defaultExtractor: (content) => {
-    // Capture as liberally as possible, including things like `h-(screen-1.5)`
-    const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
-
-    // Capture classes within other delimiters like .block(class="w-1/2") in Pug
-    const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
-
-    return broadMatches.concat(innerMatches)
-  },
-  safelist: {
-    standard: [
-      /^token/,
-      /^pre/,
-      /^code/,
-      /^line-numbers-wrapper/,
-      /^line-number/,
-      /^grayscale/
-    ],
-    deep: [],
-    greedy: []
+/**
+ * 获取本地 IP
+ *
+ * https://github.com/vuejs/vue-cli/blob/eda18b05424c8c3e6862a7a5e2e15b7513bebbe4/packages/%40vue/cli-service/lib/util/prepareURLs.js#L37
+ */
+let localIp = 'localhost'
+try {
+  // This can only return an IPv4 address
+  const result = defaultGateway.v4.sync()
+  const lanUrlForConfig = address.ip(result && result.interface)
+  if (lanUrlForConfig) {
+    // Check if the address is a private ip
+    // https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
+    if (
+      /^10[.]|^172[.](1[6-9]|2[0-9]|3[0-1])[.]|^192[.]168[.]/.test(
+        lanUrlForConfig,
+      )
+    ) {
+      localIp = lanUrlForConfig
+    }
   }
-})
+} catch (_e) {
+  // ignored
+}
 
 // console.log(posts)
 const tailwindJS = join(__dirname, 'tailwind.config.js')
 
 const config: Configuration = {
+  // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
+  ssr: false,
+
+  // Target (https://go.nuxtjs.dev/config-target)
+  target: 'static',
+
   /*
    ** Headers of the page
    */
@@ -54,9 +49,9 @@ const config: Configuration = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '田勇的博客。技术、生活及其它……' }
+      { hid: 'description', name: 'description', content: '田勇的博客。技术、生活及其它……' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   /*
@@ -67,7 +62,11 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/tailwind.css', '~/assets/css/app.scss', 'highlight.js/styles/nord.css'],
+  css: [
+    '~/assets/css/tailwind.css',
+    '~/assets/css/app.scss',
+    'highlight.js/styles/nord.css',
+  ],
 
   /*
    ** Plugins to load before mounting the App
@@ -75,8 +74,8 @@ const config: Configuration = {
   plugins: [
     {
       src: '~/plugins/app-service.ts',
-      ssr: false
-    }
+      ssr: false,
+    },
   ],
 
   /*
@@ -86,7 +85,10 @@ const config: Configuration = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxt/content',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    // https://github.com/nuxt-community/svg-sprite-module
+    '@nuxtjs/svg-sprite',
+    '@nuxt/content',
   ],
 
   buildModules: [
@@ -94,10 +96,13 @@ const config: Configuration = {
       '@nuxt/typescript-build',
       {
         typeCheck: true,
-        ignoreNotFoundWarnings: true
-      }
+        ignoreNotFoundWarnings: true,
+      },
     ],
-    '@aceforth/nuxt-optimized-images'
+    // https://go.nuxtjs.dev/tailwindcss
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/dotenv',
+    '@aceforth/nuxt-optimized-images',
   ],
 
   /*
@@ -108,14 +113,13 @@ const config: Configuration = {
   },
 
   content: {
-    markdown: {
-      highlighter (rawCode, lang) {
-        if (!lang) {
-          return wrap(highlightjs.highlightAuto(rawCode).value, lang)
-        }
-        return wrap(highlightjs.highlight(lang, rawCode).value, lang)
-      }
-    }
+    // Disable for security reason on CodeSandBox
+    liveEdit: false,
+  },
+
+  svgSprite: {
+    // https://github.com/nuxt-community/svg-sprite-module
+    // manipulate module options
   },
 
   /*
@@ -124,21 +128,20 @@ const config: Configuration = {
   build: {
     parallel: false, // 这个设置为 false，因为 extractCSS 为true 时冲突
 
-    // 生产模式下使用 extractCSS，开发时不用，以免影响热替换 hmr
+    // 生产环境下才提取，开发环境下提取可能导致修改样式后无法热替换(hmr)
     extractCSS: process.env.NODE_ENV === 'production',
 
     loaders: {
       scss: {
-        implementation: Sass
-      }
+        implementation: Sass,
+      },
     },
 
     postcss: {
       plugins: [
         require('tailwindcss')(tailwindJS),
         // require('autoprefixer')({}), // TODO:
-        ...(process.env.NODE_ENV === 'production' ? [purgecss] : [])
-      ]
+      ],
     },
 
     /*
@@ -158,11 +161,11 @@ const config: Configuration = {
               // sourceDir: ''
               contentCssClass: 'markdown-body',
               markdown: {
-                lineNumbers: false // enable line numbers
-              }
-            }
-          }
-        ]
+                lineNumbers: false, // enable line numbers
+              },
+            },
+          },
+        ],
       })
 
       config.plugins!.push(
@@ -170,21 +173,21 @@ const config: Configuration = {
           patterns: [
             { from: './posts/**/*.jpg', to: '' },
             { from: './posts/**/*.png', to: '' },
-            { from: './posts/**/*.gif', to: '' }
-          ]
-        })
+            { from: './posts/**/*.gif', to: '' },
+          ],
+        }),
       )
-    }
+    },
   },
 
   generate: {
-    routes: ['404'].concat(posts.map(post => `/posts/${post.slugifiedFilename}`))
+    routes: ['404'].concat(posts.map(post => `/posts/${post.slugifiedFilename}`)),
   },
 
   server: {
-    host: '0.0.0.0', // 便于在手机上预览效果
-    port: 3000
-  }
+    host: process.env.DEV_SERVER_HOST || localIp,
+    port: 3000,
+  },
 }
 
 export default config

@@ -4,7 +4,7 @@ module.exports = {
     // purgeLayersByDefault: true,
   },
   purge: {
-    // ½öÔÚÉú²ú¹¹½¨Ê±Ê¹ÓÃ purgecss
+    // ä»…åœ¨ç”Ÿäº§æž„å»ºæ—¶ä½¿ç”¨ purgecss
     enabled: process.env.NODE_ENV === 'production',
     content: [
       './app.html',
@@ -13,10 +13,17 @@ module.exports = {
     ],
 
     safelist: {
-      standard: [/^el-/],
+      standard: [
+        /^token/,
+        /^pre/,
+        /^code/,
+        /^line-numbers-wrapper/,
+        /^line-number/,
+        /^grayscale/
+      ],
       deep: [],
-      greedy: [],
-    },
+      greedy: []
+    }
   },
 
   theme: {
