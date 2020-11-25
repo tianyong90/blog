@@ -1,17 +1,32 @@
 <template>
-  <div class="container mt-4 md:my-4">
+  <div class="container mx-auto my-4">
+    <nuxt-content
+      class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto my-10 p-10 container overflow-hidden md:border-2 article-content"
+      :document="post"
+    />
+
     <div class="post rounded-lg overflow-hidden bg-white">
-      <img :src="topImg" loading="lazy" class="w-full cover-image">
+      <img
+        :src="topImg"
+        loading="lazy"
+        class="w-full cover-image"
+      >
 
       <div class="px-4 md:px-8 pt-2 pb-10">
         <div class="mb-4">
-          <h1 class="text-gray-800 text-xl font-normal" v-text="title" />
+          <h1
+            class="text-gray-800 text-xl font-normal"
+            v-text="title"
+          />
           <div class="text-gray-700 text-xs post-date">
             {{ date | formatTime }}
           </div>
         </div>
 
-        <div class="markdown-body" v-html="html" />
+        <!--        <div
+          class="markdown-body"
+          v-html="html"
+        />-->
 
         <div class="social-share" />
       </div>
@@ -48,17 +63,17 @@ export default Vue.extend({
   filters: {
     formatTime (val) {
       return dayjs(val).format('YYYY-MM-DD')
-    }
+    },
   },
 
-  async asyncData ({ params }) {
+  async asyncData ({ params, $content }) {
     let { default: posts } = await import('~/posts/posts.json')
 
     // 按发布时间排序
     posts = orderBy(posts, 'date', 'desc')
 
     // 链接中拼音化的文件名
-    const slugifiedFilename = params.slug
+    const slugifiedFilename = params.title
 
     const thePost = posts.find((item) => {
       return item.slugifiedFilename === slugifiedFilename
@@ -76,49 +91,54 @@ export default Vue.extend({
     // posts 目录中 markdown 实际文件名
     const filename = thePost.filename
 
-    const { html, attributes } = await import(`~/posts/${filename}.md`)
+    console.log(filename)
 
-    let topImg
-    // 顶部背景图
-    if (attributes.top_img) {
-      topImg = attributes.top_img.replace(
-        /^\./,
-        fixedEncodeURI(
-          `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`
-        )
-      )
-    }
+    const post = await $content('posts/abc').fetch()
+    // const post = await $content('documents/test').fetch()
+
+    console.log(post)
+
+    // const { html, attributes } = await import(`~/posts/${filename}.md`)
+
+    // let topImg
+    // // 顶部背景图
+    // if (attributes.top_img) {
+    //   topImg = attributes.top_img.replace(
+    //     /^\./,
+    //     fixedEncodeURI(
+    //       `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`,
+    //     ),
+    //   )
+    // }
 
     return {
-      ...attributes,
-      topImg,
-      html: html.replace(
-        /src="\.\//g,
-        'src="' +
-        fixedEncodeURI(
-          `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`
-        )
-      ), // markdown 内容中图片地址引用替换
+      // ...attributes,
+      // topImg,
+      // html: html.replace(
+      //   /src="\.\//g,
+      //   'src="' +
+      //   fixedEncodeURI(
+      //     `https://raw.githubusercontent.com/tianyong90/blog/gh-pages/_nuxt/posts/${filename}/`,
+      //   ),
+      // ), // markdown 内容中图片地址引用替换
       prevLink,
-      nextLink
+      nextLink,
+      post,
     }
   },
 
   data () {
     return {
-      topImg: ''
+      topImg: '',
     }
   },
 
   head () {
     return {
-      title: this.title,
-      meta: [
-        { hid: 'keywords', name: 'keywords', content: this.tags.join(',') },
-        { hid: 'description', name: 'description', content: '' }
-      ]
+      // title: this.title,
+      // meta: [{ hid: 'keywords', name: 'keywords', content: this.tags.join(',') }, { hid: 'description', name: 'description', content: '' }],
     }
-  }
+  },
 })
 </script>
 
