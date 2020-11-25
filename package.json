@@ -61,7 +61,6 @@
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/markdownit": "^1.2.7",
     "@nuxtjs/tailwindcss": "^3.2.0",
-    "@tianyong90/vue-markdown-loader": "^0.1.1",
     "@types/color": "^3.0.1",
     "@types/fs-extra": "^9.0.1",
     "@types/lodash": "^4.14.144",

@@ -64,10 +64,7 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: [
-    '~/assets/css/app.scss',
-    // 'highlight.js/styles/nord.css',
-  ],
+  css: ['~/assets/scss/app.scss'],
 
   /*
    ** Plugins to load before mounting the App

@@ -2,11 +2,12 @@
   <div class="container mx-auto my-4">
     <img
       :src="coverUrl"
+      class="w-full h-64 object-cover cover-image"
       alt=""
     >
 
     <nuxt-content
-      class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto p-10 container overflow-hidden md:border-2 bg-white article-content"
+      class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto px-4 md:px-10 py-10 overflow-hidden bg-white article-content"
       :document="post"
     />
 
