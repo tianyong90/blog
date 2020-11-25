@@ -2507,6 +2507,11 @@ acorn@^7.0.0, acorn@^7.1.1, acorn@^7.4.0:
   resolved "https://registry.npm.taobao.org/acorn/download/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha1-/q7SVZc9LndVW4PbwIhRpsY1IPo=
 
+address@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npm.taobao.org/address/download/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
+  integrity sha1-vxEWycdYxRt6kz0pa3LCIe2UKLY=
+
 aggregate-error@^3.0.0:
   version "3.1.0"
   resolved "https://registry.npm.taobao.org/aggregate-error/download/aggregate-error-3.1.0.tgz?cache=0&sync_timestamp=1598049717562&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Faggregate-error%2Fdownload%2Faggregate-error-3.1.0.tgz#92670ff50f5359bdb7a3e0d40d0ec30c5737687a"

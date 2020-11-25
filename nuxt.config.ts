@@ -3,6 +3,8 @@ import { Configuration } from '@nuxt/types'
 import CopyPlugin from 'copy-webpack-plugin'
 import Sass from 'sass'
 import posts from './posts/posts.json'
+import address from 'address'
+import defaultGateway from 'default-gateway'
 
 /**
  * 获取本地 IP
@@ -39,6 +41,8 @@ const config: Configuration = {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
 
+  components: true,
+
   /*
    ** Headers of the page
    */
@@ -63,9 +67,9 @@ const config: Configuration = {
    ** Global CSS
    */
   css: [
-    '~/assets/css/tailwind.css',
+    // '~/assets/css/tailwind.css',
     '~/assets/css/app.scss',
-    'highlight.js/styles/nord.css',
+    // 'highlight.js/styles/nord.css',
   ],
 
   /*
@@ -84,7 +88,6 @@ const config: Configuration = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxt/content',
     '@nuxtjs/dotenv',
     // https://github.com/nuxt-community/svg-sprite-module
     '@nuxtjs/svg-sprite',
@@ -144,40 +147,40 @@ const config: Configuration = {
       ],
     },
 
-    /*
-     ** You can extend webpack config here
-     */
-    extend (config, ctx) {
-      // markdown loader
-      config.module!.rules.push({
-        test: /\.md$/,
-        include: path.resolve(__dirname, 'posts'),
-        use: [
-          {
-            loader: '@tianyong90/vue-markdown-loader',
-            options: {
-              // 注意模式，直接返回对象数据
-              mode: 'raw',
-              // sourceDir: ''
-              contentCssClass: 'markdown-body',
-              markdown: {
-                lineNumbers: false, // enable line numbers
-              },
-            },
-          },
-        ],
-      })
-
-      config.plugins!.push(
-        new CopyPlugin({
-          patterns: [
-            { from: './posts/**/*.jpg', to: '' },
-            { from: './posts/**/*.png', to: '' },
-            { from: './posts/**/*.gif', to: '' },
-          ],
-        }),
-      )
-    },
+    // /*
+    //  ** You can extend webpack config here
+    //  */
+    // extend (config, ctx) {
+    //   // markdown loader
+    //   config.module!.rules.push({
+    //     test: /\.md$/,
+    //     include: path.resolve(__dirname, 'posts'),
+    //     use: [
+    //       {
+    //         loader: '@tianyong90/vue-markdown-loader',
+    //         options: {
+    //           // 注意模式，直接返回对象数据
+    //           mode: 'raw',
+    //           // sourceDir: ''
+    //           contentCssClass: 'markdown-body',
+    //           markdown: {
+    //             lineNumbers: false, // enable line numbers
+    //           },
+    //         },
+    //       },
+    //     ],
+    //   })
+    //
+    //   config.plugins!.push(
+    //     new CopyPlugin({
+    //       patterns: [
+    //         { from: './posts/**/*.jpg', to: '' },
+    //         { from: './posts/**/*.png', to: '' },
+    //         { from: './posts/**/*.gif', to: '' },
+    //       ],
+    //     }),
+    //   )
+    // },
   },
 
   generate: {
