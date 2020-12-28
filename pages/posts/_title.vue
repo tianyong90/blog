@@ -2,7 +2,7 @@
   <div class="container mx-auto my-4">
     <img
       :src="coverUrl"
-      class="w-full h-64 object-cover cover-image"
+      class="w-full h-64 md:h-128 object-cover cover-image"
       alt=""
     >
 
@@ -84,8 +84,8 @@ export default Vue.extend({
 
   head () {
     return {
-      // title: this.title,
-      // meta: [{ hid: 'keywords', name: 'keywords', content: this.tags.join(',') }, { hid: 'description', name: 'description', content: '' }],
+      title: this.post.title,
+      meta: [{ hid: 'keywords', name: 'keywords', content: this.post.tags.join(',') }, { hid: 'description', name: 'description', content: '' }],
     }
   },
 

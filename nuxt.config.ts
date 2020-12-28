@@ -1,6 +1,5 @@
 import path, { join } from 'path'
 import { Configuration } from '@nuxt/types'
-import CopyPlugin from 'copy-webpack-plugin'
 import Sass from 'sass'
 import posts from './posts/posts.json'
 import address from 'address'
@@ -106,7 +105,14 @@ const config: Configuration = {
   content: {
     liveEdit: true,
     markdown: {
-      remarkPlugins: ['remark-emoji'],
+      remarkPlugins: [
+        'remark-emoji',
+        // 'remark-admonitions',
+        'remark-slug',
+        'remark-autolink-headings',
+        'remark-external-links',
+        'remark-footnotes',
+      ],
 
       prism: {
         theme: 'prism-themes/themes/prism-material-oceanic.css',
@@ -139,41 +145,6 @@ const config: Configuration = {
         autoprefixer: {},
       },
     },
-
-    // /*
-    //  ** You can extend webpack config here
-    //  */
-    // extend (config, ctx) {
-    //   // markdown loader
-    //   config.module!.rules.push({
-    //     test: /\.md$/,
-    //     include: path.resolve(__dirname, 'posts'),
-    //     use: [
-    //       {
-    //         loader: '@tianyong90/vue-markdown-loader',
-    //         options: {
-    //           // 注意模式，直接返回对象数据
-    //           mode: 'raw',
-    //           // sourceDir: ''
-    //           contentCssClass: 'markdown-body',
-    //           markdown: {
-    //             lineNumbers: false, // enable line numbers
-    //           },
-    //         },
-    //       },
-    //     ],
-    //   })
-    //
-    //   config.plugins!.push(
-    //     new CopyPlugin({
-    //       patterns: [
-    //         { from: './posts/**/*.jpg', to: '' },
-    //         { from: './posts/**/*.png', to: '' },
-    //         { from: './posts/**/*.gif', to: '' },
-    //       ],
-    //     }),
-    //   )
-    // },
   },
 
   // TODO:
