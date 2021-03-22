@@ -15,26 +15,20 @@
           >
         </div>
 
-        <div class="flex flex-col h-full justify-between p-4">
+        <div class="flex flex-col h-full justify-between px-3 py-6">
           <div
             class="text-gray-800 text-lg font-normal no-underline post-title"
             v-html="post.title"
           />
 
-          <p
-            class="text-xs text-gray-700 post-description"
-            v-html="post.description"
-          />
-
-          <div>
-            <span
+          <ul class="flex mt-4">
+            <li
               v-for="(tag, tagIndex) in post.tags"
               :key="tagIndex"
-              class="bg-gray-600 mr-1 px-2 py-1 rounded-sm text-xs text-white font-light tag"
-            >
-              {{ tag }}
-            </span>
-          </div>
+              class="bg-gray-600 mr-1 px-2 py-1 rounded-sm text-sm text-white font-light tag"
+              v-text="tag"
+            />
+          </ul>
         </div>
       </nuxt-link>
     </div>
@@ -181,15 +175,6 @@ export default Vue.extend({
     text-overflow: ellipsis;
   }
 
-  .post-description {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.5;
-  }
-
   // 小于 768px 两列
   @media screen and (max-width: 768px) {
     & {
@@ -211,13 +196,14 @@ export default Vue.extend({
 
   .paginator-btn {
     font-size: 0.85rem;
-    background-color: rgba(255, 255, 255, 0.65);
+    background-color: rgba(0 0 0 / 0.65);
     padding: 0.5rem 1rem;
     border-radius: 0.2rem;
     text-decoration: none;
+    color: #fff;
 
     &:hover {
-      background-color: darken(rgba(255, 255, 255, 0.65), 20);
+      background-color: lighten(rgba(0 0 0 / 0.65), 20);
     }
   }
 }
