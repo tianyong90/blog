@@ -152,6 +152,10 @@ const config: Configuration = {
   //   routes: ['404'].concat(posts.map(post => `/posts/${post.slugifiedFilename}`)),
   // },
 
+  router: {
+    mode: 'hash',
+  },
+
   server: {
     host: process.env.DEV_SERVER_HOST || localIp,
     port: 3000,

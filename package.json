@@ -13,18 +13,9 @@
     "lint": "yarn lint:js && yarn lint:style",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
     "new": "ts-node --project scripts/tsconfig.json scripts/create-post.ts",
     "test": "ts-node --project scripts/tsconfig.json scripts/test.ts"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx,vue}": [
-      "eslint --fix"
-    ]
   },
   "dependencies": {
     "@mdi/font": "^5.9.55",
@@ -66,12 +57,10 @@
     "@types/color": "^3.0.1",
     "@types/fs-extra": "^9.0.1",
     "@types/lodash": "^4.14.144",
-    "@types/node": "^14.0.11",
+    "@types/node": "^15.0.3",
     "@types/yargs": "^16.0.0",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
-    "@vue/eslint-config-standard": "^6.0.0",
-    "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/test-utils": "^1.0.0-beta.31",
     "address": "^1.1.2",
     "autoprefixer": "^10.2.3",
@@ -82,31 +71,31 @@
     "copy-webpack-plugin": "^8.0.0",
     "default-gateway": "^6.0.2",
     "eslint": "^7.2.0",
-    "eslint-config-standard": "^16.0.1",
+    "eslint-config-standard": "^16.0.2",
     "eslint-loader": "^4.0.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jest": "^24.0.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-standard": "^5.0.0",
-    "eslint-plugin-unicorn": "^29.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-unicorn": "^32.0.1",
     "eslint-plugin-vue": "^7.0.1",
     "fibers": "^5.0.0",
-    "fs-extra": "^9.0.0",
-    "husky": "^4.2.1",
+    "fs-extra": "^10.0.0",
+    "husky": "^6.0.0",
     "jest": "^26.0.1",
-    "lint-staged": "^10.0.3",
+    "lint-staged": "^11.0.0",
     "nodemon": "^2.0.2",
     "normalize.css": "^8.0.1",
     "nuxt-purgecss": "^1.0.0",
     "postcss": "^8.2.4",
+    "prettier": "^2.3.0",
     "push-dir": "^0.4.1",
     "sass": "^1.25.0",
     "sass-loader": "^10.0.2",
-    "stylelint-config-standard": "^21.0.0",
+    "stylelint-config-standard": "^22.0.0",
     "ts-node": "^9.0.0",
     "vue-jest": "^3.0.4",
-    "yargs": "^16.0.3"
+    "yargs": "^17.0.1"
   }
 }
