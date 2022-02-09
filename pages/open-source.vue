@@ -9,10 +9,10 @@
         <a
           :href="repo.url"
           target="_blank"
-          class="text-2xl font-semibold text-gray-700 no-underline"
+          class="text-xl font-semibold text-gray-600 no-underline"
           v-text="repo.name"
         />
-        <div class="text-gray-700 my-4">
+        <div class="text-gray-600 my-4">
           {{ repo.description }}
         </div>
 
@@ -55,7 +55,7 @@ export default Vue.extend({
 
   mounted () {
     // github token, 仅有 repo 读取权限
-    // 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
+    // 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
 
     this.$axios.post('https://api.github.com/graphql', {
       query: `
@@ -84,7 +84,7 @@ export default Vue.extend({
       `,
     }, {
       headers: {
-        Authorization: 'bearer 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',
+        Authorization: 'bearer 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',
       },
     }).then(({ data }) => {
       this.repos = data.data.viewer.repositories.edges.map(i => i.node)
