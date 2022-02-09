@@ -97,7 +97,6 @@ export default Vue.extend({
     getLanguageTagStyle (color) {
       return {
         borderColor: color,
-        // color: Color(color).isDark() ? '#fff' : '#000' // 背景深色则文字白色，反之同理
         color: color,
       }
     },
