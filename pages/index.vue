@@ -69,15 +69,12 @@ export default Vue.extend({
       .skip(PAGE_SIZE * (page - 1))
       .fetch()
 
-    console.log(posts)
+    const totalPostCount = (await $content('posts')
+      .only(['title'])
+      .where({ draft: false })
+      .fetch()).length
 
-    return { posts, page }
-  },
-
-  data () {
-    return {
-      post: [],
-    }
+    return { posts, page, totalPostCount }
   },
 
   head () {
@@ -96,7 +93,7 @@ export default Vue.extend({
 
   computed: {
     paginatedPosts () {
-      const totalPages = Math.ceil(this.post.length / PAGE_SIZE)
+      const totalPages = Math.ceil(this.totalPostCount / PAGE_SIZE)
 
       const page = parseInt(this.page)
 
@@ -112,7 +109,22 @@ export default Vue.extend({
     },
   },
 
-  mounted () {
+  watch: {
+    '$route' (to, from) {
+      const page = parseInt(to.query.page || 1)
+
+      this.$content('posts')
+        .where({ draft: false })
+        .sortBy('createdAt', 'desc')
+        .limit(PAGE_SIZE)
+        .skip(PAGE_SIZE * (page - 1))
+        .fetch()
+        .then(res => {
+          this.posts = res
+        })
+
+      this.page = page
+    },
   },
 
   methods: {
