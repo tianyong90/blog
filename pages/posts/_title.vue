@@ -11,10 +11,12 @@
         {{ post.title }}
       </h1>
 
-      <nuxt-content
-        class="prose max-w-none prose-blue md:prose-lg lg:prose-xl article-content"
-        :document="post"
-      />
+      <div class="heti">
+        <nuxt-content
+          class="prose max-w-none prose-blue md:prose-lg lg:prose-xl article-content"
+          :document="post"
+        />
+      </div>
     </div>
 
     <div class="px-4 md:px-0 navigator">
@@ -41,6 +43,7 @@
 <script lang="js">
 import Vue from 'vue'
 import dayjs from 'dayjs'
+import Heti from 'heti/js/heti-addon'
 
 export default Vue.extend({
   filters: {
@@ -95,6 +98,12 @@ export default Vue.extend({
     }
   },
 
+  mounted () {
+    const heti = new Heti('.article')
+    heti.autoSpacing()
+    // this.topImg = this.post.cover.url
+  },
+
   computed: {
     coverUrl () {
       return '/images/post-images/' + this.post.slug + this.post.top_img
@@ -102,18 +111,6 @@ export default Vue.extend({
   },
 })
 </script>
-
-<style lang="scss">
-/* 霞鹜文楷 */
-.article {
-  font-family: "LXGW WenKai Lite", sans-serif;
-}
-
-/* 霞鹜文楷 Mono */
-pre, code {
-  font-family: "LXGW WenKai Mono Lite", sans-serif
-}
-</style>
 
 <style scoped lang="scss">
 .cover-image {

@@ -1,15 +1,33 @@
 @import "normalize.css/normalize.css";
-//@import "heti/lib/heti.scss";
+@import "heti/lib/heti.scss";
 
 /* Lite version */
 @import 'lxgw-wenkai-lite-webfont/style.css';
 
 body {
   background-color: #e8e8e8;
+  /* 霞鹜文楷 */
+  font-family: "LXGW WenKai Lite", sans-serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* 霞鹜文楷 Mono */
+pre, code {
+  font-family: "LXGW WenKai Mono Lite", sans-serif
+}
+
+.heti {
+  max-width: none !important;
+  /* 霞鹜文楷 */
+  font-family: "LXGW WenKai Lite", sans-serif;
+
+  /* 霞鹜文楷 Mono */
+  pre, code {
+    font-family: "LXGW WenKai Mono Lite", sans-serif
+  }
 }
 
 /// Mixin to customize scrollbars
