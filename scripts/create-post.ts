@@ -4,7 +4,7 @@ import yargs from 'yargs'
 import matter from 'gray-matter'
 import dayjs from 'dayjs'
 
-const args = yargs
+const args: any = yargs
   .option('title', {
     string: true,
     demand: true,

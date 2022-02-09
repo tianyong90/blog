@@ -1,15 +1,21 @@
 <template>
-  <div class="container mx-auto my-4">
+  <div class="container max-w-4xl mx-auto my-4">
     <img
       :src="coverUrl"
       class="w-full h-64 md:h-128 object-cover cover-image"
       alt=""
     >
 
-    <nuxt-content
-      class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto px-4 md:px-10 py-10 overflow-hidden bg-white article-content"
-      :document="post"
-    />
+    <div class="flex flex-col bg-white p-10">
+      <h1 class="text-3xl text-gray-600 font-medium leading-none mb-10">
+        {{ post.title }}
+      </h1>
+
+      <nuxt-content
+        class="prose max-w-none prose-blue article-content"
+        :document="post"
+      />
+    </div>
 
     <div class="px-4 md:px-0 navigator">
       <nuxt-link

@@ -7,7 +7,7 @@ import yargs from 'yargs'
 import dayjs from 'dayjs'
 // import { Post } from 'blog/types'
 
-const args = yargs.option('production', {
+const args: any = yargs.option('production', {
   boolean: true,
   default: false,
   alias: 'p',

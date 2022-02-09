@@ -1,10 +1,10 @@
 <template>
   <div class="container mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 post-list">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-10 post-list">
       <nuxt-link
         v-for="post in posts"
         :key="post.title"
-        class="shadow-md rounded-lg overflow-hidden no-underline post-list-item"
+        class="shadow-md rounded-md overflow-hidden post-list-item"
         :to="post.path"
       >
         <div class="cover-wrapper">
@@ -15,11 +15,12 @@
           >
         </div>
 
-        <div class="flex flex-col h-full justify-between px-3 py-6">
-          <div
+        <div class="flex flex-col h-full justify-between p-4">
+          <h1
             class="text-gray-800 text-lg font-normal no-underline post-title"
-            v-html="post.title"
-          />
+          >
+            {{ post.title }}
+          </h1>
 
           <ul class="flex mt-4">
             <li
@@ -53,10 +54,9 @@
 </template>
 
 <script lang="js">
-import { drop, get } from 'lodash'
 import Vue from 'vue'
 
-const PAGE_SIZE = 9
+const PAGE_SIZE = 12
 
 export default Vue.extend({
   async asyncData ({ $content, query }) {

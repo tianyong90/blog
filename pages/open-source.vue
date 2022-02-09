@@ -38,18 +38,18 @@
 
 <script>
 import Vue from 'vue'
-import Color from 'color'
+// import Color from 'color'
 
 export default Vue.extend({
   data () {
     return {
-      repos: []
+      repos: [],
     }
   },
 
   head () {
     return {
-      title: '开源'
+      title: '开源',
     }
   },
 
@@ -81,11 +81,11 @@ export default Vue.extend({
             }
           }
         }
-      `
+      `,
     }, {
       headers: {
-        Authorization: 'bearer 7e289a20c2136347e992530b284f3307dab442e1'
-      }
+        Authorization: 'bearer 7e289a20c2136347e992530b284f3307dab442e1',
+      },
     }).then(({ data }) => {
       this.repos = data.data.viewer.repositories.edges.map(i => i.node)
 
@@ -97,9 +97,10 @@ export default Vue.extend({
     getLanguageTagStyle (color) {
       return {
         backgroundColor: color,
-        color: Color(color).isDark() ? '#fff' : '#000' // 背景深色则文字白色，反之同理
+        // color: Color(color).isDark() ? '#fff' : '#000' // 背景深色则文字白色，反之同理
+        color: 'red',
       }
-    }
-  }
+    },
+  },
 })
 </script>
