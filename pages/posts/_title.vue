@@ -6,13 +6,13 @@
       alt=""
     >
 
-    <div class="flex flex-col bg-white p-10">
-      <h1 class="text-3xl text-gray-600 font-medium leading-none mb-10">
+    <div class="flex flex-col bg-white px-4 md:px-10 py-10 article">
+      <h1 class="text-3xl text-gray-600 font-medium leading-none mb-10 title">
         {{ post.title }}
       </h1>
 
       <nuxt-content
-        class="prose max-w-none prose-blue article-content"
+        class="prose max-w-none prose-blue md:prose-lg lg:prose-xl article-content"
         :document="post"
       />
     </div>
@@ -102,6 +102,18 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss">
+/* 霞鹜文楷 */
+.article {
+  font-family: "LXGW WenKai Lite", sans-serif;
+}
+
+/* 霞鹜文楷 Mono */
+pre, code {
+  font-family: "LXGW WenKai Mono Lite", sans-serif
+}
+</style>
 
 <style scoped lang="scss">
 .cover-image {
