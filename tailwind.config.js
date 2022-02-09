@@ -3,28 +3,11 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
-  purge: {
-    // 仅在生产构建时使用 purgecss
-    enabled: process.env.NODE_ENV === 'production',
-    content: [
-      './app.html',
-      './components/**/*.vue',
-      './pages/**/*.vue',
-    ],
-
-    safelist: {
-      standard: [
-        /^token/,
-        /^pre/,
-        /^code/,
-        /^line-numbers-wrapper/,
-        /^line-number/,
-        /^grayscale/,
-      ],
-      deep: [],
-      greedy: [],
-    },
-  },
+  content: [
+    './app.html',
+    './components/**/*.vue',
+    './pages/**/*.vue',
+  ],
 
   theme: {
     extend: {
