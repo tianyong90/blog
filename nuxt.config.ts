@@ -81,7 +81,6 @@ const config: Configuration = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/dotenv',
     // https://github.com/nuxt-community/svg-sprite-module
     '@nuxtjs/svg-sprite',
     '@nuxt/content',
@@ -159,6 +158,10 @@ const config: Configuration = {
   server: {
     host: process.env.DEV_SERVER_HOST || localIp,
     port: 3000,
+  },
+
+  env: {
+    GIT_TOKEN: process.env.GIT_TOKEN,
   },
 }
 

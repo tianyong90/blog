@@ -3,19 +3,10 @@ name: build
 on: [push]
 
 jobs:
-  # eslint:
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #   - uses: actions/checkout@master
-  #   - name: yarn install
-  #     run: yarn install
-  #   - name: lint
-  #     run: yarn run lint
-
   build:
     runs-on: ubuntu-latest
-
+    env:
+      GITHUB_TOKEN: "${{ env.GIT_TOKEN }}"
     steps:
     - name: Checkout
       uses: actions/checkout@v2

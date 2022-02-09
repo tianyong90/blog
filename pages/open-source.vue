@@ -40,6 +40,9 @@
 import Vue from 'vue'
 // import Color from 'color'
 
+// github token, 仅有 repo 读取权限
+const GIT_TOKEN = process.env.GIT_TOKEN
+
 export default Vue.extend({
   data () {
     return {
@@ -54,9 +57,6 @@ export default Vue.extend({
   },
 
   mounted () {
-    // github token, 仅有 repo 读取权限
-    // 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
-
     this.$axios.post('https://api.github.com/graphql', {
       query: `
         query {
@@ -84,7 +84,7 @@ export default Vue.extend({
       `,
     }, {
       headers: {
-        Authorization: 'bearer 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',
+        Authorization: `bearer ${GIT_TOKEN}`,
       },
     }).then(({ data }) => {
       this.repos = data.data.viewer.repositories.edges.map(i => i.node)
