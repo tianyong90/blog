@@ -30,7 +30,7 @@ jobs:
 
     - name: Generate static site
       env:
-        GIT_TOKEN: "${{ env.GIT_TOKEN }}"
+        GIT_TOKEN: "${{ secrets.GIT_TOKEN }}"
       run: yarn generate
 
     - name: Deploy to GitHub Pages
