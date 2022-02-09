@@ -186,19 +186,6 @@ export default Vue.extend({
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
-  // 小于 768px 两列
-  @media screen and (max-width: 768px) {
-    & {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media screen and (max-width: 640px) {
-    & {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
 }
 
 .paginator {

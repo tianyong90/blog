@@ -34,13 +34,13 @@
       </div>
 
       <div class="hidden md:flex">
-        <!--        <nuxt-link
+        <nuxt-link
           class="text-white ml-4 font-light no-underline"
           tag="a"
           to="/open-source"
         >
           开源
-        </nuxt-link>-->
+        </nuxt-link>
         <a
           href="https://github.com/tianyong90"
           target="_blank"
@@ -63,13 +63,13 @@
         v-show="dropdownMenuVisible"
         class="container flex md:hidden dropdown-menu"
       >
-        <!--        <nuxt-link
+        <nuxt-link
           class="dropdown-menu-item"
           tag="a"
           to="/open-source"
         >
           开源
-        </nuxt-link>-->
+        </nuxt-link>
         <a
           href="https://github.com/tianyong90"
           target="_blank"

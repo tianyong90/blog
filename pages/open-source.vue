@@ -1,10 +1,10 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container max-w-6xl mx-auto">
     <div class="grid grid-cols-3 gap-6 my-10">
       <div
         v-for="repo in repos"
         :key="repo.id"
-        class="flex flex-col bg-white shadow-md rounded-lg p-4 repo-list-item"
+        class="flex flex-col bg-white shadow-md rounded-md p-4 repo-list-item"
       >
         <a
           :href="repo.url"
@@ -19,7 +19,7 @@
         <div class="flex flex-row mt-auto">
           <span
             v-if="repo.primaryLanguage"
-            class="mr-3 text-white text-xs px-2 py-1 rounded-sm"
+            class="mr-3 px-2 font-bold border rounded-sm"
             :style="getLanguageTagStyle(repo.primaryLanguage.color)"
           >{{ repo.primaryLanguage.name }}</span>
           <div
@@ -55,7 +55,7 @@ export default Vue.extend({
 
   mounted () {
     // github token, 仅有 repo 读取权限
-    // 7e289a20c2136347e992530b284f3307dab442e1
+    // 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
 
     this.$axios.post('https://api.github.com/graphql', {
       query: `
@@ -84,7 +84,7 @@ export default Vue.extend({
       `,
     }, {
       headers: {
-        Authorization: 'bearer 7e289a20c2136347e992530b284f3307dab442e1',
+        Authorization: 'bearer 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',
       },
     }).then(({ data }) => {
       this.repos = data.data.viewer.repositories.edges.map(i => i.node)
@@ -96,9 +96,9 @@ export default Vue.extend({
   methods: {
     getLanguageTagStyle (color) {
       return {
-        backgroundColor: color,
+        borderColor: color,
         // color: Color(color).isDark() ? '#fff' : '#000' // 背景深色则文字白色，反之同理
-        color: 'red',
+        color: color,
       }
     },
   },
