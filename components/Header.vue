@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div class="hidden md:flex">
+      <div class="hidden md:flex space-x-8">
         <!--        <nuxt-link
           class="text-white ml-4 font-light no-underline"
           tag="a"
@@ -41,6 +41,13 @@
         >
           开源
         </nuxt-link>-->
+        <nuxt-link
+          class="text-white ml-4 font-light no-underline"
+          tag="a"
+          to="/resume"
+        >
+          个人简历
+        </nuxt-link>
         <a
           href="https://github.com/tianyong90"
           target="_blank"
@@ -70,6 +77,12 @@
         >
           开源
         </nuxt-link>-->
+        <nuxt-link
+          class="dropdown-menu-item"
+          to="/resume"
+        >
+          个人简历
+        </nuxt-link>
         <a
           href="https://github.com/tianyong90"
           target="_blank"

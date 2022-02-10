@@ -133,6 +133,8 @@ const config: Configuration = {
     // 生产环境下才提取，开发环境下提取可能导致修改样式后无法热替换(hmr)
     extractCSS: process.env.NODE_ENV === 'production',
 
+    transpile: ['color'],
+
     loaders: {
       scss: {
         implementation: Sass,
