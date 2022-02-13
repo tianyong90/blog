@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex flex-col max-w-4xl p-10 my-10 mx-auto bg-white shadow-md resume">
+  <div class="container flex flex-col max-w-4xl p-10 mx-auto bg-white shadow-md resume">
     <h1 class="font-medium text-2xl text-center">
       个人简历
     </h1>
@@ -10,6 +10,7 @@
     <WorkExperience />
     <Skills />
     <OpenSource />
+    <Cases />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import WorkExperience from './components/WorkExperience.vue'
 import Skills from './components/Skills.vue'
 import Education from './components/Education.vue'
 import OpenSource from './components/OpenSource.vue'
+import Cases from './components/Cases.vue'
 
 export default {
   components: {
@@ -29,6 +31,7 @@ export default {
     Skills,
     Education,
     OpenSource,
+    Cases,
   },
 
   layout: 'basic',

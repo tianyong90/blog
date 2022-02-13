@@ -1525,12 +1525,12 @@
     ufo "^0.7.4"
 
 "@nuxt/kit@npm:@nuxt/kit-edge@latest":
-  version "3.0.0-27405808.7825e2a"
-  resolved "https://registry.npmmirror.com/@nuxt/kit-edge/-/kit-edge-3.0.0-27405808.7825e2a.tgz#b826671a16102217b053ad76e8407f49e6ee5bb3"
-  integrity sha512-2Y889MHOjd0/5IzBYqOT6DpPqWVPgzTbMy4DXcm0gI3p5wLhlxBNyEtRitb8WPCh+gcdzjGKeFPotd2lSQVxQw==
+  version "3.0.0-27409835.c53c736"
+  resolved "https://registry.npmmirror.com/@nuxt/kit-edge/-/kit-edge-3.0.0-27409835.c53c736.tgz#28c105ca7683367a0d5ee3cc48cd1f7eb5915890"
+  integrity sha512-CdngJj94wybmxhpSnclLF0DjcBh9LQ33Z/LoCUa2/vVwJT3ja1y09M5HFtiistsxeURfpNuAEN9GheeCXw09AQ==
   dependencies:
-    "@nuxt/schema" "npm:@nuxt/schema-edge@3.0.0-27405808.7825e2a"
-    c12 "^0.1.1"
+    "@nuxt/schema" "npm:@nuxt/schema-edge@3.0.0-27409835.c53c736"
+    c12 "^0.1.3"
     consola "^2.15.3"
     defu "^5.0.1"
     globby "^13.1.1"
@@ -1538,7 +1538,7 @@
     jiti "^1.12.15"
     knitwork "^0.1.0"
     lodash.template "^4.5.0"
-    mlly "^0.4.2"
+    mlly "^0.4.3"
     pathe "^0.2.0"
     pkg-types "^0.3.2"
     scule "^0.2.1"
@@ -1580,12 +1580,12 @@
     postcss-url "^10.1.1"
     semver "^7.3.4"
 
-"@nuxt/schema@npm:@nuxt/schema-edge@3.0.0-27405808.7825e2a":
-  version "3.0.0-27405808.7825e2a"
-  resolved "https://registry.npmmirror.com/@nuxt/schema-edge/-/schema-edge-3.0.0-27405808.7825e2a.tgz#c75b1d75ab64fd029a6ac0c6e3e520276e34648b"
-  integrity sha512-eBUqb48lGbTN3+5eLrMgS60Da5Sho5WNB1bHSmEzxjML5IYPJSmddcyXuLmGRxAv+Brab2wjfY+ZiM61+lJLKA==
+"@nuxt/schema@npm:@nuxt/schema-edge@3.0.0-27409835.c53c736":
+  version "3.0.0-27409835.c53c736"
+  resolved "https://registry.npmmirror.com/@nuxt/schema-edge/-/schema-edge-3.0.0-27409835.c53c736.tgz#3fd6800b539354d914f7823dae8dcc9978e312dc"
+  integrity sha512-JZCc6q75BAgM5/ADd72Vuvo/m4LOJirUSLISlL9dv4Dtum7Ll4dhUUwhlm/Jf1Ae88CqSBi7fnBe9L9JeAapiA==
   dependencies:
-    c12 "^0.1.1"
+    c12 "^0.1.3"
     create-require "^1.1.1"
     defu "^5.0.1"
     jiti "^1.12.15"
@@ -1849,9 +1849,9 @@
     vue-functional-data-merge "^3.1.0"
 
 "@nuxtjs/tailwindcss@^5.0.0-3":
-  version "5.0.0-3"
-  resolved "https://registry.npmmirror.com/@nuxtjs/tailwindcss/-/tailwindcss-5.0.0-3.tgz#47e61c0ad72e13502c8822e3dd8ee8763a2849d0"
-  integrity sha512-zCJtTZr7vjI27oZk9RJUV71gNPfKxMch2mvDrQZUQ1BorCVDWUecillbP31bKKI4j21e+gvtCaubTsjsP3WKeQ==
+  version "5.0.0-4"
+  resolved "https://registry.npmmirror.com/@nuxtjs/tailwindcss/-/tailwindcss-5.0.0-4.tgz#b6778267028b0f344325e7c1d7b7425d7dc50a74"
+  integrity sha512-uXLOo8sJHj971cFP0ADqxOy+I5LqRQiV/twSdKTh4lcIE22PWZQh91LJMS3EEzYjGgO1UOCjk+94aG0WMRhhhQ==
   dependencies:
     "@nuxt/kit" "npm:@nuxt/kit-edge@latest"
     "@nuxt/postcss8" "^1.1.3"
@@ -3655,10 +3655,10 @@ bytes@3.0.0:
   resolved "https://registry.npmmirror.com/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
   integrity sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw==
 
-c12@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.npmmirror.com/c12/-/c12-0.1.1.tgz#cdea5c6f3cc848abdebe33690b0bf05d80a9ce55"
-  integrity sha512-bwBCvV2s+IjSOHl7wSxbX007CpEHGr9Qx6qtXwghNeOPlmThxfzZVtdbhHZMiVU+EZiB1XFcQmQ9FwpQr4MWeQ==
+c12@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.npmmirror.com/c12/-/c12-0.1.3.tgz#432bddd38129203cef10c9741937d965f1601d65"
+  integrity sha512-Y5i83E2V0aOptFvm2aEAo1uxQc4F/OgdrhncxEcv6tbyU0n+wbX7e5A5U+fKBnriNdTmXLcjS811wR5FLnmwJw==
   dependencies:
     defu "^5.0.1"
     dotenv "^14.3.2"
@@ -9269,10 +9269,17 @@ minimalistic-crypto-utils@^1.0.1:
   resolved "https://registry.npmmirror.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha512-JIYlbt6g8i5jKfJ3xz7rF0LXmv2TkDxBLUkiBeZ7bAx4GnnNMr8xFpGnOxn6GhTEHx3SjRrZEoU+j04prX1ktg==
 
-minimatch@^3.0.4, minimatch@~3.0.4:
+minimatch@^3.0.4:
   version "3.0.5"
   resolved "https://registry.npmmirror.com/minimatch/-/minimatch-3.0.5.tgz#4da8f1290ee0f0f8e83d60ca69f8f134068604a3"
   integrity sha512-tUpxzX0VAzJHjLu0xUfFv1gwVp9ba3IOuRAVH2EGuRW8a5emA2FlACLqiT/lDVtS1W+TGNwqz3sWaNyLgDJWuw==
+  dependencies:
+    brace-expansion "^1.1.7"
+
+minimatch@~3.0.4:
+  version "3.0.7"
+  resolved "https://registry.npmmirror.com/minimatch/-/minimatch-3.0.7.tgz#e78aeb8dceccb0d12b57a75872da43bc68e7d7ca"
+  integrity sha512-pYjbG0o9W2Wb3KVBuV6s7R/bzS/iS3HPiHcFcDee5GGiN1M5MErXqgS4jGn8pwVwTZAoy7B8bYb/+AqQU0NhZA==
   dependencies:
     brace-expansion "^1.1.7"
 
@@ -9373,10 +9380,10 @@ mlly@^0.3.6:
   resolved "https://registry.npmmirror.com/mlly/-/mlly-0.3.19.tgz#a4aac171d2142eafc9c9d4c1937dac5a11f70565"
   integrity sha512-zMq5n3cOf4fOzA4WoeulxagbAgMChdev3MgP6K51k7M0u2whTXxupfIY4VVzws4vxkiWhwH1rVQcsw7zDGfRhA==
 
-mlly@^0.4.1, mlly@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.npmmirror.com/mlly/-/mlly-0.4.2.tgz#932c0a035f1cbb5a16d9016689844f3a96019015"
-  integrity sha512-mjEgqNOHkDqzx+hIroJ7W8N9WzF+uRd9G/EIBdD8HdNx4sysQHZP1EUO/es5K9mZiutWZz34JG1MUsEbzmJ3kg==
+mlly@^0.4.1, mlly@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.npmmirror.com/mlly/-/mlly-0.4.3.tgz#a5c51b073601cc4cc49bda971f24d903a25adc29"
+  integrity sha512-xezyv7hnfFPuiDS3AiJuWs0OxlvooS++3L2lURvmh/1n7UG4O2Ehz9UkwWgg3wyLEPKGVfJLlr2DjjTCl9UJTg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -12835,9 +12842,9 @@ tailwind-config-viewer@^1.6.3:
     replace-in-file "^6.1.0"
 
 tailwindcss@^3.0.19:
-  version "3.0.19"
-  resolved "https://registry.npmmirror.com/tailwindcss/-/tailwindcss-3.0.19.tgz#cd789953e6762af2e80c5a3e5d6da3a975ee8215"
-  integrity sha512-rjsdfz/qZya5xQ0OVynEMETgWq1CacmftgMYeXXh6bRM5vxsNwRSbMJsCCIjq/w67om9VP/AFMolOwiE+5VKig==
+  version "3.0.22"
+  resolved "https://registry.npmmirror.com/tailwindcss/-/tailwindcss-3.0.22.tgz#5f1aac83810261300ae5b2f98fd4a2fa2ded2c42"
+  integrity sha512-F8lt74RlNZirnkaSk310+vGQta7c0/hgx7/bqxruM4wS9lp8oqV93lzavajC3VT0Lp4UUtUVIt8ifKcmGzkr0A==
   dependencies:
     arg "^5.0.1"
     chalk "^4.1.2"
@@ -12852,6 +12859,7 @@ tailwindcss@^3.0.19:
     is-glob "^4.0.3"
     normalize-path "^3.0.0"
     object-hash "^2.2.0"
+    postcss "^8.4.6"
     postcss-js "^4.0.0"
     postcss-load-config "^3.1.0"
     postcss-nested "5.0.6"

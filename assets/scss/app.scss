@@ -4,6 +4,10 @@
 /* Lite version */
 @import 'lxgw-wenkai-lite-webfont/style.css';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   background-color: #e8e8e8;
   /* 霞鹜文楷 */

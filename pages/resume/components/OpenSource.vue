@@ -6,13 +6,13 @@
 
     <table
       v-if="repos.length"
-      class="flex flex-col mt-4 max-w-full"
+      class="repo-table"
     >
       <tbody class="mt-4 overflow-scroll">
         <tr
           v-for="repo in repos"
           :key="repo.name"
-          class="border-b-2 border-gray-200"
+          class="border-b border-gray-200"
         >
           <td class="px-2">
             <a
@@ -24,7 +24,7 @@
           <td class="px-2 text-center">
             <span
               v-if="repo.languages.nodes.length > 0"
-              class="text-xs px-1 rounded-lg"
+              class="lang-badge"
               :style="getLanguageTagStyle(repo.languages.nodes[0].color)"
             >{{ repo.languages.nodes[0].name }}</span>
           </td>
@@ -78,40 +78,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.experience {
-  @apply flex flex-col py-4;
+.repo-table {
+  @apply w-full overflow-hidden;
 
-  .experience-item {
-    @apply inline-flex flex-row items-start relative pl-5 pb-5;
+  td {
+    @apply px-2 py-1;
+  }
 
-    .duration {
-      @apply w-40;
-    }
-
-    .company-name {
-      @apply text-lg text-gray-600 leading-none
-      mb-2;
-    }
-
-    &::before {
-      @apply absolute bg-teal-200;
-
-      content: '';
-      width: 1px;
-      height: 100%;
-      left: 5px;
-      top: 0;
-    }
-
-    &::after {
-      @apply absolute bg-teal-500 rounded-full;
-
-      content: '';
-      width: 10px;
-      height: 10px;
-      left: 0;
-      top: 5px;
-    }
+  .lang-badge {
+    @apply text-xs px-2 rounded-full;
   }
 }
 </style>

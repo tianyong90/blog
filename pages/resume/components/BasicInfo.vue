@@ -62,7 +62,7 @@ export default {
 
 <style scoped lang="scss">
 .info-panel {
-  @apply flex flex-wrap flex-1;
+  @apply flex flex-wrap flex-1 border-t border-b py-2;
 
   .info-item {
     @apply w-1/2;

@@ -6,16 +6,22 @@
         class="social-icon"
       />
       <div class="content">
-        <a href="https://github.com/tianyong90">https://github.com/tianyong90</a>
+        <a
+          title="github"
+          href="https://github.com/tianyong90"
+        >https://github.com/tianyong90</a>
       </div>
     </div>
     <div class="contact-item">
       <svg-icon
-        name="resume/mobile"
+        name="resume/blog"
         class="social-icon"
       />
       <div class="content">
-        <a href="https://tianyong90.com/">https://tianyong90.com/</a>
+        <a
+          href="https://tianyong90.com/"
+          title="个人博客"
+        >https://tianyong90.com/</a>
       </div>
     </div>
   </div>
@@ -29,13 +35,13 @@ export default {
 
 <style scoped lang="scss">
 .contact {
-  @apply space-y-3;
+  @apply flex flex-row flex-wrap py-2;
 
   .contact-item {
-    @apply inline-flex flex-row items-center space-x-2;
+    @apply w-1/2 inline-flex flex-row items-center;
 
     .social-icon {
-      @apply inline-flex w-5 h-5 text-red-500;
+      @apply inline-flex w-5 h-5 text-teal-500 mr-2;
     }
   }
 }

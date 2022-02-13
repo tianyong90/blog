@@ -87,6 +87,10 @@ const programSkills = [
     name: 'Laravel',
     level: 3,
   },
+  {
+    name: 'Tailwind CSS',
+    level: 6,
+  },
 ]
 
 // 软件技能栈
@@ -102,6 +106,10 @@ const toolSkills = [
   {
     name: 'Vscode',
     level: 2,
+  },
+  {
+    name: 'Docker',
+    level: 3,
   },
   {
     name: 'PhotoShop',
