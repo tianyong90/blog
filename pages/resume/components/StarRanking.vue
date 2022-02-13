@@ -1,10 +1,10 @@
 <template>
   <div class="ranking">
-    <span
+    <svg-icon
       v-for="i of 5"
       :key="i"
       class="ranking-star"
-      :class="getClass(i)"
+      :name="getSvgName(i)"
     />
   </div>
 </template>
@@ -20,11 +20,11 @@ export default {
   },
 
   methods: {
-    getClass (i) {
+    getSvgName (i) {
       if (i <= this.level) {
-        return 'fas fa-star'
+        return 'resume/star-fill'
       } else {
-        return 'far fa-star'
+        return 'resume/star'
       }
     },
   },
@@ -36,14 +36,10 @@ export default {
 @import '~@/assets/scss/variables';
 
 .ranking {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @apply inline-flex items-center space-x-1;
 
   .ranking-star {
-    font-size: 12px;
-    color: $color-primary;
-    margin: 0 1px;
+    @apply w-4 h-4 text-teal-500;
   }
 }
 </style>
