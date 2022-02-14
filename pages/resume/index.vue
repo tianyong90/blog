@@ -1,6 +1,6 @@
 <template>
   <div class="container flex flex-col max-w-4xl p-10 mx-auto bg-white shadow-md resume">
-    <h1 class="font-medium text-2xl text-center">
+    <h1 class="block font-medium text-2xl text-center mb-3">
       个人简历
     </h1>
 
