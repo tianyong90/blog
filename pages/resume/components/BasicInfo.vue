@@ -13,7 +13,7 @@
 
     <img
       src="@/assets/image/avatar.jpg"
-      class="rounded-md w-24 object-cover"
+      class="rounded-sm w-24 object-cover"
       alt=""
     >
   </div>
