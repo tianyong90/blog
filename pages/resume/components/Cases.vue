@@ -37,7 +37,7 @@ interface Case {
   name: string
   type: string
   url?: string
-  qrcode?: string
+  qrcode?: any
 }
 
 // 编程语言技能栈
@@ -84,7 +84,6 @@ const cases: Array<Case> = [
   {
     name: '牛大吉小程序',
     type: '小程序',
-    qrcode: '',
     qrcode: require('@/assets/image/resume/niudaji.jpg'),
   },
   {
