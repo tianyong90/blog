@@ -50,18 +50,18 @@ $size: 42px;
 
 .btn-back-to-top {
   position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: $size;
-  height: $size;
   right: 35px;
   bottom: 35px;
-  border-radius: 50%;
-  background: #1565c0;
   z-index: 65535;
-  cursor: pointer;
+  display: flex;
+  width: $size;
+  height: $size;
   color: #fff;
+  cursor: pointer;
+  background: #1565c0;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
 
   .iconfont {
     font-size: 23px;

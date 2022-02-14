@@ -74,9 +74,9 @@ export default {
     width: 4em !important;
     text-align-last: justify;
 
-    /*&::after {
+    /* &::after {
       content: ':';
-    }*/
+    } */
   }
 }
 </style>

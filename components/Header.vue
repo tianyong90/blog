@@ -190,14 +190,14 @@ $nav-height: 45px;
   position: relative;
 
   .search-input {
-    font-size: 0.85rem;
-    border-radius: 100vh;
     padding: 0.25em 0.5em;
+    font-size: 0.85rem;
+    color: #fff;
     background-color: lighten($nav-bg, 5%);
     border: solid 1px lighten($nav-bg, 30%);
+    border-radius: 100vh;
     outline: none;
     appearance: none;
-    color: #fff;
 
     &::placeholder {
       color: #ababab;
@@ -205,26 +205,26 @@ $nav-height: 45px;
   }
 
   .search-result {
-    display: block;
-    margin: 0;
-    padding: 1rem;
-    width: 300px;
     position: absolute;
     top: 30px;
+    display: block;
+    width: 300px;
+    padding: 1rem;
+    margin: 0;
+    list-style: none;
     background-color: #fff;
     border-radius: 5px;
-    list-style: none;
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
 
     &-item {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      display: box;
       margin: 0.5em 0;
+      overflow: hidden;
       color: #333;
       text-decoration: none;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
 
       &:hover {
         color: #f00;
@@ -236,20 +236,20 @@ $nav-height: 45px;
 
 .dropdown-menu {
   position: fixed;
-  width: 100%;
   top: $nav-height;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  background: #fff;
   z-index: 100;
+  width: 100%;
+  background: #fff;
   flex-direction: column;
 
   .dropdown-menu-item {
-    color: #445566;
-    text-decoration: none;
-    font-size: 0.85rem;
     padding: 0.25rem 0;
+    font-size: 0.85rem;
+    color: #456;
+    text-decoration: none;
   }
 }
 </style>

@@ -129,14 +129,14 @@ export default Vue.extend({
   margin-top: 2rem;
 
   &-btn {
-    font-size: 0.85rem;
-    background-color: rgba(255, 255, 255, 0.65);
     padding: 0.5rem 1rem;
-    border-radius: 0.2rem;
+    font-size: 0.85rem;
     text-decoration: none;
+    background-color: rgb(255 255 255 / 65%);
+    border-radius: 0.2rem;
 
     &:hover {
-      background-color: darken(rgba(255, 255, 255, 0.65), 20);
+      background-color: darken(rgb(255 255 255 / 65%), 20);
     }
   }
 }

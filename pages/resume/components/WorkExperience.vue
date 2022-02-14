@@ -87,21 +87,21 @@ export default {
     &::before {
       @apply absolute bg-teal-200;
 
-      content: '';
+      top: 0;
+      left: 5px;
       width: 1px;
       height: 100%;
-      left: 5px;
-      top: 0;
+      content: '';
     }
 
     &::after {
       @apply absolute bg-teal-500 rounded-full;
 
-      content: '';
+      top: 5px;
+      left: 0;
       width: 10px;
       height: 10px;
-      left: 0;
-      top: 5px;
+      content: '';
     }
   }
 }

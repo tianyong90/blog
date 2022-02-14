@@ -139,9 +139,9 @@ export default Vue.extend({
 .post-list {
   &-item {
     display: flex;
-    flex-direction: column;
-    background-color: #fff;
     padding: 0;
+    background-color: #fff;
+    flex-direction: column;
   }
 
   .cover-wrapper {
@@ -152,14 +152,14 @@ export default Vue.extend({
     overflow: hidden;
 
     &::after {
-      content: '';
       position: absolute;
-      left: 0;
       top: 0;
+      left: 0;
+      z-index: 2;
       width: 100%;
       height: 100%;
-      z-index: 2;
       background-color: #000;
+      content: '';
       opacity: 0;
       transition: all 200ms ease-in-out;
     }
@@ -171,20 +171,20 @@ export default Vue.extend({
 
   .post-cover {
     position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
     width: 100%;
     height: 100%;
-    left: 0;
-    top: 0;
     object-fit: cover;
-    z-index: 1;
   }
 
   .post-title {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    display: box;
     overflow: hidden;
     text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 }
 
@@ -194,15 +194,15 @@ export default Vue.extend({
   justify-content: space-between;
 
   .paginator-btn {
-    font-size: 0.85rem;
-    background-color: rgba(0 0 0 / 0.65);
     padding: 0.5rem 1rem;
-    border-radius: 0.2rem;
-    text-decoration: none;
+    font-size: 0.85rem;
     color: #fff;
+    text-decoration: none;
+    background-color: rgba(0 0 0 / 65%);
+    border-radius: 0.2rem;
 
     &:hover {
-      background-color: lighten(rgba(0 0 0 / 0.65), 20);
+      background-color: lighten(rgba(0 0 0 / 65%), 20);
     }
   }
 }
