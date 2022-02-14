@@ -18,6 +18,7 @@
             <a
               :href="repo.url"
               target="_blank"
+              class="repo-name"
               v-text="repo.name"
             />
           </td>
@@ -83,6 +84,10 @@ export default {
 
   td {
     @apply px-2 py-1;
+  }
+
+  .repo-name {
+    white-space: nowrap;
   }
 
   .lang-badge {

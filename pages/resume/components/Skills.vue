@@ -3,7 +3,7 @@
     <div class="my-2">
       <SectionTitle>语言/框架技能栈</SectionTitle>
 
-      <ul class="flex flex-col space-y-2">
+      <ul class="flex flex-row flex-wrap mt-4">
         <li
           v-for="skill in programSkills"
           :key="skill.name"
@@ -26,7 +26,7 @@
         开发工具技能栈
       </SectionTitle>
 
-      <ul class="flex flex-col space-y-2">
+      <ul class="flex flex-row flex-wrap mt-4">
         <li
           v-for="skill in toolSkills"
           :key="skill.name"
