@@ -5,6 +5,8 @@ import posts from './posts/posts.json'
 import address from 'address'
 import defaultGateway from 'default-gateway'
 
+const IS_PRODUCTION = process.env.NODE_ENV === 'production'
+
 /**
  * 获取本地 IP
  *
@@ -89,9 +91,8 @@ const config: Configuration = {
   buildModules: [
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    // '@nuxtjs/tailwindcss',
     '@nuxtjs/dotenv',
-    '@aceforth/nuxt-optimized-images',
   ],
 
   /*
@@ -143,7 +144,11 @@ const config: Configuration = {
 
     postcss: {
       plugins: {
+        'postcss-import': {},
+        'postcss-url': {},
+        tailwindcss: {},
         autoprefixer: {},
+        ...(IS_PRODUCTION ? { cssnano: {} } : {}),
       },
     },
   },
